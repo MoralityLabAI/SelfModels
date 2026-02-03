@@ -1,0 +1,52 @@
+\section{Architecture}
+
+\subsection{Overview}
+We propose a modular control substrate for persistent self-modeling and auditable agency.
+The system separates (i) a \emph{Self-Model Kernel} that maintains compact state across time,
+(ii) one or more \emph{Hierarchical Controllers} (HRM lenses) that read this state and emit bounded decisions,
+and (iii) a \emph{Warehouse of Specialized Small Language Models} (SLMs) invoked via deterministic workflows.
+The design goal is to make continuity, constraint enforcement, and introspection properties explicit at the interface level,
+rather than emergent from a monolithic generator.
+
+\subsection{Self-Model Kernel (SMTK)}
+The Self-Model Kernel maintains a fixed-shape vector state and an append-only ledger:
+\begin{itemize}
+  \item Identity state $I_t \in \mathbb{R}^{d_I}$ updated with bounded drift.
+  \item Commitment state $C_t$ represented as an automaton with explicit violation signals.
+  \item Context signatures $S_t$ (situation) and $O_t$ (outcome sketches) used for retrieval and audit.
+  \item Error/residual signal $E_t$ computed from receipts and outcomes (not assumed to be a grounded physical prediction error).
+  \item A ledger $\mathcal{L} = \{(t, \mathrm{MV}_t, \mathrm{meta}_t)\}$ storing post-step memory vectors $\mathrm{MV}_t$ and receipts.
+\end{itemize}
+The kernel exposes a stable API:
+\texttt{snapshot(t)}, \texttt{retrieve(query)}, \texttt{update(receipts)}, enabling external controllers to remain model-agnostic.
+
+\subsection{HRM Lenses as Clients}
+We use hierarchical recurrent modules as clients of SMTK.
+The bifocal setting includes a slow controller (policy, budgets, modes) and a fast controller (local execution decisions).
+We extend this to multiple lenses:
+\begin{itemize}
+  \item \textbf{Router lens}: selects mode (connected/degraded/offline), retrieval parameters, and expert IDs.
+  \item \textbf{Workflow lens}: emits deterministic workflow plans (Section~\ref{sec:dsl}) to execute tasks using SLMs and checkers.
+  \item \textbf{Storyteller lens}: generates introspective summaries and structured storyworld deltas from SMTK snapshots.
+\end{itemize}
+Crucially, HRM lenses emit \emph{schema-validated structured outputs} rather than free-form text, allowing deterministic replay and audit.
+
+\subsection{Warehouse of Specialized SLMs}
+Rather than relying on a single large generator, we use a pool of small, specialized models (e.g., 1B to 37B)
+trained or fine-tuned for narrow competencies: code edits, schema repair, policy checks, summarization, and storyworld compilation.
+The router lens chooses an expert by ID; the workflow lens constrains execution using verification steps and capability gates.
+This resembles mixture-of-experts at the system level: routing is conditioned on self-model state and commitments, not token identity alone.
+
+\subsection{Deterministic Workflow DSL}
+\label{sec:dsl}
+All task execution is mediated by a deterministic workflow DSL.
+A plan is a bounded sequence of typed steps (route\_expert, verify, transform, tool\_call, branch, retry, ask\_human, emit),
+each producing a hashed receipt for logging into SMTK.
+The DSL enforces: schema validation, deterministic defaults, bounded retries, and explicit capability scopes.
+This design supports reproducible evaluation and mechanistic analysis of both the router and the expert pool.
+
+\subsection{Model Instantiation}
+To demonstrate feasibility on commodity hardware, we instantiate the HRM router using a $\sim$1B parameter base model
+(e.g., Meta Llama-3.2-1B), fine-tuned via low-rank adaptation (LoRA) to map SMTK snapshots to JSON control decisions.
+All results in this paper use non-aggressively quantized weights unless explicitly stated otherwise.
+Model weights and training datasets may be sourced from Hugging Face for ease of replication.

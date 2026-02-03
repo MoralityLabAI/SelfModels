@@ -1,0 +1,24 @@
+# LoRA router configuration
+r: 8
+lora_alpha: 16
+lora_dropout: 0.05
+target_modules:
+  - q_proj
+  - k_proj
+  - v_proj
+  - o_proj
+bias: "none"
+task_type: "CAUSAL_LM"
+
+training_recipe:
+  context_len_max: 512
+  batch_size: [1, 2]
+  grad_accum: [8, 16]
+  lr_range: [0.0002, 0.0005]
+  epochs_range: [2, 5]
+  deterministic_seeds: true
+
+dataset_format: "jsonl with {\"input\": {...snapshot...}, \"output\": {...decision...}}"
+
+prompt_template: |
+  You are a control module. Given the following system snapshot, output ONLY a valid JSON object that conforms exactly to the schema below. Do not explain. Do not add text. SNAPSHOT: {snapshot_json} SCHEMA: {schema_json} OUTPUT:

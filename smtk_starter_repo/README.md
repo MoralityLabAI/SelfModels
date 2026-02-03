@@ -27,6 +27,15 @@ python examples/demo.py
 - `examples/demo.py` runnable demo loop
 - `paper/` LaTeX paper (draft)
 
+## SMTK + Workflow DSL
+
+This repo includes a deterministic workflow DSL, JSON schemas for HRM controllers, and draft paper sections describing the architecture and hardware constraints.
+
+- `docs/workflow_dsl.md` WorkflowPlan schema, opcodes, receipts, and example plans
+- `docs/hrm_json_schemas.md` ControlDecision and WorkflowPlan schema reference
+- `paper/sections/architecture.tex` architecture section (draft)
+- `paper/sections/hardware_constraints.tex` hardware constraints section (draft)
+
 ## Notes
 
 - This demo uses a small Transformer (`ToyLM`) so it runs anywhere.
