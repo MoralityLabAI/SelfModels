@@ -1,0 +1,127 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath, amssymb}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{microtype}
+
+\title{SMTK: A Minimal Ledger-Based Substrate for Constructing Self-Models from LLM Predictors}
+\author{Draft (ChatGPT-assisted) \\
+\small Self-Model Toolkit / McKinstry Vectors / RePo Allocator / HRM Controller}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Large language models (LLMs) can produce stable narrative continuity over a context window, yet such continuity is insufficient for a robust self-model.
+We present a minimal substrate---the Self-Model Toolkit (SMTK)---that treats the LLM as an ``imagination'' component producing a predictive distribution $O = \mathbb{P}(\cdot \mid \mathrm{Context})$, and constructs a non-rudimentary self-model via a persistent \emph{ledger} that logs expectations, actions, outcomes, and residual errors.
+We define \emph{McKinstry Vectors} (MV) as fixed-width fingerprints of decision states and show how MV-based retrieval (RePo) provides bounded long-context behavior without requiring unbounded token windows.
+We also specify a lightweight HRM-style fast/slow controller and explicit commitment automata that bind obligations across time and tighten identity drift under violations.
+\end{abstract}
+
+\section{Motivation}
+Transformer predictors can exhibit coherent persona, ``voice,'' and apparent memory within a session, but these properties collapse under reset and lack (i) counterfactual self-tracking, (ii) ownership of error across time, and (iii) privileged access / commitments that survive truncation.
+SMTK is a small architectural layer designed to make these properties constructible from existing predictors, without claiming phenomenological consciousness.
+
+\section{Core Objects}
+Time is discrete $t \in \{0,1,2,\dots\}$.
+
+\paragraph{Identity kernel.}
+A slow state vector $I_t \in \mathbb{R}^{d_I}$ representing stable priors, invariants, and a drift budget.
+
+\paragraph{Situation.}
+A summarized state $S_t \in \mathbb{R}^{d_S}$ constructed from current observations and retrieved ledger items.
+
+\paragraph{Commitments.}
+A set of finite-state machines encoded into $C_t \in \mathbb{R}^{d_C}$; violations yield penalties and constrain drift.
+
+\paragraph{Parallax.}
+A perspective stack $P_t \in \mathbb{R}^{d_P}$ containing actor/observer/other/auditor views or their deltas.
+
+\paragraph{Predictive distribution.}
+The key simplification:
+\begin{equation}
+O_t \equiv \mathbb{P}_\theta(\cdot \mid \mathrm{Context}_t),
+\end{equation}
+i.e., $O_t$ is simply the LLM distribution over next tokens/actions given the constructed context.
+
+\paragraph{Residual.}
+After acting and observing, define a residual $E_t$ as the difference between observed outcomes and expectations induced by $O_t$ (in a shared embedding space).
+
+\section{McKinstry Vectors}
+Define a \emph{pre-action} McKinstry Vector:
+\begin{equation}
+MV^{pre}_t = [ I_t \,\Vert\, S_t \,\Vert\, C_t \,\Vert\, P_t \,\Vert\, \eta(O_t)],
+\end{equation}
+where $\eta(\cdot)$ maps the (potentially huge) distribution $O_t$ into a fixed-width sketch (e.g., top-$k$ logits and probabilities projected into $\mathbb{R}^{d_\eta}$).
+
+Define a \emph{post-action} MV:
+\begin{equation}
+MV^{post}_t = [ MV^{pre}_t \,\Vert\, \rho(E_t)],
+\end{equation}
+where $\rho(\cdot)$ projects residuals into a fixed width.
+
+MVs serve three roles: (i) retrieval keys for long-context behavior, (ii) accountability atoms binding expectations to outcomes, and (iii) a geometric substrate for drift and repair.
+
+\section{Ledger}
+Each step appends a ledger record:
+\begin{equation}
+\ell_t = \langle t,\mathrm{Context}_t, O_t, a_t, x_{t+1}, E_t, MV^{pre}_t, MV^{post}_t, \mathrm{meta}\rangle.
+\end{equation}
+Crucially, $O_t$ is logged \emph{before} sampling/acting, so counterfactual alternatives remain available for regret/credit assignment.
+
+\section{RePo: Retrieval and Bounded Context}
+To avoid unbounded context windows, SMTK uses MV-based retrieval to select a small set of past ledger records.
+Given query $q_t$ (often $MV^{post}_{t-1}$) and MV bank $\{MV^{post}_i\}_{i < t}$, RePo selects items via:
+\begin{equation}
+\mathrm{score}(i) = \cos(q_t, MV^{post}_i) - \lambda \cdot \mathrm{age}(i),
+\end{equation}
+favoring similarity with a controlled recency bias.
+Retrieved contexts are concatenated with base tokens and truncated to a fixed budget.
+
+\section{Commitment Automata}
+Commitments are explicit FSMs with states (active, satisfied, violated, renegotiated, \dots) and guards over time/observations.
+Violations add ``debt'' to the ledger and tighten the identity drift budget:
+\begin{equation}
+\beta_{t+1} \leftarrow \gamma \beta_t, \quad \gamma \in (0,1), \ \text{on violation}.
+\end{equation}
+
+\section{HRM-Style Fast/Slow Controller}
+We include a minimal hierarchical controller:
+\begin{itemize}
+\item \textbf{Fast loop:} updates decoding controls (temperature, top-$p$) using compact statistics of $O_t$ (entropy, top-$k$ sketch).
+\item \textbf{Slow loop:} updates drift/repair controls using residual summaries, debt, and violation counts.
+\end{itemize}
+
+\section{Non-Rudimentary Self-Model Criterion}
+SMTK constructs a non-rudimentary self-model when future contexts depend on bound past errors through a persistent identity and commitments:
+\begin{equation}
+\mathrm{Context}_{t+k} = \Psi(I_{t+k}, C_{t+k}, P_{t+k}, S_{t+k}, \mathcal{L}),
+\end{equation}
+with $I_{t+k}$ updated under drift constraints by functions of $\{E_{t+i}\}$ and commitment transitions.
+
+\section{Starter Implementation}
+The accompanying repository includes a runnable demo with:
+(1) a toy causal LM producing logits,
+(2) MV pre/post logging,
+(3) RePo retrieval, and
+(4) a deadline commitment demonstrating drift tightening under violation.
+
+\input{sections/architecture}
+\input{sections/hardware_constraints}
+
+\section{Limitations and Extensions}
+SMTK does not assert phenomenological consciousness.
+It provides a substrate for persistence, accountability, and counterfactual bookkeeping. Future work includes richer outcome embeddings, structured tool actions, and explicit counterfactual branch stores.
+
+\bibliographystyle{plain}
+\begin{thebibliography}{9}
+\bibitem{yarn}
+P. Sun et al. (2023). YaRN: Efficient Context Window Extension of Large Language Models. (arXiv).
+\bibitem{repo}
+Sakana AI (2024). RePo: Re-Positioning for Long Context. (arXiv).
+\end{thebibliography}
+
+\end{document}

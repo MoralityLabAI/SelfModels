@@ -1,0 +1,25 @@
+\section{Hardware Constraints and Practical Feasibility}
+
+\subsection{Motivation}
+A central objective is to make executive control and introspection viable without datacenter-scale resources.
+We therefore target an HRM router that runs on a 2023 laptop-class system with approximately 4~GB of GPU memory.
+This constraint forces a separation of roles: the HRM router emits compact structured decisions, while heavy generation is optional and externalized.
+
+\subsection{Memory and Throughput Considerations}
+The HRM router is selected to be small enough for CPU-first inference and training with short contexts (e.g., 256--512 tokens),
+with optional partial GPU offload.
+Because router outputs are low-entropy (finite expert IDs, budgets, modes), the inference cost is dominated by input encoding and
+is amortized across many downstream expert calls.
+For reproducibility and audit, a deterministic execution mode may be enabled at the workflow level, trading throughput for replayability.
+
+\subsection{Quantization Policy}
+Aggressive low-bit quantization can degrade fine-grained control signals and complicate spectral similarity kernels.
+We therefore treat quantization as a deployment optimization rather than a default research assumption:
+experiments prioritize FP16/BF16 or weight-only 8-bit settings when feasible,
+and evaluate lower precision variants separately under the same DSL-based verification regime.
+
+\subsection{Implications}
+These constraints yield an important empirical claim:
+executive self-modeling and governance need not scale with generative capacity.
+A small hierarchical controller can reliably route across a warehouse of specialists while maintaining continuity,
+constraint enforcement, and audit trails through SMTK and deterministic workflows.

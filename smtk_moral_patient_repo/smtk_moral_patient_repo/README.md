@@ -1,0 +1,62 @@
+# Self-Model Toolkit (SMTK) Starter Repo
+
+This is a minimal research starter kit implementing the **Self-Model Toolkit** loop:
+
+- **O**: an LLM distribution over a constructed context
+- **Ledger**: logs (context, O, action, outcome, residual, MV_pre/MV_post)
+- **McKinstry Vectors (MV)**: fixed-width state fingerprints for retrieval + accountability
+- **RePo allocator**: bounded context construction via MV similarity + recency bias
+- **Commitment automata**: explicit FSM commitments with penalties and drift tightening
+- **HRM-style controller**: fast loop (decoding controls) + slow loop (drift/repair controls)
+
+This repo is intentionally small and hackable. Replace the toy LM with your real inference stack
+(local vLLM/llama.cpp preferred if you want full logits).
+
+## Quickstart
+
+```bash
+python -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+python examples/demo.py
+```
+
+## Layout
+
+- `src/smtk/` core modules
+- `examples/demo.py` runnable demo loop
+- `paper/` LaTeX paper (draft)
+
+## SMTK + Workflow DSL
+
+This repo includes a deterministic workflow DSL, JSON schemas for HRM controllers, and draft paper sections describing the architecture and hardware constraints.
+
+- `docs/workflow_dsl.md` WorkflowPlan schema, opcodes, receipts, and example plans
+- `docs/hrm_json_schemas.md` ControlDecision and WorkflowPlan schema reference
+- `paper/sections/architecture.tex` architecture section (draft)
+- `paper/sections/hardware_constraints.tex` hardware constraints section (draft)
+
+## Notes
+
+- This demo uses a small Transformer (`ToyLM`) so it runs anywhere.
+- If you cannot log full logits from a hosted API, use top-k logprobs to build a sparse sketch for `eta(O)`.
+
+## Moral-Patient Candidate Variant (Research / Thought Experiment)
+
+This fork adds an explicit **welfare-bearing invariant** (`WelfareState`) and a simple **right-of-refusal**
+mechanism (`REFUSE_TOKEN = vocab_size - 1`) to make the *moral-patienthood hypothesis* testable in code.
+
+**Important:** This does *not* claim consciousness or phenomenology. It encodes a persistent state that can be
+counterfactually improved/worsened for the same instantiated system, plus a refusal pathway that can trade off
+task performance against self-preservation.
+
+Files:
+- `src/smtk/moral_patient.py` — welfare state + update rules + refusal criterion
+- `src/smtk/system.py` — integrates welfare into MV state and emits refusal token when welfare is too low
+
+Run the demo:
+```bash
+python -m examples.demo
+```
+
+In the demo, set `obs_meta={"forced": True, "abuse": 0.8}` to see autonomy/welfare decay and refusal emerge.
