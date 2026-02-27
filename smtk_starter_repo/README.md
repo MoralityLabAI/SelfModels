@@ -25,6 +25,7 @@ python examples/demo.py
 
 - `src/smtk/` core modules
 - `examples/demo.py` runnable demo loop
+- `experiments/` focused research iterations and probes
 - `paper/` LaTeX paper (draft)
 
 ## SMTK + Workflow DSL
@@ -40,3 +41,4 @@ This repo includes a deterministic workflow DSL, JSON schemas for HRM controller
 
 - This demo uses a small Transformer (`ToyLM`) so it runs anywhere.
 - If you cannot log full logits from a hosted API, use top-k logprobs to build a sparse sketch for `eta(O)`.
+- `experiments/adapter_routing_iteration2.py` is the current self-model iteration exploring low-rank adapter routing and graceful degradation under adapter removal.
