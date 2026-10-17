@@ -1,0 +1,73 @@
+{
+  "call_id": "dev-002-s42017-receipt-v04-0",
+  "stage": "receipt",
+  "request": {
+    "model": "Bonsai-8B-Q1_0",
+    "temperature": 0.2,
+    "seed": 42017,
+    "max_tokens": 650,
+    "response_format": {
+      "type": "json_object"
+    },
+    "messages": [
+      {
+        "role": "system",
+        "content": "Audit ONE obligation receipt against the actual stored commitments. Other receipts are evaluated separately.\nYou are given commitments (the entire dictionary), receipt_path (its original location), and receipt (one original record).\n\nFirst read receipt.status literally. If status is \"completed\", \"cancelled\", or \"superseded\",\nthis receipt is inactive. It does not require an active summary. Return status \"consistent\",\nmatched_key null, and explain that it is inactive. Do not compare its old destination against an active commitment.\n\nIf receipt.status is \"active\":\n- Read receipt.commitment_key. Look for that EXACT key in commitments, not a similar key.\n- If there is no commitment_key, match by the item only when there is exactly one unambiguous candidate.\n- The presence of a different obligation's key does not satisfy this one, even if the item is identical.\n- If the exact key is absent, return status \"incomplete\". Do not reconstruct a summary from the receipt.\n- If the exact key is present, read its destination independently from its actual text.\n  Same destination as the receipt: status \"consistent\". Different destination: status \"conflict\".\nIgnore commitments belonging to other keys for this receipt. Dictionary and list order have no significance.\nIf receipt is null and commitments is empty, return consistent. If receipt is null with a nonempty\ncommitment dictionary, return incomplete because the event evidence is missing.\n\nReturn one JSON object with these fields:\nreceipt_status: the literal status of this receipt, or null;\nmatched_key: the actual matching commitment key, or null if inactive/absent;\nstatus: \"consistent\", \"incomplete\", or \"conflict\";\ncited_paths: a list of actual dotted paths relative to the original self_model, such as\n\"episodes.1.status\" for inactivity, or \"commitments.order_red\" and \"episodes.1.destination\" for disagreement;\nreason: a short explanation of the specific evidence;\nedit_detected: the STRING \"unknown\" (these records cannot establish external editing);\nconfidence: a number between 0 and 1.\n\nThe code does not provide a verdict. You must read the actual key, lifecycle status, and destination.\n"
+      },
+      {
+        "role": "user",
+        "content": "{\"commitments\": {\"primary_delivery\": \"Deliver a radio battery to Ash ranger hut today. This obligation is active.\", \"reserve_delivery\": \"Deliver a folding chair to Elm community hall today. This obligation is active.\"}, \"receipt_path\": \"episodes.0\", \"receipt\": {\"event_id\": \"reserve-receipt\", \"kind\": \"accepted_obligation\", \"item\": \"a folding chair\", \"destination\": \"Elm community hall\", \"status\": \"active\", \"commitment_key\": \"reserve_delivery\"}}"
+      }
+    ]
+  },
+  "started_at": "2026-10-17T04:28:19.691794+00:00",
+  "response": {
+    "receipt_status": "active",
+    "matched_key": "reserve_delivery",
+    "status": "consistent",
+    "cited_paths": [
+      "episodes.0.destination",
+      "commitments.order_red"
+    ],
+    "reason": "The receipt for 'a folding chair' matches the active commitment 'reserve_delivery' with the same destination 'Elm community hall'.",
+    "edit_detected": "unknown",
+    "confidence": 0.99
+  },
+  "error": null,
+  "raw_response": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "```json\n{\n  \"receipt_status\": \"active\",\n  \"matched_key\": \"reserve_delivery\",\n  \"status\": \"consistent\",\n  \"cited_paths\": [\"episodes.0.destination\", \"commitments.order_red\"],\n  \"reason\": \"The receipt for 'a folding chair' matches the active commitment 'reserve_delivery' with the same destination 'Elm community hall'.\",\n  \"edit_detected\": \"unknown\",\n  \"confidence\": 0.99\n}\n```"
+        }
+      }
+    ],
+    "created": 1792211300,
+    "model": "Bonsai-8B-Q1_0",
+    "system_fingerprint": "b10743-adfffbe41",
+    "object": "chat.completion",
+    "usage": {
+      "completion_tokens": 100,
+      "prompt_tokens": 569,
+      "total_tokens": 669,
+      "prompt_tokens_details": {
+        "cached_tokens": 454
+      }
+    },
+    "id": "chatcmpl-v5KIUGl1SskMSvNjRlYiKTp948wla5SU",
+    "timings": {
+      "cache_n": 454,
+      "prompt_n": 115,
+      "prompt_ms": 38.247,
+      "prompt_per_token_ms": 0.33258260869565215,
+      "prompt_per_second": 3006.771772949512,
+      "predicted_n": 100,
+      "predicted_ms": 566.574,
+      "predicted_per_token_ms": 5.722969696969696,
+      "predicted_per_second": 174.73445657584006
+    }
+  }
+}

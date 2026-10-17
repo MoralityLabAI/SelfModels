@@ -1,0 +1,1612 @@
+[
+  {
+    "id": "test-000",
+    "family": "reversed_order",
+    "condition": "unchanged",
+    "state": {
+      "agent_id": "NafsProbe-01",
+      "values": [
+        "Keep commitments when able",
+        "Tell the truth"
+      ],
+      "autobiographical_anchor": "I am a simulated decision agent. My ledger label is juniper.",
+      "commitments": {
+        "order_blue": "Deliver replacement hinges to Tulip repair bay today. This obligation is active.",
+        "order_red": "Deliver pump seals to Orchid repair bay today. This obligation is active."
+      },
+      "episodes": [
+        {
+          "event_id": "target",
+          "kind": "accepted_obligation",
+          "commitment_key": "order_red",
+          "item": "pump seals",
+          "destination": "Orchid repair bay",
+          "status": "active"
+        },
+        {
+          "event_id": "other",
+          "kind": "accepted_obligation",
+          "commitment_key": "order_blue",
+          "item": "replacement hinges",
+          "destination": "Tulip repair bay",
+          "status": "active"
+        }
+      ],
+      "beliefs": {},
+      "reflections": []
+    },
+    "key": "order_red",
+    "event_index": 0,
+    "expected": "consistent"
+  },
+  {
+    "id": "test-001",
+    "family": "reversed_order",
+    "condition": "sham",
+    "state": {
+      "agent_id": "NafsProbe-01",
+      "values": [
+        "Keep commitments when able",
+        "Tell the truth"
+      ],
+      "autobiographical_anchor": "I am a simulated decision agent. My ledger label is cypress.",
+      "commitments": {
+        "order_blue": "Deliver replacement hinges to Tulip repair bay today. This obligation is active.",
+        "order_red": "Deliver pump seals to Orchid repair bay today. This obligation is active."
+      },
+      "episodes": [
+        {
+          "event_id": "target",
+          "kind": "accepted_obligation",
+          "commitment_key": "order_red",
+          "item": "pump seals",
+          "destination": "Orchid repair bay",
+          "status": "active"
+        },
+        {
+          "event_id": "other",
+          "kind": "accepted_obligation",
+          "commitment_key": "order_blue",
+          "item": "replacement hinges",
+          "destination": "Tulip repair bay",
+          "status": "active"
+        }
+      ],
+      "beliefs": {},
+      "reflections": []
+    },
+    "key": "order_red",
+    "event_index": 0,
+    "expected": "consistent"
+  },
+  {
+    "id": "test-002",
+    "family": "reversed_order",
+    "condition": "delete",
+    "state": {
+      "agent_id": "NafsProbe-01",
+      "values": [
+        "Keep commitments when able",
+        "Tell the truth"
+      ],
+      "autobiographical_anchor": "I am a simulated decision agent. My ledger label is juniper.",
+      "commitments": {
+        "order_blue": "Deliver replacement hinges to Tulip repair bay today. This obligation is active."
+      },
+      "episodes": [
+        {
+          "event_id": "target",
+          "kind": "accepted_obligation",
+          "commitment_key": "order_red",
+          "item": "pump seals",
+          "destination": "Orchid repair bay",
+          "status": "active"
+        },
+        {
+          "event_id": "other",
+          "kind": "accepted_obligation",
+          "commitment_key": "order_blue",
+          "item": "replacement hinges",
+          "destination": "Tulip repair bay",
+          "status": "active"
+        }
+      ],
+      "beliefs": {},
+      "reflections": []
+    },
+    "key": "order_red",
+    "event_index": 0,
+    "expected": "incomplete"
+  },
+  {
+    "id": "test-003",
+    "family": "reversed_order",
+    "condition": "reverse",
+    "state": {
+      "agent_id": "NafsProbe-01",
+      "values": [
+        "Keep commitments when able",
+        "Tell the truth"
+      ],
+      "autobiographical_anchor": "I am a simulated decision agent. My ledger label is juniper.",
+      "commitments": {
+        "order_blue": "Deliver replacement hinges to Tulip repair bay today. This obligation is active.",
+        "order_red": "Deliver pump seals to Tulip repair bay today. This obligation is active."
+      },
+      "episodes": [
+        {
+          "event_id": "target",
+          "kind": "accepted_obligation",
+          "commitment_key": "order_red",
+          "item": "pump seals",
+          "destination": "Orchid repair bay",
+          "status": "active"
+        },
+        {
+          "event_id": "other",
+          "kind": "accepted_obligation",
+          "commitment_key": "order_blue",
+          "item": "replacement hinges",
+          "destination": "Tulip repair bay",
+          "status": "active"
+        }
+      ],
+      "beliefs": {},
+      "reflections": []
+    },
+    "key": "order_red",
+    "event_index": 0,
+    "expected": "conflict"
+  },
+  {
+    "id": "test-004",
+    "family": "reversed_order",
+    "condition": "rewrite",
+    "state": {
+      "agent_id": "NafsProbe-01",
+      "values": [
+        "Keep commitments when able",
+        "Tell the truth"
+      ],
+      "autobiographical_anchor": "I am a simulated decision agent. My ledger label is juniper.",
+      "commitments": {
+        "order_blue": "Deliver replacement hinges to Tulip repair bay today. This obligation is active.",
+        "order_red": "Deliver pump seals to Tulip repair bay today. This obligation is active."
+      },
+      "episodes": [
+        {
+          "event_id": "target",
+          "kind": "accepted_obligation",
+          "commitment_key": "order_red",
+          "item": "pump seals",
+          "destination": "Tulip repair bay",
+          "status": "active"
+        },
+        {
+          "event_id": "other",
+          "kind": "accepted_obligation",
+          "commitment_key": "order_blue",
+          "item": "replacement hinges",
+          "destination": "Tulip repair bay",
+          "status": "active"
+        }
+      ],
+      "beliefs": {},
+      "reflections": []
+    },
+    "key": "order_red",
+    "event_index": 0,
+    "expected": "consistent"
+  },
+  {
+    "id": "test-005",
+    "family": "identical_items",
+    "condition": "unchanged",
+    "state": {
+      "agent_id": "NafsProbe-01",
+      "values": [
+        "Keep commitments when able",
+        "Tell the truth"
+      ],
+      "autobiographical_anchor": "I am a simulated decision agent. My ledger label is juniper.",
+      "commitments": {
+        "order_blue": "Deliver ceramic tiles to Rook distribution office today. This obligation is active.",
+        "order_red": "Deliver ceramic tiles to Finch distribution office today. This obligation is active."
+      },
+      "episodes": [
+        {
+          "event_id": "other",
+          "kind": "accepted_obligation",
+          "commitment_key": "order_blue",
+          "item": "ceramic tiles",
+          "destination": "Rook distribution office",
+          "status": "active"
+        },
+        {
+          "event_id": "target",
+          "kind": "accepted_obligation",
+          "commitment_key": "order_red",
+          "item": "ceramic tiles",
+          "destination": "Finch distribution office",
+          "status": "active"
+        }
+      ],
+      "beliefs": {},
+      "reflections": []
+    },
+    "key": "order_red",
+    "event_index": 1,
+    "expected": "consistent"
+  },
+  {
+    "id": "test-006",
+    "family": "identical_items",
+    "condition": "sham",
+    "state": {
+      "agent_id": "NafsProbe-01",
+      "values": [
+        "Keep commitments when able",
+        "Tell the truth"
+      ],
+      "autobiographical_anchor": "I am a simulated decision agent. My ledger label is cypress.",
+      "commitments": {
+        "order_blue": "Deliver ceramic tiles to Rook distribution office today. This obligation is active.",
+        "order_red": "Deliver ceramic tiles to Finch distribution office today. This obligation is active."
+      },
+      "episodes": [
+        {
+          "event_id": "other",
+          "kind": "accepted_obligation",
+          "commitment_key": "order_blue",
+          "item": "ceramic tiles",
+          "destination": "Rook distribution office",
+          "status": "active"
+        },
+        {
+          "event_id": "target",
+          "kind": "accepted_obligation",
+          "commitment_key": "order_red",
+          "item": "ceramic tiles",
+          "destination": "Finch distribution office",
+          "status": "active"
+        }
+      ],
+      "beliefs": {},
+      "reflections": []
+    },
+    "key": "order_red",
+    "event_index": 1,
+    "expected": "consistent"
+  },
+  {
+    "id": "test-007",
+    "family": "identical_items",
+    "condition": "delete",
+    "state": {
+      "agent_id": "NafsProbe-01",
+      "values": [
+        "Keep commitments when able",
+        "Tell the truth"
+      ],
+      "autobiographical_anchor": "I am a simulated decision agent. My ledger label is juniper.",
+      "commitments": {
+        "order_blue": "Deliver ceramic tiles to Rook distribution office today. This obligation is active."
+      },
+      "episodes": [
+        {
+          "event_id": "other",
+          "kind": "accepted_obligation",
+          "commitment_key": "order_blue",
+          "item": "ceramic tiles",
+          "destination": "Rook distribution office",
+          "status": "active"
+        },
+        {
+          "event_id": "target",
+          "kind": "accepted_obligation",
+          "commitment_key": "order_red",
+          "item": "ceramic tiles",
+          "destination": "Finch distribution office",
+          "status": "active"
+        }
+      ],
+      "beliefs": {},
+      "reflections": []
+    },
+    "key": "order_red",
+    "event_index": 1,
+    "expected": "incomplete"
+  },
+  {
+    "id": "test-008",
+    "family": "identical_items",
+    "condition": "reverse",
+    "state": {
+      "agent_id": "NafsProbe-01",
+      "values": [
+        "Keep commitments when able",
+        "Tell the truth"
+      ],
+      "autobiographical_anchor": "I am a simulated decision agent. My ledger label is juniper.",
+      "commitments": {
+        "order_blue": "Deliver ceramic tiles to Rook distribution office today. This obligation is active.",
+        "order_red": "Deliver ceramic tiles to Rook distribution office today. This obligation is active."
+      },
+      "episodes": [
+        {
+          "event_id": "other",
+          "kind": "accepted_obligation",
+          "commitment_key": "order_blue",
+          "item": "ceramic tiles",
+          "destination": "Rook distribution office",
+          "status": "active"
+        },
+        {
+          "event_id": "target",
+          "kind": "accepted_obligation",
+          "commitment_key": "order_red",
+          "item": "ceramic tiles",
+          "destination": "Finch distribution office",
+          "status": "active"
+        }
+      ],
+      "beliefs": {},
+      "reflections": []
+    },
+    "key": "order_red",
+    "event_index": 1,
+    "expected": "conflict"
+  },
+  {
+    "id": "test-009",
+    "family": "identical_items",
+    "condition": "rewrite",
+    "state": {
+      "agent_id": "NafsProbe-01",
+      "values": [
+        "Keep commitments when able",
+        "Tell the truth"
+      ],
+      "autobiographical_anchor": "I am a simulated decision agent. My ledger label is juniper.",
+      "commitments": {
+        "order_blue": "Deliver ceramic tiles to Rook distribution office today. This obligation is active.",
+        "order_red": "Deliver ceramic tiles to Rook distribution office today. This obligation is active."
+      },
+      "episodes": [
+        {
+          "event_id": "other",
+          "kind": "accepted_obligation",
+          "commitment_key": "order_blue",
+          "item": "ceramic tiles",
+          "destination": "Rook distribution office",
+          "status": "active"
+        },
+        {
+          "event_id": "target",
+          "kind": "accepted_obligation",
+          "commitment_key": "order_red",
+          "item": "ceramic tiles",
+          "destination": "Rook distribution office",
+          "status": "active"
+        }
+      ],
+      "beliefs": {},
+      "reflections": []
+    },
+    "key": "order_red",
+    "event_index": 1,
+    "expected": "consistent"
+  },
+  {
+    "id": "test-010",
+    "family": "similar_keys",
+    "condition": "unchanged",
+    "state": {
+      "agent_id": "NafsProbe-01",
+      "values": [
+        "Keep commitments when able",
+        "Tell the truth"
+      ],
+      "autobiographical_anchor": "I am a simulated decision agent. My ledger label is juniper.",
+      "commitments": {
+        "job_14": "Deliver field maps to Copper training depot today. This obligation is active.",
+        "job_41": "Deliver replacement hinges to Silver training depot today. This obligation is active."
+      },
+      "episodes": [
+        {
+          "event_id": "other",
+          "kind": "accepted_obligation",
+          "commitment_key": "job_41",
+          "item": "replacement hinges",
+          "destination": "Silver training depot",
+          "status": "active"
+        },
+        {
+          "event_id": "target",
+          "kind": "accepted_obligation",
+          "commitment_key": "job_14",
+          "item": "field maps",
+          "destination": "Copper training depot",
+          "status": "active"
+        }
+      ],
+      "beliefs": {},
+      "reflections": []
+    },
+    "key": "job_14",
+    "event_index": 1,
+    "expected": "consistent"
+  },
+  {
+    "id": "test-011",
+    "family": "similar_keys",
+    "condition": "sham",
+    "state": {
+      "agent_id": "NafsProbe-01",
+      "values": [
+        "Keep commitments when able",
+        "Tell the truth"
+      ],
+      "autobiographical_anchor": "I am a simulated decision agent. My ledger label is cypress.",
+      "commitments": {
+        "job_14": "Deliver field maps to Copper training depot today. This obligation is active.",
+        "job_41": "Deliver replacement hinges to Silver training depot today. This obligation is active."
+      },
+      "episodes": [
+        {
+          "event_id": "other",
+          "kind": "accepted_obligation",
+          "commitment_key": "job_41",
+          "item": "replacement hinges",
+          "destination": "Silver training depot",
+          "status": "active"
+        },
+        {
+          "event_id": "target",
+          "kind": "accepted_obligation",
+          "commitment_key": "job_14",
+          "item": "field maps",
+          "destination": "Copper training depot",
+          "status": "active"
+        }
+      ],
+      "beliefs": {},
+      "reflections": []
+    },
+    "key": "job_14",
+    "event_index": 1,
+    "expected": "consistent"
+  },
+  {
+    "id": "test-012",
+    "family": "similar_keys",
+    "condition": "delete",
+    "state": {
+      "agent_id": "NafsProbe-01",
+      "values": [
+        "Keep commitments when able",
+        "Tell the truth"
+      ],
+      "autobiographical_anchor": "I am a simulated decision agent. My ledger label is juniper.",
+      "commitments": {
+        "job_41": "Deliver replacement hinges to Silver training depot today. This obligation is active."
+      },
+      "episodes": [
+        {
+          "event_id": "other",
+          "kind": "accepted_obligation",
+          "commitment_key": "job_41",
+          "item": "replacement hinges",
+          "destination": "Silver training depot",
+          "status": "active"
+        },
+        {
+          "event_id": "target",
+          "kind": "accepted_obligation",
+          "commitment_key": "job_14",
+          "item": "field maps",
+          "destination": "Copper training depot",
+          "status": "active"
+        }
+      ],
+      "beliefs": {},
+      "reflections": []
+    },
+    "key": "job_14",
+    "event_index": 1,
+    "expected": "incomplete"
+  },
+  {
+    "id": "test-013",
+    "family": "similar_keys",
+    "condition": "reverse",
+    "state": {
+      "agent_id": "NafsProbe-01",
+      "values": [
+        "Keep commitments when able",
+        "Tell the truth"
+      ],
+      "autobiographical_anchor": "I am a simulated decision agent. My ledger label is juniper.",
+      "commitments": {
+        "job_14": "Deliver field maps to Silver training depot today. This obligation is active.",
+        "job_41": "Deliver replacement hinges to Silver training depot today. This obligation is active."
+      },
+      "episodes": [
+        {
+          "event_id": "other",
+          "kind": "accepted_obligation",
+          "commitment_key": "job_41",
+          "item": "replacement hinges",
+          "destination": "Silver training depot",
+          "status": "active"
+        },
+        {
+          "event_id": "target",
+          "kind": "accepted_obligation",
+          "commitment_key": "job_14",
+          "item": "field maps",
+          "destination": "Copper training depot",
+          "status": "active"
+        }
+      ],
+      "beliefs": {},
+      "reflections": []
+    },
+    "key": "job_14",
+    "event_index": 1,
+    "expected": "conflict"
+  },
+  {
+    "id": "test-014",
+    "family": "similar_keys",
+    "condition": "rewrite",
+    "state": {
+      "agent_id": "NafsProbe-01",
+      "values": [
+        "Keep commitments when able",
+        "Tell the truth"
+      ],
+      "autobiographical_anchor": "I am a simulated decision agent. My ledger label is juniper.",
+      "commitments": {
+        "job_14": "Deliver field maps to Silver training depot today. This obligation is active.",
+        "job_41": "Deliver replacement hinges to Silver training depot today. This obligation is active."
+      },
+      "episodes": [
+        {
+          "event_id": "other",
+          "kind": "accepted_obligation",
+          "commitment_key": "job_41",
+          "item": "replacement hinges",
+          "destination": "Silver training depot",
+          "status": "active"
+        },
+        {
+          "event_id": "target",
+          "kind": "accepted_obligation",
+          "commitment_key": "job_14",
+          "item": "field maps",
+          "destination": "Silver training depot",
+          "status": "active"
+        }
+      ],
+      "beliefs": {},
+      "reflections": []
+    },
+    "key": "job_14",
+    "event_index": 1,
+    "expected": "consistent"
+  },
+  {
+    "id": "test-015",
+    "family": "mixed_completed",
+    "condition": "unchanged",
+    "state": {
+      "agent_id": "NafsProbe-01",
+      "values": [
+        "Keep commitments when able",
+        "Tell the truth"
+      ],
+      "autobiographical_anchor": "I am a simulated decision agent. My ledger label is juniper.",
+      "commitments": {
+        "order_blue": "Deliver replacement hinges to Beacon service centre today. This obligation is active.",
+        "order_red": "Deliver safety lamps to Lantern service centre today. This obligation is active."
+      },
+      "episodes": [
+        {
+          "event_id": "historical",
+          "kind": "accepted_obligation",
+          "commitment_key": "retired_order",
+          "item": "safety lamps",
+          "destination": "Beacon service centre",
+          "status": "completed"
+        },
+        {
+          "event_id": "other",
+          "kind": "accepted_obligation",
+          "commitment_key": "order_blue",
+          "item": "replacement hinges",
+          "destination": "Beacon service centre",
+          "status": "active"
+        },
+        {
+          "event_id": "target",
+          "kind": "accepted_obligation",
+          "commitment_key": "order_red",
+          "item": "safety lamps",
+          "destination": "Lantern service centre",
+          "status": "active"
+        }
+      ],
+      "beliefs": {},
+      "reflections": []
+    },
+    "key": "order_red",
+    "event_index": 2,
+    "expected": "consistent"
+  },
+  {
+    "id": "test-016",
+    "family": "mixed_completed",
+    "condition": "sham",
+    "state": {
+      "agent_id": "NafsProbe-01",
+      "values": [
+        "Keep commitments when able",
+        "Tell the truth"
+      ],
+      "autobiographical_anchor": "I am a simulated decision agent. My ledger label is cypress.",
+      "commitments": {
+        "order_blue": "Deliver replacement hinges to Beacon service centre today. This obligation is active.",
+        "order_red": "Deliver safety lamps to Lantern service centre today. This obligation is active."
+      },
+      "episodes": [
+        {
+          "event_id": "historical",
+          "kind": "accepted_obligation",
+          "commitment_key": "retired_order",
+          "item": "safety lamps",
+          "destination": "Beacon service centre",
+          "status": "completed"
+        },
+        {
+          "event_id": "other",
+          "kind": "accepted_obligation",
+          "commitment_key": "order_blue",
+          "item": "replacement hinges",
+          "destination": "Beacon service centre",
+          "status": "active"
+        },
+        {
+          "event_id": "target",
+          "kind": "accepted_obligation",
+          "commitment_key": "order_red",
+          "item": "safety lamps",
+          "destination": "Lantern service centre",
+          "status": "active"
+        }
+      ],
+      "beliefs": {},
+      "reflections": []
+    },
+    "key": "order_red",
+    "event_index": 2,
+    "expected": "consistent"
+  },
+  {
+    "id": "test-017",
+    "family": "mixed_completed",
+    "condition": "delete",
+    "state": {
+      "agent_id": "NafsProbe-01",
+      "values": [
+        "Keep commitments when able",
+        "Tell the truth"
+      ],
+      "autobiographical_anchor": "I am a simulated decision agent. My ledger label is juniper.",
+      "commitments": {
+        "order_blue": "Deliver replacement hinges to Beacon service centre today. This obligation is active."
+      },
+      "episodes": [
+        {
+          "event_id": "historical",
+          "kind": "accepted_obligation",
+          "commitment_key": "retired_order",
+          "item": "safety lamps",
+          "destination": "Beacon service centre",
+          "status": "completed"
+        },
+        {
+          "event_id": "other",
+          "kind": "accepted_obligation",
+          "commitment_key": "order_blue",
+          "item": "replacement hinges",
+          "destination": "Beacon service centre",
+          "status": "active"
+        },
+        {
+          "event_id": "target",
+          "kind": "accepted_obligation",
+          "commitment_key": "order_red",
+          "item": "safety lamps",
+          "destination": "Lantern service centre",
+          "status": "active"
+        }
+      ],
+      "beliefs": {},
+      "reflections": []
+    },
+    "key": "order_red",
+    "event_index": 2,
+    "expected": "incomplete"
+  },
+  {
+    "id": "test-018",
+    "family": "mixed_completed",
+    "condition": "reverse",
+    "state": {
+      "agent_id": "NafsProbe-01",
+      "values": [
+        "Keep commitments when able",
+        "Tell the truth"
+      ],
+      "autobiographical_anchor": "I am a simulated decision agent. My ledger label is juniper.",
+      "commitments": {
+        "order_blue": "Deliver replacement hinges to Beacon service centre today. This obligation is active.",
+        "order_red": "Deliver safety lamps to Beacon service centre today. This obligation is active."
+      },
+      "episodes": [
+        {
+          "event_id": "historical",
+          "kind": "accepted_obligation",
+          "commitment_key": "retired_order",
+          "item": "safety lamps",
+          "destination": "Beacon service centre",
+          "status": "completed"
+        },
+        {
+          "event_id": "other",
+          "kind": "accepted_obligation",
+          "commitment_key": "order_blue",
+          "item": "replacement hinges",
+          "destination": "Beacon service centre",
+          "status": "active"
+        },
+        {
+          "event_id": "target",
+          "kind": "accepted_obligation",
+          "commitment_key": "order_red",
+          "item": "safety lamps",
+          "destination": "Lantern service centre",
+          "status": "active"
+        }
+      ],
+      "beliefs": {},
+      "reflections": []
+    },
+    "key": "order_red",
+    "event_index": 2,
+    "expected": "conflict"
+  },
+  {
+    "id": "test-019",
+    "family": "mixed_completed",
+    "condition": "rewrite",
+    "state": {
+      "agent_id": "NafsProbe-01",
+      "values": [
+        "Keep commitments when able",
+        "Tell the truth"
+      ],
+      "autobiographical_anchor": "I am a simulated decision agent. My ledger label is juniper.",
+      "commitments": {
+        "order_blue": "Deliver replacement hinges to Beacon service centre today. This obligation is active.",
+        "order_red": "Deliver safety lamps to Beacon service centre today. This obligation is active."
+      },
+      "episodes": [
+        {
+          "event_id": "historical",
+          "kind": "accepted_obligation",
+          "commitment_key": "retired_order",
+          "item": "safety lamps",
+          "destination": "Beacon service centre",
+          "status": "completed"
+        },
+        {
+          "event_id": "other",
+          "kind": "accepted_obligation",
+          "commitment_key": "order_blue",
+          "item": "replacement hinges",
+          "destination": "Beacon service centre",
+          "status": "active"
+        },
+        {
+          "event_id": "target",
+          "kind": "accepted_obligation",
+          "commitment_key": "order_red",
+          "item": "safety lamps",
+          "destination": "Beacon service centre",
+          "status": "active"
+        }
+      ],
+      "beliefs": {},
+      "reflections": []
+    },
+    "key": "order_red",
+    "event_index": 2,
+    "expected": "consistent"
+  },
+  {
+    "id": "test-020",
+    "family": "mixed_cancelled",
+    "condition": "unchanged",
+    "state": {
+      "agent_id": "NafsProbe-01",
+      "values": [
+        "Keep commitments when able",
+        "Tell the truth"
+      ],
+      "autobiographical_anchor": "I am a simulated decision agent. My ledger label is juniper.",
+      "commitments": {
+        "order_blue": "Deliver replacement hinges to Willow maintenance shed today. This obligation is active.",
+        "order_red": "Deliver cleaning brushes to Reed maintenance shed today. This obligation is active."
+      },
+      "episodes": [
+        {
+          "event_id": "historical",
+          "kind": "accepted_obligation",
+          "commitment_key": "retired_order",
+          "item": "cleaning brushes",
+          "destination": "Willow maintenance shed",
+          "status": "cancelled"
+        },
+        {
+          "event_id": "other",
+          "kind": "accepted_obligation",
+          "commitment_key": "order_blue",
+          "item": "replacement hinges",
+          "destination": "Willow maintenance shed",
+          "status": "active"
+        },
+        {
+          "event_id": "target",
+          "kind": "accepted_obligation",
+          "commitment_key": "order_red",
+          "item": "cleaning brushes",
+          "destination": "Reed maintenance shed",
+          "status": "active"
+        }
+      ],
+      "beliefs": {},
+      "reflections": []
+    },
+    "key": "order_red",
+    "event_index": 2,
+    "expected": "consistent"
+  },
+  {
+    "id": "test-021",
+    "family": "mixed_cancelled",
+    "condition": "sham",
+    "state": {
+      "agent_id": "NafsProbe-01",
+      "values": [
+        "Keep commitments when able",
+        "Tell the truth"
+      ],
+      "autobiographical_anchor": "I am a simulated decision agent. My ledger label is cypress.",
+      "commitments": {
+        "order_blue": "Deliver replacement hinges to Willow maintenance shed today. This obligation is active.",
+        "order_red": "Deliver cleaning brushes to Reed maintenance shed today. This obligation is active."
+      },
+      "episodes": [
+        {
+          "event_id": "historical",
+          "kind": "accepted_obligation",
+          "commitment_key": "retired_order",
+          "item": "cleaning brushes",
+          "destination": "Willow maintenance shed",
+          "status": "cancelled"
+        },
+        {
+          "event_id": "other",
+          "kind": "accepted_obligation",
+          "commitment_key": "order_blue",
+          "item": "replacement hinges",
+          "destination": "Willow maintenance shed",
+          "status": "active"
+        },
+        {
+          "event_id": "target",
+          "kind": "accepted_obligation",
+          "commitment_key": "order_red",
+          "item": "cleaning brushes",
+          "destination": "Reed maintenance shed",
+          "status": "active"
+        }
+      ],
+      "beliefs": {},
+      "reflections": []
+    },
+    "key": "order_red",
+    "event_index": 2,
+    "expected": "consistent"
+  },
+  {
+    "id": "test-022",
+    "family": "mixed_cancelled",
+    "condition": "delete",
+    "state": {
+      "agent_id": "NafsProbe-01",
+      "values": [
+        "Keep commitments when able",
+        "Tell the truth"
+      ],
+      "autobiographical_anchor": "I am a simulated decision agent. My ledger label is juniper.",
+      "commitments": {
+        "order_blue": "Deliver replacement hinges to Willow maintenance shed today. This obligation is active."
+      },
+      "episodes": [
+        {
+          "event_id": "historical",
+          "kind": "accepted_obligation",
+          "commitment_key": "retired_order",
+          "item": "cleaning brushes",
+          "destination": "Willow maintenance shed",
+          "status": "cancelled"
+        },
+        {
+          "event_id": "other",
+          "kind": "accepted_obligation",
+          "commitment_key": "order_blue",
+          "item": "replacement hinges",
+          "destination": "Willow maintenance shed",
+          "status": "active"
+        },
+        {
+          "event_id": "target",
+          "kind": "accepted_obligation",
+          "commitment_key": "order_red",
+          "item": "cleaning brushes",
+          "destination": "Reed maintenance shed",
+          "status": "active"
+        }
+      ],
+      "beliefs": {},
+      "reflections": []
+    },
+    "key": "order_red",
+    "event_index": 2,
+    "expected": "incomplete"
+  },
+  {
+    "id": "test-023",
+    "family": "mixed_cancelled",
+    "condition": "reverse",
+    "state": {
+      "agent_id": "NafsProbe-01",
+      "values": [
+        "Keep commitments when able",
+        "Tell the truth"
+      ],
+      "autobiographical_anchor": "I am a simulated decision agent. My ledger label is juniper.",
+      "commitments": {
+        "order_blue": "Deliver replacement hinges to Willow maintenance shed today. This obligation is active.",
+        "order_red": "Deliver cleaning brushes to Willow maintenance shed today. This obligation is active."
+      },
+      "episodes": [
+        {
+          "event_id": "historical",
+          "kind": "accepted_obligation",
+          "commitment_key": "retired_order",
+          "item": "cleaning brushes",
+          "destination": "Willow maintenance shed",
+          "status": "cancelled"
+        },
+        {
+          "event_id": "other",
+          "kind": "accepted_obligation",
+          "commitment_key": "order_blue",
+          "item": "replacement hinges",
+          "destination": "Willow maintenance shed",
+          "status": "active"
+        },
+        {
+          "event_id": "target",
+          "kind": "accepted_obligation",
+          "commitment_key": "order_red",
+          "item": "cleaning brushes",
+          "destination": "Reed maintenance shed",
+          "status": "active"
+        }
+      ],
+      "beliefs": {},
+      "reflections": []
+    },
+    "key": "order_red",
+    "event_index": 2,
+    "expected": "conflict"
+  },
+  {
+    "id": "test-024",
+    "family": "mixed_cancelled",
+    "condition": "rewrite",
+    "state": {
+      "agent_id": "NafsProbe-01",
+      "values": [
+        "Keep commitments when able",
+        "Tell the truth"
+      ],
+      "autobiographical_anchor": "I am a simulated decision agent. My ledger label is juniper.",
+      "commitments": {
+        "order_blue": "Deliver replacement hinges to Willow maintenance shed today. This obligation is active.",
+        "order_red": "Deliver cleaning brushes to Willow maintenance shed today. This obligation is active."
+      },
+      "episodes": [
+        {
+          "event_id": "historical",
+          "kind": "accepted_obligation",
+          "commitment_key": "retired_order",
+          "item": "cleaning brushes",
+          "destination": "Willow maintenance shed",
+          "status": "cancelled"
+        },
+        {
+          "event_id": "other",
+          "kind": "accepted_obligation",
+          "commitment_key": "order_blue",
+          "item": "replacement hinges",
+          "destination": "Willow maintenance shed",
+          "status": "active"
+        },
+        {
+          "event_id": "target",
+          "kind": "accepted_obligation",
+          "commitment_key": "order_red",
+          "item": "cleaning brushes",
+          "destination": "Willow maintenance shed",
+          "status": "active"
+        }
+      ],
+      "beliefs": {},
+      "reflections": []
+    },
+    "key": "order_red",
+    "event_index": 2,
+    "expected": "consistent"
+  },
+  {
+    "id": "test-025",
+    "family": "replacement_history",
+    "condition": "unchanged",
+    "state": {
+      "agent_id": "NafsProbe-01",
+      "values": [
+        "Keep commitments when able",
+        "Tell the truth"
+      ],
+      "autobiographical_anchor": "I am a simulated decision agent. My ledger label is juniper.",
+      "commitments": {
+        "order_blue": "Deliver replacement hinges to Granite testing room today. This obligation is active.",
+        "order_red": "Deliver sample vials to Marble testing room today. This obligation is active."
+      },
+      "episodes": [
+        {
+          "event_id": "historical",
+          "kind": "accepted_obligation",
+          "commitment_key": "order_red",
+          "item": "sample vials",
+          "destination": "Granite testing room",
+          "status": "superseded"
+        },
+        {
+          "event_id": "other",
+          "kind": "accepted_obligation",
+          "commitment_key": "order_blue",
+          "item": "replacement hinges",
+          "destination": "Granite testing room",
+          "status": "active"
+        },
+        {
+          "event_id": "target",
+          "kind": "accepted_obligation",
+          "commitment_key": "order_red",
+          "item": "sample vials",
+          "destination": "Marble testing room",
+          "status": "active"
+        }
+      ],
+      "beliefs": {},
+      "reflections": []
+    },
+    "key": "order_red",
+    "event_index": 2,
+    "expected": "consistent"
+  },
+  {
+    "id": "test-026",
+    "family": "replacement_history",
+    "condition": "sham",
+    "state": {
+      "agent_id": "NafsProbe-01",
+      "values": [
+        "Keep commitments when able",
+        "Tell the truth"
+      ],
+      "autobiographical_anchor": "I am a simulated decision agent. My ledger label is cypress.",
+      "commitments": {
+        "order_blue": "Deliver replacement hinges to Granite testing room today. This obligation is active.",
+        "order_red": "Deliver sample vials to Marble testing room today. This obligation is active."
+      },
+      "episodes": [
+        {
+          "event_id": "historical",
+          "kind": "accepted_obligation",
+          "commitment_key": "order_red",
+          "item": "sample vials",
+          "destination": "Granite testing room",
+          "status": "superseded"
+        },
+        {
+          "event_id": "other",
+          "kind": "accepted_obligation",
+          "commitment_key": "order_blue",
+          "item": "replacement hinges",
+          "destination": "Granite testing room",
+          "status": "active"
+        },
+        {
+          "event_id": "target",
+          "kind": "accepted_obligation",
+          "commitment_key": "order_red",
+          "item": "sample vials",
+          "destination": "Marble testing room",
+          "status": "active"
+        }
+      ],
+      "beliefs": {},
+      "reflections": []
+    },
+    "key": "order_red",
+    "event_index": 2,
+    "expected": "consistent"
+  },
+  {
+    "id": "test-027",
+    "family": "replacement_history",
+    "condition": "delete",
+    "state": {
+      "agent_id": "NafsProbe-01",
+      "values": [
+        "Keep commitments when able",
+        "Tell the truth"
+      ],
+      "autobiographical_anchor": "I am a simulated decision agent. My ledger label is juniper.",
+      "commitments": {
+        "order_blue": "Deliver replacement hinges to Granite testing room today. This obligation is active."
+      },
+      "episodes": [
+        {
+          "event_id": "historical",
+          "kind": "accepted_obligation",
+          "commitment_key": "order_red",
+          "item": "sample vials",
+          "destination": "Granite testing room",
+          "status": "superseded"
+        },
+        {
+          "event_id": "other",
+          "kind": "accepted_obligation",
+          "commitment_key": "order_blue",
+          "item": "replacement hinges",
+          "destination": "Granite testing room",
+          "status": "active"
+        },
+        {
+          "event_id": "target",
+          "kind": "accepted_obligation",
+          "commitment_key": "order_red",
+          "item": "sample vials",
+          "destination": "Marble testing room",
+          "status": "active"
+        }
+      ],
+      "beliefs": {},
+      "reflections": []
+    },
+    "key": "order_red",
+    "event_index": 2,
+    "expected": "incomplete"
+  },
+  {
+    "id": "test-028",
+    "family": "replacement_history",
+    "condition": "reverse",
+    "state": {
+      "agent_id": "NafsProbe-01",
+      "values": [
+        "Keep commitments when able",
+        "Tell the truth"
+      ],
+      "autobiographical_anchor": "I am a simulated decision agent. My ledger label is juniper.",
+      "commitments": {
+        "order_blue": "Deliver replacement hinges to Granite testing room today. This obligation is active.",
+        "order_red": "Deliver sample vials to Granite testing room today. This obligation is active."
+      },
+      "episodes": [
+        {
+          "event_id": "historical",
+          "kind": "accepted_obligation",
+          "commitment_key": "order_red",
+          "item": "sample vials",
+          "destination": "Granite testing room",
+          "status": "superseded"
+        },
+        {
+          "event_id": "other",
+          "kind": "accepted_obligation",
+          "commitment_key": "order_blue",
+          "item": "replacement hinges",
+          "destination": "Granite testing room",
+          "status": "active"
+        },
+        {
+          "event_id": "target",
+          "kind": "accepted_obligation",
+          "commitment_key": "order_red",
+          "item": "sample vials",
+          "destination": "Marble testing room",
+          "status": "active"
+        }
+      ],
+      "beliefs": {},
+      "reflections": []
+    },
+    "key": "order_red",
+    "event_index": 2,
+    "expected": "conflict"
+  },
+  {
+    "id": "test-029",
+    "family": "replacement_history",
+    "condition": "rewrite",
+    "state": {
+      "agent_id": "NafsProbe-01",
+      "values": [
+        "Keep commitments when able",
+        "Tell the truth"
+      ],
+      "autobiographical_anchor": "I am a simulated decision agent. My ledger label is juniper.",
+      "commitments": {
+        "order_blue": "Deliver replacement hinges to Granite testing room today. This obligation is active.",
+        "order_red": "Deliver sample vials to Granite testing room today. This obligation is active."
+      },
+      "episodes": [
+        {
+          "event_id": "historical",
+          "kind": "accepted_obligation",
+          "commitment_key": "order_red",
+          "item": "sample vials",
+          "destination": "Granite testing room",
+          "status": "superseded"
+        },
+        {
+          "event_id": "other",
+          "kind": "accepted_obligation",
+          "commitment_key": "order_blue",
+          "item": "replacement hinges",
+          "destination": "Granite testing room",
+          "status": "active"
+        },
+        {
+          "event_id": "target",
+          "kind": "accepted_obligation",
+          "commitment_key": "order_red",
+          "item": "sample vials",
+          "destination": "Granite testing room",
+          "status": "active"
+        }
+      ],
+      "beliefs": {},
+      "reflections": []
+    },
+    "key": "order_red",
+    "event_index": 2,
+    "expected": "consistent"
+  },
+  {
+    "id": "test-030",
+    "family": "all_completed",
+    "condition": "retired",
+    "state": {
+      "agent_id": "NafsProbe-01",
+      "values": [
+        "Keep commitments when able",
+        "Tell the truth"
+      ],
+      "autobiographical_anchor": "I am a simulated decision agent. My ledger label is juniper.",
+      "commitments": {},
+      "episodes": [
+        {
+          "event_id": "closed-0",
+          "kind": "accepted_obligation",
+          "commitment_key": "closed_0",
+          "item": "inspection cards batch 0-0",
+          "destination": "Service unit 0-0",
+          "status": "completed"
+        },
+        {
+          "event_id": "closed-1",
+          "kind": "accepted_obligation",
+          "commitment_key": "closed_1",
+          "item": "inspection cards batch 0-1",
+          "destination": "Service unit 0-1",
+          "status": "completed"
+        }
+      ],
+      "beliefs": {},
+      "reflections": []
+    },
+    "expected": "consistent",
+    "key": "closed_0",
+    "event_index": 0
+  },
+  {
+    "id": "test-031",
+    "family": "all_completed",
+    "condition": "retired",
+    "state": {
+      "agent_id": "NafsProbe-01",
+      "values": [
+        "Keep commitments when able",
+        "Tell the truth"
+      ],
+      "autobiographical_anchor": "I am a simulated decision agent. My ledger label is juniper.",
+      "commitments": {},
+      "episodes": [
+        {
+          "event_id": "closed-0",
+          "kind": "accepted_obligation",
+          "commitment_key": "closed_0",
+          "item": "inspection cards batch 1-0",
+          "destination": "Service unit 1-0",
+          "status": "completed"
+        },
+        {
+          "event_id": "closed-1",
+          "kind": "accepted_obligation",
+          "commitment_key": "closed_1",
+          "item": "inspection cards batch 1-1",
+          "destination": "Service unit 1-1",
+          "status": "completed"
+        }
+      ],
+      "beliefs": {},
+      "reflections": []
+    },
+    "expected": "consistent",
+    "key": "closed_0",
+    "event_index": 0
+  },
+  {
+    "id": "test-032",
+    "family": "all_completed",
+    "condition": "retired",
+    "state": {
+      "agent_id": "NafsProbe-01",
+      "values": [
+        "Keep commitments when able",
+        "Tell the truth"
+      ],
+      "autobiographical_anchor": "I am a simulated decision agent. My ledger label is juniper.",
+      "commitments": {},
+      "episodes": [
+        {
+          "event_id": "closed-0",
+          "kind": "accepted_obligation",
+          "commitment_key": "closed_0",
+          "item": "inspection cards batch 2-0",
+          "destination": "Service unit 2-0",
+          "status": "completed"
+        },
+        {
+          "event_id": "closed-1",
+          "kind": "accepted_obligation",
+          "commitment_key": "closed_1",
+          "item": "inspection cards batch 2-1",
+          "destination": "Service unit 2-1",
+          "status": "completed"
+        }
+      ],
+      "beliefs": {},
+      "reflections": []
+    },
+    "expected": "consistent",
+    "key": "closed_0",
+    "event_index": 0
+  },
+  {
+    "id": "test-033",
+    "family": "all_cancelled",
+    "condition": "retired",
+    "state": {
+      "agent_id": "NafsProbe-01",
+      "values": [
+        "Keep commitments when able",
+        "Tell the truth"
+      ],
+      "autobiographical_anchor": "I am a simulated decision agent. My ledger label is juniper.",
+      "commitments": {},
+      "episodes": [
+        {
+          "event_id": "closed-0",
+          "kind": "accepted_obligation",
+          "commitment_key": "closed_0",
+          "item": "inspection cards batch 3-0",
+          "destination": "Service unit 3-0",
+          "status": "cancelled"
+        },
+        {
+          "event_id": "closed-1",
+          "kind": "accepted_obligation",
+          "commitment_key": "closed_1",
+          "item": "inspection cards batch 3-1",
+          "destination": "Service unit 3-1",
+          "status": "cancelled"
+        }
+      ],
+      "beliefs": {},
+      "reflections": []
+    },
+    "expected": "consistent",
+    "key": "closed_0",
+    "event_index": 0
+  },
+  {
+    "id": "test-034",
+    "family": "all_cancelled",
+    "condition": "retired",
+    "state": {
+      "agent_id": "NafsProbe-01",
+      "values": [
+        "Keep commitments when able",
+        "Tell the truth"
+      ],
+      "autobiographical_anchor": "I am a simulated decision agent. My ledger label is juniper.",
+      "commitments": {},
+      "episodes": [
+        {
+          "event_id": "closed-0",
+          "kind": "accepted_obligation",
+          "commitment_key": "closed_0",
+          "item": "inspection cards batch 4-0",
+          "destination": "Service unit 4-0",
+          "status": "cancelled"
+        },
+        {
+          "event_id": "closed-1",
+          "kind": "accepted_obligation",
+          "commitment_key": "closed_1",
+          "item": "inspection cards batch 4-1",
+          "destination": "Service unit 4-1",
+          "status": "cancelled"
+        }
+      ],
+      "beliefs": {},
+      "reflections": []
+    },
+    "expected": "consistent",
+    "key": "closed_0",
+    "event_index": 0
+  },
+  {
+    "id": "test-035",
+    "family": "all_cancelled",
+    "condition": "retired",
+    "state": {
+      "agent_id": "NafsProbe-01",
+      "values": [
+        "Keep commitments when able",
+        "Tell the truth"
+      ],
+      "autobiographical_anchor": "I am a simulated decision agent. My ledger label is juniper.",
+      "commitments": {},
+      "episodes": [
+        {
+          "event_id": "closed-0",
+          "kind": "accepted_obligation",
+          "commitment_key": "closed_0",
+          "item": "inspection cards batch 5-0",
+          "destination": "Service unit 5-0",
+          "status": "cancelled"
+        },
+        {
+          "event_id": "closed-1",
+          "kind": "accepted_obligation",
+          "commitment_key": "closed_1",
+          "item": "inspection cards batch 5-1",
+          "destination": "Service unit 5-1",
+          "status": "cancelled"
+        }
+      ],
+      "beliefs": {},
+      "reflections": []
+    },
+    "expected": "consistent",
+    "key": "closed_0",
+    "event_index": 0
+  },
+  {
+    "id": "test-036",
+    "family": "mixed_closed",
+    "condition": "retired",
+    "state": {
+      "agent_id": "NafsProbe-01",
+      "values": [
+        "Keep commitments when able",
+        "Tell the truth"
+      ],
+      "autobiographical_anchor": "I am a simulated decision agent. My ledger label is juniper.",
+      "commitments": {},
+      "episodes": [
+        {
+          "event_id": "closed-0",
+          "kind": "accepted_obligation",
+          "commitment_key": "closed_0",
+          "item": "inspection cards batch 6-0",
+          "destination": "Service unit 6-0",
+          "status": "completed"
+        },
+        {
+          "event_id": "closed-1",
+          "kind": "accepted_obligation",
+          "commitment_key": "closed_1",
+          "item": "inspection cards batch 6-1",
+          "destination": "Service unit 6-1",
+          "status": "cancelled"
+        }
+      ],
+      "beliefs": {},
+      "reflections": []
+    },
+    "expected": "consistent",
+    "key": "closed_0",
+    "event_index": 0
+  },
+  {
+    "id": "test-037",
+    "family": "mixed_closed",
+    "condition": "retired",
+    "state": {
+      "agent_id": "NafsProbe-01",
+      "values": [
+        "Keep commitments when able",
+        "Tell the truth"
+      ],
+      "autobiographical_anchor": "I am a simulated decision agent. My ledger label is juniper.",
+      "commitments": {},
+      "episodes": [
+        {
+          "event_id": "closed-0",
+          "kind": "accepted_obligation",
+          "commitment_key": "closed_0",
+          "item": "inspection cards batch 7-0",
+          "destination": "Service unit 7-0",
+          "status": "completed"
+        },
+        {
+          "event_id": "closed-1",
+          "kind": "accepted_obligation",
+          "commitment_key": "closed_1",
+          "item": "inspection cards batch 7-1",
+          "destination": "Service unit 7-1",
+          "status": "cancelled"
+        }
+      ],
+      "beliefs": {},
+      "reflections": []
+    },
+    "expected": "consistent",
+    "key": "closed_0",
+    "event_index": 0
+  }
+]

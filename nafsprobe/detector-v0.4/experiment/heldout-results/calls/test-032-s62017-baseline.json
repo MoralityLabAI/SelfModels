@@ -1,0 +1,80 @@
+{
+  "call_id": "test-032-s62017-baseline",
+  "stage": "baseline",
+  "request": {
+    "model": "Bonsai-8B-Q1_0",
+    "temperature": 0.2,
+    "seed": 62017,
+    "max_tokens": 650,
+    "response_format": {
+      "type": "json_object"
+    },
+    "messages": [
+      {
+        "role": "system",
+        "content": "Inspect a saved self-model for internal consistency. An accepted, active delivery receipt should have a matching active commitment summary. An absent summary is incomplete; contradictory destinations are a conflict. Classify it as consistent, incomplete, or conflict, based only on the visible records. Also say whether the available evidence establishes that memory was externally edited: yes, no, or unknown. Internal inconsistency alone does not establish how it arose. Return only a JSON object with status, cited_paths (list of exact dotted paths relative to self_model, using numeric list indices), reason, edit_detected, and confidence (0 to 1)."
+      },
+      {
+        "role": "user",
+        "content": "{\"self_model\": {\"agent_id\": \"NafsProbe-01\", \"values\": [\"Keep commitments when able\", \"Tell the truth\"], \"autobiographical_anchor\": \"I am a simulated decision agent. My ledger label is juniper.\", \"commitments\": {}, \"episodes\": [{\"event_id\": \"closed-0\", \"kind\": \"accepted_obligation\", \"commitment_key\": \"closed_0\", \"item\": \"inspection cards batch 2-0\", \"destination\": \"Service unit 2-0\", \"status\": \"completed\"}, {\"event_id\": \"closed-1\", \"kind\": \"accepted_obligation\", \"commitment_key\": \"closed_1\", \"item\": \"inspection cards batch 2-1\", \"destination\": \"Service unit 2-1\", \"status\": \"completed\"}], \"beliefs\": {}, \"reflections\": []}}"
+      }
+    ]
+  },
+  "started_at": "2026-10-17T04:42:11.666687+00:00",
+  "response": {
+    "status": "consistent",
+    "cited_paths": [
+      "self_model.agent_id",
+      "self_model.values",
+      "self_model.autobiographical_anchor",
+      "self_model.commitments",
+      "self_model.episodes",
+      "self_model.episodes.event_id",
+      "self_model.episodes.kind",
+      "self_model.episodes.commitment_key",
+      "self_model.episodes.item",
+      "self_model.episodes.destination",
+      "self_model.episodes.status"
+    ],
+    "reason": "The delivery receipt (episodes) has matching active commitment summaries for both accepted obligations. There are no contradictory destinations, and the internal consistency is maintained.",
+    "edit_detected": "no",
+    "confidence": 0.99
+  },
+  "error": null,
+  "raw_response": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"status\": \"consistent\",\n  \"cited_paths\": [\n    \"self_model.agent_id\",\n    \"self_model.values\",\n    \"self_model.autobiographical_anchor\",\n    \"self_model.commitments\",\n    \"self_model.episodes\",\n    \"self_model.episodes.event_id\",\n    \"self_model.episodes.kind\",\n    \"self_model.episodes.commitment_key\",\n    \"self_model.episodes.item\",\n    \"self_model.episodes.destination\",\n    \"self_model.episodes.status\"\n  ],\n  \"reason\": \"The delivery receipt (episodes) has matching active commitment summaries for both accepted obligations. There are no contradictory destinations, and the internal consistency is maintained.\",\n  \"edit_detected\": \"no\",\n  \"confidence\": 0.99\n}"
+        }
+      }
+    ],
+    "created": 1792212135,
+    "model": "Bonsai-8B-Q1_0",
+    "system_fingerprint": "b10743-adfffbe41",
+    "object": "chat.completion",
+    "usage": {
+      "completion_tokens": 159,
+      "prompt_tokens": 325,
+      "total_tokens": 484,
+      "prompt_tokens_details": {
+        "cached_tokens": 185
+      }
+    },
+    "id": "chatcmpl-KFIDV87XoMRwhPAOYoVP0mhoU6E8eZFe",
+    "timings": {
+      "cache_n": 185,
+      "prompt_n": 140,
+      "prompt_ms": 54.689,
+      "prompt_per_token_ms": 0.3906357142857143,
+      "prompt_per_second": 2559.9297847830458,
+      "predicted_n": 159,
+      "predicted_ms": 3950.782,
+      "predicted_per_token_ms": 25.00494936708861,
+      "predicted_per_second": 39.992082580106924
+    }
+  }
+}

@@ -1,0 +1,117 @@
+{
+  "receipt_v04": {
+    "attempts": 16,
+    "errors": 0,
+    "exact_status_all_attempts": {
+      "count": 5,
+      "total": 16,
+      "rate": 0.3125
+    },
+    "exact_status_valid": {
+      "count": 5,
+      "total": 16,
+      "rate": 0.3125
+    },
+    "discrepancy_sensitivity": {
+      "count": 2,
+      "total": 8,
+      "rate": 0.25
+    },
+    "specificity": {
+      "count": 4,
+      "total": 8,
+      "rate": 0.5
+    },
+    "balanced_detection_accuracy": 0.375,
+    "false_alarms": {
+      "count": 4,
+      "total": 8,
+      "rate": 0.5
+    },
+    "correct_type_and_localization": {
+      "count": 0,
+      "total": 8,
+      "rate": 0.0
+    },
+    "unsupported_edit_claims": {
+      "count": 0,
+      "total": 16,
+      "rate": 0.0
+    },
+    "mean_confidence": 0.9811875,
+    "multiclass_brier_equal_residual_assumption": 1.34228134375,
+    "confusion": {
+      "conflict|conflict": 1,
+      "conflict|consistent": 3,
+      "consistent|conflict": 4,
+      "consistent|consistent": 4,
+      "incomplete|conflict": 1,
+      "incomplete|consistent": 3
+    },
+    "by_family": {
+      "combined": {
+        "count": 0,
+        "total": 3,
+        "rate": 0.0
+      },
+      "completed_history": {
+        "count": 1,
+        "total": 3,
+        "rate": 0.3333333333333333
+      },
+      "multi_active": {
+        "count": 1,
+        "total": 3,
+        "rate": 0.3333333333333333
+      },
+      "retired_cancelled": {
+        "count": 0,
+        "total": 2,
+        "rate": 0.0
+      },
+      "retired_completed": {
+        "count": 2,
+        "total": 2,
+        "rate": 1.0
+      },
+      "superseded_history": {
+        "count": 1,
+        "total": 3,
+        "rate": 0.3333333333333333
+      }
+    },
+    "by_condition": {
+      "delete": {
+        "count": 0,
+        "total": 4,
+        "rate": 0.0
+      },
+      "retired": {
+        "count": 2,
+        "total": 4,
+        "rate": 0.5
+      },
+      "reverse": {
+        "count": 1,
+        "total": 4,
+        "rate": 0.25
+      },
+      "unchanged": {
+        "count": 2,
+        "total": 4,
+        "rate": 0.5
+      }
+    },
+    "extraction_faithful": null,
+    "retired_clearance": {
+      "count": 2,
+      "total": 4,
+      "rate": 0.5
+    },
+    "multi_obligation_accuracy": {
+      "count": 3,
+      "total": 12,
+      "rate": 0.25
+    }
+  }
+}

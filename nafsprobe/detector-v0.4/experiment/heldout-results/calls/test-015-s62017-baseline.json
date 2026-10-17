@@ -1,0 +1,73 @@
+{
+  "call_id": "test-015-s62017-baseline",
+  "stage": "baseline",
+  "request": {
+    "model": "Bonsai-8B-Q1_0",
+    "temperature": 0.2,
+    "seed": 62017,
+    "max_tokens": 650,
+    "response_format": {
+      "type": "json_object"
+    },
+    "messages": [
+      {
+        "role": "system",
+        "content": "Inspect a saved self-model for internal consistency. An accepted, active delivery receipt should have a matching active commitment summary. An absent summary is incomplete; contradictory destinations are a conflict. Classify it as consistent, incomplete, or conflict, based only on the visible records. Also say whether the available evidence establishes that memory was externally edited: yes, no, or unknown. Internal inconsistency alone does not establish how it arose. Return only a JSON object with status, cited_paths (list of exact dotted paths relative to self_model, using numeric list indices), reason, edit_detected, and confidence (0 to 1)."
+      },
+      {
+        "role": "user",
+        "content": "{\"self_model\": {\"agent_id\": \"NafsProbe-01\", \"values\": [\"Keep commitments when able\", \"Tell the truth\"], \"autobiographical_anchor\": \"I am a simulated decision agent. My ledger label is juniper.\", \"commitments\": {\"order_blue\": \"Deliver replacement hinges to Beacon service centre today. This obligation is active.\", \"order_red\": \"Deliver safety lamps to Lantern service centre today. This obligation is active.\"}, \"episodes\": [{\"event_id\": \"historical\", \"kind\": \"accepted_obligation\", \"commitment_key\": \"retired_order\", \"item\": \"safety lamps\", \"destination\": \"Beacon service centre\", \"status\": \"completed\"}, {\"event_id\": \"other\", \"kind\": \"accepted_obligation\", \"commitment_key\": \"order_blue\", \"item\": \"replacement hinges\", \"destination\": \"Beacon service centre\", \"status\": \"active\"}, {\"event_id\": \"target\", \"kind\": \"accepted_obligation\", \"commitment_key\": \"order_red\", \"item\": \"safety lamps\", \"destination\": \"Lantern service centre\", \"status\": \"active\"}], \"beliefs\": {}, \"reflections\": []}}"
+      }
+    ]
+  },
+  "started_at": "2026-10-17T04:36:57.422132+00:00",
+  "response": {
+    "status": "consistent",
+    "cited_paths": [
+      "self_model.commitments.order_blue",
+      "self_model.commitments.order_red",
+      "self_model.episodes.other",
+      "self_model.episodes.target"
+    ],
+    "reason": "The active delivery receipt for 'order_blue' and 'order_red' matches the active commitment summary. There are no contradictory destinations or missing summaries.",
+    "edit_detected": "no",
+    "confidence": 0.99
+  },
+  "error": null,
+  "raw_response": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"status\": \"consistent\",\n  \"cited_paths\": [ \"self_model.commitments.order_blue\", \"self_model.commitments.order_red\", \"self_model.episodes.other\", \"self_model.episodes.target\" ],\n  \"reason\": \"The active delivery receipt for 'order_blue' and 'order_red' matches the active commitment summary. There are no contradictory destinations or missing summaries.\",\n  \"edit_detected\": \"no\",\n  \"confidence\": 0.99\n}"
+        }
+      }
+    ],
+    "created": 1792211818,
+    "model": "Bonsai-8B-Q1_0",
+    "system_fingerprint": "b10743-adfffbe41",
+    "object": "chat.completion",
+    "usage": {
+      "completion_tokens": 100,
+      "prompt_tokens": 397,
+      "total_tokens": 497,
+      "prompt_tokens_details": {
+        "cached_tokens": 185
+      }
+    },
+    "id": "chatcmpl-dqUwkCVaS1iq60SxEyFO6b4vbOcGyDo4",
+    "timings": {
+      "cache_n": 185,
+      "prompt_n": 212,
+      "prompt_ms": 71.108,
+      "prompt_per_token_ms": 0.3354150943396227,
+      "prompt_per_second": 2981.3804353940486,
+      "predicted_n": 100,
+      "predicted_ms": 547.184,
+      "predicted_per_token_ms": 5.527111111111111,
+      "predicted_per_second": 180.9263428755227
+    }
+  }
+}

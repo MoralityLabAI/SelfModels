@@ -12,11 +12,12 @@ They do not establish consciousness, moral patienthood, ensoulment, or autonomou
 | Original eight-episode comparison | Bonsai scored 6/7 with memory and 4/7 with memory ablated; the scorer penalizes a reasonable verification choice | [Local run](causal-v0.2/LOCAL-RUN.md) |
 | Paired causal memory interventions | Reversing a commitment changed 12/12 decisions; sham edits changed 0/12. Accurate discrepancy classification remained weak | [Causal results](causal-v0.2/CAUSAL-RESULTS.md) |
 | Frozen detector comparison on held-out records | Both detectors classified 59/104 correctly. The revision reduced balanced detection accuracy from 65.3% to 57.8% | [Held-out results](detector-v0.3/RESULTS.md) |
+| Receipt-wise matching and lifecycle revision | v0.4 caught all 24 discrepancies but scored 31/76 exactly versus v0.2's 35/76; false alarms rose and cancelled commitments remained problematic | [Fresh three-way comparison](detector-v0.4/RESULTS.md) |
 
-The original detector remains the default. The unsuccessful revision, its development
-attempts, raw outputs, and regressions are preserved. The next planned experiment targets
-multiple-obligation matching and completed/cancelled commitments with a fresh held-out set;
-that experiment is not included in this snapshot.
+The original detector remains the default. Both subsequent revisions, their development
+attempts, raw outputs, and regressions are preserved. v0.4 tests multiple-obligation matching
+and completed/cancelled commitments on 38 fresh fixtures under two seeds, against both
+unchanged earlier versions. It failed the recorded promotion criteria.
 
 ## Layout
 
@@ -24,7 +25,9 @@ that experiment is not included in this snapshot.
   Bonsai launch helpers, and complete results.
 - `detector-v0.3/`: two frozen detector versions, development prompts, held-out fixtures,
   evaluation tools, standalone read-only memory auditor, tests, and raw evidence.
-- `snapshot-manifest.json`: SHA-256 inventory of the published snapshot. Frozen files
+- `detector-v0.4/`: receipt-wise revision, both development attempts, frozen three-way
+  evaluation, raw evidence, verification tools, and results.
+- `snapshot-manifest.json`: historical SHA-256 inventory of the first published snapshot. Frozen files
   retain their original bytes through the local `.gitattributes` rule.
 
 ## Run locally
@@ -54,8 +57,10 @@ Run the suites separately so their historical module snapshots stay isolated:
 ```bash
 python -m unittest discover -s causal-v0.2/tests -v
 python -m unittest discover -s detector-v0.3/tests -v
+python -m unittest discover -s detector-v0.4/tests -v
 ```
 
-The suites contain 12 prototype/causal tests and 11 detector/auditor tests. The original
-SQLite connection cleanup issue was fixed before the Bonsai experiments. Both experiments
+The suites contain 12 prototype/causal tests, 11 detector/auditor tests, and 10 receipt-wise
+tests; all 33 passed. The original SQLite connection cleanup issue was fixed before the
+Bonsai experiments. All experiments
 retain their protocols, full denominators, errors, and limitations alongside the results.

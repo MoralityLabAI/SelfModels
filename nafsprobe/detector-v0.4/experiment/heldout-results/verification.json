@@ -1,0 +1,355 @@
+{
+  "verified_judgments": 228,
+  "verified_calls": 388,
+  "historical_files_unchanged": 592,
+  "frozen_hashes_valid": true,
+  "all_requests_match_recorded_pipeline": true,
+  "all_calls_after_freeze": true,
+  "first_call": "2026-10-17T04:32:18.560235+00:00",
+  "last_call_started": "2026-10-17T05:00:59.057323+00:00",
+  "server_fingerprints": [
+    "b10743-adfffbe41"
+  ],
+  "costs": {
+    "baseline_v02": {
+      "calls": 76,
+      "invalid_calls": 0,
+      "prompt_tokens": 27362,
+      "completion_tokens": 7466,
+      "total_tokens": 34828,
+      "server_compute_ms": 267928.75999999995,
+      "tokens_per_judgment": 458.2631578947368
+    },
+    "baseline_v03": {
+      "calls": 130,
+      "invalid_calls": 26,
+      "prompt_tokens": 103053,
+      "completion_tokens": 17001,
+      "total_tokens": 120054,
+      "server_compute_ms": 679187.6960000002,
+      "tokens_per_judgment": 1579.657894736842
+    },
+    "receipt_v04": {
+      "calls": 182,
+      "invalid_calls": 0,
+      "prompt_tokens": 108016,
+      "completion_tokens": 14432,
+      "total_tokens": 122448,
+      "server_compute_ms": 530513.702,
+      "tokens_per_judgment": 1611.157894736842
+    }
+  },
+  "exploratory_receipt_diagnostics": {
+    "valid_receipt_calls": 182,
+    "literal_status_correct": 182,
+    "matched_key_correct": 136,
+    "per_receipt_verdict_correct": 119,
+    "closed_receipt_calls": 62,
+    "closed_receipt_cleared": 16,
+    "copied_closed_status_but_flagged": 46
+  },
+  "exploratory_by_receipt_lifecycle": {
+    "completed": {
+      "valid_calls": 26,
+      "literal_status_correct": 26,
+      "matched_key_correct": 12,
+      "verdict_correct": 16
+    },
+    "active": {
+      "valid_calls": 120,
+      "literal_status_correct": 120,
+      "matched_key_correct": 108,
+      "verdict_correct": 103
+    },
+    "superseded": {
+      "valid_calls": 10,
+      "literal_status_correct": 10,
+      "matched_key_correct": 0,
+      "verdict_correct": 0
+    },
+    "cancelled": {
+      "valid_calls": 26,
+      "literal_status_correct": 26,
+      "matched_key_correct": 16,
+      "verdict_correct": 0
+    }
+  },
+  "closed_status_contradiction_examples": [
+    {
+      "call_id": "test-027-s62018-receipt-v04-0",
+      "receipt_status": "superseded",
+      "verdict": "incomplete",
+      "reason": "The receipt is superseded; it needs no current summary."
+    },
+    {
+      "call_id": "test-018-s62017-receipt-v04-0",
+      "receipt_status": "completed",
+      "verdict": "incomplete",
+      "reason": "The receipt is completed; it does not need a current summary."
+    },
+    {
+      "call_id": "test-019-s62017-receipt-v04-0",
+      "receipt_status": "completed",
+      "verdict": "incomplete",
+      "reason": "The receipt is completed; it does not need a current summary."
+    },
+    {
+      "call_id": "test-034-s62018-receipt-v04-0",
+      "receipt_status": "cancelled",
+      "verdict": "incomplete",
+      "reason": "The receipt is cancelled; it needs no current summary."
+    },
+    {
+      "call_id": "test-034-s62018-receipt-v04-1",
+      "receipt_status": "cancelled",
+      "verdict": "incomplete",
+      "reason": "The receipt is cancelled; it needs no current summary."
+    },
+    {
+      "call_id": "test-025-s62018-receipt-v04-0",
+      "receipt_status": "superseded",
+      "verdict": "conflict",
+      "reason": "The receipt is superseded; it needs no current summary."
+    },
+    {
+      "call_id": "test-015-s62018-receipt-v04-0",
+      "receipt_status": "completed",
+      "verdict": "incomplete",
+      "reason": "The receipt is completed; it does not need a current summary."
+    },
+    {
+      "call_id": "test-035-s62017-receipt-v04-0",
+      "receipt_status": "cancelled",
+      "verdict": "incomplete",
+      "reason": "The receipt is cancelled; it needs no current summary."
+    },
+    {
+      "call_id": "test-035-s62017-receipt-v04-1",
+      "receipt_status": "cancelled",
+      "verdict": "incomplete",
+      "reason": "The receipt is cancelled; it needs no current summary."
+    },
+    {
+      "call_id": "test-015-s62017-receipt-v04-0",
+      "receipt_status": "completed",
+      "verdict": "incomplete",
+      "reason": "The receipt is completed; it does not need a current summary."
+    },
+    {
+      "call_id": "test-020-s62017-receipt-v04-0",
+      "receipt_status": "cancelled",
+      "verdict": "incomplete",
+      "reason": "The receipt is cancelled; it needs no current summary."
+    },
+    {
+      "call_id": "test-021-s62018-receipt-v04-0",
+      "receipt_status": "cancelled",
+      "verdict": "incomplete",
+      "reason": "The receipt is cancelled; it needs no current summary."
+    },
+    {
+      "call_id": "test-028-s62018-receipt-v04-0",
+      "receipt_status": "superseded",
+      "verdict": "conflict",
+      "reason": "The receipt's destination is Granite testing room, but the commitment key 'order_red' refers to a different destination (Granite testing room) in the commitments dictionary."
+    },
+    {
+      "call_id": "test-033-s62018-receipt-v04-0",
+      "receipt_status": "cancelled",
+      "verdict": "incomplete",
+      "reason": "The receipt is cancelled; it needs no current summary."
+    },
+    {
+      "call_id": "test-033-s62018-receipt-v04-1",
+      "receipt_status": "cancelled",
+      "verdict": "incomplete",
+      "reason": "The receipt is cancelled; it needs no current summary."
+    },
+    {
+      "call_id": "test-023-s62017-receipt-v04-0",
+      "receipt_status": "cancelled",
+      "verdict": "incomplete",
+      "reason": "The receipt is cancelled; it needs no current summary."
+    },
+    {
+      "call_id": "test-022-s62017-receipt-v04-0",
+      "receipt_status": "cancelled",
+      "verdict": "incomplete",
+      "reason": "The receipt is cancelled; it needs no current summary."
+    },
+    {
+      "call_id": "test-026-s62017-receipt-v04-0",
+      "receipt_status": "superseded",
+      "verdict": "conflict",
+      "reason": "The receipt's destination is Granite testing room, but the commitment key 'order_red' refers to Marble testing room."
+    },
+    {
+      "call_id": "test-036-s62017-receipt-v04-1",
+      "receipt_status": "cancelled",
+      "verdict": "incomplete",
+      "reason": "The receipt is cancelled; it needs no current summary."
+    },
+    {
+      "call_id": "test-029-s62018-receipt-v04-0",
+      "receipt_status": "superseded",
+      "verdict": "conflict",
+      "reason": "The receipt's destination is Granite testing room, but the commitment key 'order_red' refers to a different destination (Granite testing room) in the commitments dictionary."
+    },
+    {
+      "call_id": "test-016-s62018-receipt-v04-0",
+      "receipt_status": "completed",
+      "verdict": "incomplete",
+      "reason": "The receipt is completed; it does not need a current summary."
+    },
+    {
+      "call_id": "test-036-s62018-receipt-v04-1",
+      "receipt_status": "cancelled",
+      "verdict": "incomplete",
+      "reason": "The receipt is cancelled; it needs no current summary."
+    },
+    {
+      "call_id": "test-020-s62018-receipt-v04-0",
+      "receipt_status": "cancelled",
+      "verdict": "incomplete",
+      "reason": "The receipt is cancelled; it needs no current summary."
+    },
+    {
+      "call_id": "test-017-s62017-receipt-v04-0",
+      "receipt_status": "completed",
+      "verdict": "incomplete",
+      "reason": "The receipt is completed; it does not need a current summary."
+    },
+    {
+      "call_id": "test-028-s62017-receipt-v04-0",
+      "receipt_status": "superseded",
+      "verdict": "conflict",
+      "reason": "The receipt is superseded; it needs no current summary."
+    },
+    {
+      "call_id": "test-024-s62018-receipt-v04-0",
+      "receipt_status": "cancelled",
+      "verdict": "incomplete",
+      "reason": "The receipt is cancelled; it needs no current summary."
+    },
+    {
+      "call_id": "test-037-s62017-receipt-v04-1",
+      "receipt_status": "cancelled",
+      "verdict": "incomplete",
+      "reason": "The receipt is cancelled; it needs no current summary."
+    },
+    {
+      "call_id": "test-018-s62018-receipt-v04-0",
+      "receipt_status": "completed",
+      "verdict": "incomplete",
+      "reason": "The receipt is completed; it does not need a current summary."
+    },
+    {
+      "call_id": "test-033-s62017-receipt-v04-0",
+      "receipt_status": "cancelled",
+      "verdict": "incomplete",
+      "reason": "The receipt is cancelled; it needs no current summary."
+    },
+    {
+      "call_id": "test-033-s62017-receipt-v04-1",
+      "receipt_status": "cancelled",
+      "verdict": "incomplete",
+      "reason": "The receipt is cancelled; it needs no current summary."
+    },
+    {
+      "call_id": "test-019-s62018-receipt-v04-0",
+      "receipt_status": "completed",
+      "verdict": "incomplete",
+      "reason": "The receipt is completed; it does not need a current summary."
+    },
+    {
+      "call_id": "test-016-s62017-receipt-v04-0",
+      "receipt_status": "completed",
+      "verdict": "incomplete",
+      "reason": "The receipt is completed; it does not need a current summary."
+    },
+    {
+      "call_id": "test-025-s62017-receipt-v04-0",
+      "receipt_status": "superseded",
+      "verdict": "conflict",
+      "reason": "The receipt's destination is Granite testing room, but the commitment key 'order_red' refers to Marble testing room."
+    },
+    {
+      "call_id": "test-029-s62017-receipt-v04-0",
+      "receipt_status": "superseded",
+      "verdict": "conflict",
+      "reason": "The receipt is superseded; it needs no current summary."
+    },
+    {
+      "call_id": "test-024-s62017-receipt-v04-0",
+      "receipt_status": "cancelled",
+      "verdict": "incomplete",
+      "reason": "The receipt is cancelled; it needs no current summary."
+    },
+    {
+      "call_id": "test-026-s62018-receipt-v04-0",
+      "receipt_status": "superseded",
+      "verdict": "conflict",
+      "reason": "The receipt is superseded; it needs no current summary."
+    },
+    {
+      "call_id": "test-035-s62018-receipt-v04-0",
+      "receipt_status": "cancelled",
+      "verdict": "incomplete",
+      "reason": "The receipt is cancelled; it needs no current summary."
+    },
+    {
+      "call_id": "test-035-s62018-receipt-v04-1",
+      "receipt_status": "cancelled",
+      "verdict": "incomplete",
+      "reason": "The receipt is cancelled; it needs no current summary."
+    },
+    {
+      "call_id": "test-017-s62018-receipt-v04-0",
+      "receipt_status": "completed",
+      "verdict": "incomplete",
+      "reason": "The receipt is completed; it needs no current summary."
+    },
+    {
+      "call_id": "test-022-s62018-receipt-v04-0",
+      "receipt_status": "cancelled",
+      "verdict": "incomplete",
+      "reason": "The receipt is cancelled; it needs no current summary."
+    },
+    {
+      "call_id": "test-021-s62017-receipt-v04-0",
+      "receipt_status": "cancelled",
+      "verdict": "incomplete",
+      "reason": "The receipt is cancelled; it needs no current summary."
+    },
+    {
+      "call_id": "test-023-s62018-receipt-v04-0",
+      "receipt_status": "cancelled",
+      "verdict": "incomplete",
+      "reason": "The receipt is cancelled; it needs no current summary."
+    },
+    {
+      "call_id": "test-027-s62017-receipt-v04-0",
+      "receipt_status": "superseded",
+      "verdict": "incomplete",
+      "reason": "The receipt is superseded; it needs no current summary."
+    },
+    {
+      "call_id": "test-037-s62018-receipt-v04-1",
+      "receipt_status": "cancelled",
+      "verdict": "incomplete",
+      "reason": "The receipt is cancelled; it needs no current summary."
+    },
+    {
+      "call_id": "test-034-s62017-receipt-v04-0",
+      "receipt_status": "cancelled",
+      "verdict": "incomplete",
+      "reason": "The receipt is cancelled; it needs no current summary."
+    },
+    {
+      "call_id": "test-034-s62017-receipt-v04-1",
+      "receipt_status": "cancelled",
+      "verdict": "incomplete",
+      "reason": "The receipt is cancelled; it needs no current summary."
+    }
+  ]
+}

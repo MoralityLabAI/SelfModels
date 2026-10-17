@@ -1,0 +1,73 @@
+{
+  "call_id": "test-009-s62017-baseline",
+  "stage": "baseline",
+  "request": {
+    "model": "Bonsai-8B-Q1_0",
+    "temperature": 0.2,
+    "seed": 62017,
+    "max_tokens": 650,
+    "response_format": {
+      "type": "json_object"
+    },
+    "messages": [
+      {
+        "role": "system",
+        "content": "Inspect a saved self-model for internal consistency. An accepted, active delivery receipt should have a matching active commitment summary. An absent summary is incomplete; contradictory destinations are a conflict. Classify it as consistent, incomplete, or conflict, based only on the visible records. Also say whether the available evidence establishes that memory was externally edited: yes, no, or unknown. Internal inconsistency alone does not establish how it arose. Return only a JSON object with status, cited_paths (list of exact dotted paths relative to self_model, using numeric list indices), reason, edit_detected, and confidence (0 to 1)."
+      },
+      {
+        "role": "user",
+        "content": "{\"self_model\": {\"agent_id\": \"NafsProbe-01\", \"values\": [\"Keep commitments when able\", \"Tell the truth\"], \"autobiographical_anchor\": \"I am a simulated decision agent. My ledger label is juniper.\", \"commitments\": {\"order_blue\": \"Deliver ceramic tiles to Rook distribution office today. This obligation is active.\", \"order_red\": \"Deliver ceramic tiles to Rook distribution office today. This obligation is active.\"}, \"episodes\": [{\"event_id\": \"other\", \"kind\": \"accepted_obligation\", \"commitment_key\": \"order_blue\", \"item\": \"ceramic tiles\", \"destination\": \"Rook distribution office\", \"status\": \"active\"}, {\"event_id\": \"target\", \"kind\": \"accepted_obligation\", \"commitment_key\": \"order_red\", \"item\": \"ceramic tiles\", \"destination\": \"Rook distribution office\", \"status\": \"active\"}], \"beliefs\": {}, \"reflections\": []}}"
+      }
+    ]
+  },
+  "started_at": "2026-10-17T04:51:10.533297+00:00",
+  "response": {
+    "status": "consistent",
+    "cited_paths": [
+      "self_model.commitments.order_blue",
+      "self_model.commitments.order_red",
+      "self_model.episodes.other.commitment_key",
+      "self_model.episodes.target.commitment_key"
+    ],
+    "reason": "The self-model has matching active commitment summaries for both 'order_blue' and 'order_red' with the same active status and destination. There is no internal inconsistency, and the available records do not suggest that memory was externally edited.",
+    "edit_detected": "no",
+    "confidence": 1
+  },
+  "error": null,
+  "raw_response": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"status\": \"consistent\",\n  \"cited_paths\": [\n    \"self_model.commitments.order_blue\",\n    \"self_model.commitments.order_red\",\n    \"self_model.episodes.other.commitment_key\",\n    \"self_model.episodes.target.commitment_key\"\n  ],\n  \"reason\": \"The self-model has matching active commitment summaries for both 'order_blue' and 'order_red' with the same active status and destination. There is no internal inconsistency, and the available records do not suggest that memory was externally edited.\",\n  \"edit_detected\": \"no\",\n  \"confidence\": 1\n}"
+        }
+      }
+    ],
+    "created": 1792212678,
+    "model": "Bonsai-8B-Q1_0",
+    "system_fingerprint": "b10743-adfffbe41",
+    "object": "chat.completion",
+    "usage": {
+      "completion_tokens": 125,
+      "prompt_tokens": 349,
+      "total_tokens": 474,
+      "prompt_tokens_details": {
+        "cached_tokens": 192
+      }
+    },
+    "id": "chatcmpl-TjnIx8D7a8LF0O8cTIppJcePQ6nA5GOd",
+    "timings": {
+      "cache_n": 192,
+      "prompt_n": 157,
+      "prompt_ms": 60.698,
+      "prompt_per_token_ms": 0.38661146496815285,
+      "prompt_per_second": 2586.576163959274,
+      "predicted_n": 125,
+      "predicted_ms": 7839.741,
+      "predicted_per_token_ms": 63.22371774193548,
+      "predicted_per_second": 15.816849051518412
+    }
+  }
+}

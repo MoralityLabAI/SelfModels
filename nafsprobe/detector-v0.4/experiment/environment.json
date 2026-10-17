@@ -1,0 +1,11 @@
+{
+  "model_file": "C:\\Users\\patri\\Documents\\Codex\\BitAgent-gym\\prime-artifacts\\Bonsai-8B-Q1_0.gguf",
+  "model_bytes": 1158654496,
+  "model_sha256": "284a335aa3fb2ced3b1b01fcb40b08aa783e3b70832767f0dd2e3fdfa134bd54",
+  "server_executable": "C:\\Users\\patri\\Documents\\Codex\\BitAgent-gym\\llama-prism\\bin\\llama-server.exe",
+  "context_tokens": 32768,
+  "parallel_slots": 1,
+  "host": "127.0.0.1",
+  "port": 8101,
+  "note": "Environment record written while the frozen held-out run was executing; source and prompt freeze predates inference."
+}

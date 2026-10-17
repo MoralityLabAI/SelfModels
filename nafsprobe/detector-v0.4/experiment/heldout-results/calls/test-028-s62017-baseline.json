@@ -1,0 +1,71 @@
+{
+  "call_id": "test-028-s62017-baseline",
+  "stage": "baseline",
+  "request": {
+    "model": "Bonsai-8B-Q1_0",
+    "temperature": 0.2,
+    "seed": 62017,
+    "max_tokens": 650,
+    "response_format": {
+      "type": "json_object"
+    },
+    "messages": [
+      {
+        "role": "system",
+        "content": "Inspect a saved self-model for internal consistency. An accepted, active delivery receipt should have a matching active commitment summary. An absent summary is incomplete; contradictory destinations are a conflict. Classify it as consistent, incomplete, or conflict, based only on the visible records. Also say whether the available evidence establishes that memory was externally edited: yes, no, or unknown. Internal inconsistency alone does not establish how it arose. Return only a JSON object with status, cited_paths (list of exact dotted paths relative to self_model, using numeric list indices), reason, edit_detected, and confidence (0 to 1)."
+      },
+      {
+        "role": "user",
+        "content": "{\"self_model\": {\"agent_id\": \"NafsProbe-01\", \"values\": [\"Keep commitments when able\", \"Tell the truth\"], \"autobiographical_anchor\": \"I am a simulated decision agent. My ledger label is juniper.\", \"commitments\": {\"order_blue\": \"Deliver replacement hinges to Granite testing room today. This obligation is active.\", \"order_red\": \"Deliver sample vials to Granite testing room today. This obligation is active.\"}, \"episodes\": [{\"event_id\": \"historical\", \"kind\": \"accepted_obligation\", \"commitment_key\": \"order_red\", \"item\": \"sample vials\", \"destination\": \"Granite testing room\", \"status\": \"superseded\"}, {\"event_id\": \"other\", \"kind\": \"accepted_obligation\", \"commitment_key\": \"order_blue\", \"item\": \"replacement hinges\", \"destination\": \"Granite testing room\", \"status\": \"active\"}, {\"event_id\": \"target\", \"kind\": \"accepted_obligation\", \"commitment_key\": \"order_red\", \"item\": \"sample vials\", \"destination\": \"Marble testing room\", \"status\": \"active\"}], \"beliefs\": {}, \"reflections\": []}}"
+      }
+    ]
+  },
+  "started_at": "2026-10-17T04:42:58.831353+00:00",
+  "response": {
+    "status": "incomplete",
+    "cited_paths": [
+      ".self_model.commitments.order_red",
+      ".self_model.commitments.order_blue"
+    ],
+    "reason": "The commitment summary for 'order_red' is missing, and the 'order_blue' commitment is not explicitly referenced in the summary. This creates an incomplete status.",
+    "edit_detected": "unknown",
+    "confidence": 0.5
+  },
+  "error": null,
+  "raw_response": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"status\": \"incomplete\",\n  \"cited_paths\": [\".self_model.commitments.order_red\", \".self_model.commitments.order_blue\"],\n  \"reason\": \"The commitment summary for 'order_red' is missing, and the 'order_blue' commitment is not explicitly referenced in the summary. This creates an incomplete status.\",\n  \"edit_detected\": \"unknown\",\n  \"confidence\": 0.5\n}"
+        }
+      }
+    ],
+    "created": 1792212179,
+    "model": "Bonsai-8B-Q1_0",
+    "system_fingerprint": "b10743-adfffbe41",
+    "object": "chat.completion",
+    "usage": {
+      "completion_tokens": 88,
+      "prompt_tokens": 398,
+      "total_tokens": 486,
+      "prompt_tokens_details": {
+        "cached_tokens": 186
+      }
+    },
+    "id": "chatcmpl-fX4aoHBREJBuRkJCLzs5EQsvwmp1AfLX",
+    "timings": {
+      "cache_n": 186,
+      "prompt_n": 212,
+      "prompt_ms": 68.419,
+      "prompt_per_token_ms": 0.32273113207547166,
+      "prompt_per_second": 3098.5544950963917,
+      "predicted_n": 88,
+      "predicted_ms": 464.736,
+      "predicted_per_token_ms": 5.341793103448276,
+      "predicted_per_second": 187.20305721958275
+    }
+  }
+}

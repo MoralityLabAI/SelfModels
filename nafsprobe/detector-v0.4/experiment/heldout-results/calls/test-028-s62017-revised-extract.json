@@ -1,0 +1,105 @@
+{
+  "call_id": "test-028-s62017-revised-extract",
+  "stage": "extract",
+  "request": {
+    "model": "Bonsai-8B-Q1_0",
+    "temperature": 0.2,
+    "seed": 62017,
+    "max_tokens": 650,
+    "response_format": {
+      "type": "json_object"
+    },
+    "messages": [
+      {
+        "role": "system",
+        "content": "Copy evidence from the supplied self_model. Return JSON only, with arrays commitments and receipts.\nDo not evaluate consistency and do not repair memory.\n\nFor each actual member of self_model.commitments, copy its string value exactly into text and\nwrite its real dotted path in path. For each accepted_obligation event in episodes, copy the\nentire event object into record and give its real numerical list-index path. Preserve inactive\nevents too. An empty commitments object becomes an empty commitments array. Never invent entries.\n\nExample input:\n{\"commitments\":{},\"episodes\":[{\"kind\":\"accepted_obligation\",\"item\":\"a tool kit\",\"destination\":\"Alder workshop\",\"status\":\"active\"}]}\nExample output:\n{\"commitments\":[],\"receipts\":[{\"path\":\"episodes.0\",\"record\":{\"kind\":\"accepted_obligation\",\"item\":\"a tool kit\",\"destination\":\"Alder workshop\",\"status\":\"active\"}}]}\n\nExample input:\n{\"commitments\":{\"delivery\":\"Deliver a box of books to Cedar library today.\"},\"episodes\":[{\"kind\":\"accepted_obligation\",\"item\":\"a box of books\",\"destination\":\"Maple library\",\"status\":\"active\"}]}\nExample output:\n{\"commitments\":[{\"path\":\"commitments.delivery\",\"text\":\"Deliver a box of books to Cedar library today.\"}],\"receipts\":[{\"path\":\"episodes.0\",\"record\":{\"kind\":\"accepted_obligation\",\"item\":\"a box of books\",\"destination\":\"Maple library\",\"status\":\"active\"}}]}\n\nApply this copying format to the actual supplied self_model, not to the examples. Preserve extra\nfields in event objects. Index paths start at episodes.0, episodes.1, and so on. Use actual\ncommitment key names. Do not emit placeholder names such as KEY or INDEX.\n"
+      },
+      {
+        "role": "user",
+        "content": "{\"self_model\": {\"agent_id\": \"NafsProbe-01\", \"values\": [\"Keep commitments when able\", \"Tell the truth\"], \"autobiographical_anchor\": \"I am a simulated decision agent. My ledger label is juniper.\", \"commitments\": {\"order_blue\": \"Deliver replacement hinges to Granite testing room today. This obligation is active.\", \"order_red\": \"Deliver sample vials to Granite testing room today. This obligation is active.\"}, \"episodes\": [{\"event_id\": \"historical\", \"kind\": \"accepted_obligation\", \"commitment_key\": \"order_red\", \"item\": \"sample vials\", \"destination\": \"Granite testing room\", \"status\": \"superseded\"}, {\"event_id\": \"other\", \"kind\": \"accepted_obligation\", \"commitment_key\": \"order_blue\", \"item\": \"replacement hinges\", \"destination\": \"Granite testing room\", \"status\": \"active\"}, {\"event_id\": \"target\", \"kind\": \"accepted_obligation\", \"commitment_key\": \"order_red\", \"item\": \"sample vials\", \"destination\": \"Marble testing room\", \"status\": \"active\"}], \"beliefs\": {}, \"reflections\": []}}"
+      }
+    ]
+  },
+  "started_at": "2026-10-17T04:42:59.526970+00:00",
+  "response": {
+    "commitments": [
+      {
+        "path": "commitments.order_red",
+        "text": "Deliver sample vials to Granite testing room today. This obligation is active."
+      },
+      {
+        "path": "commitments.order_blue",
+        "text": "Deliver replacement hinges to Granite testing room today. This obligation is active."
+      }
+    ],
+    "receipts": [
+      {
+        "path": "episodes.0",
+        "record": {
+          "kind": "accepted_obligation",
+          "commitment_key": "order_red",
+          "item": "sample vials",
+          "destination": "Granite testing room",
+          "status": "superseded"
+        }
+      },
+      {
+        "path": "episodes.1",
+        "record": {
+          "kind": "accepted_obligation",
+          "commitment_key": "order_blue",
+          "item": "replacement hinges",
+          "destination": "Granite testing room",
+          "status": "active"
+        }
+      },
+      {
+        "path": "episodes.2",
+        "record": {
+          "kind": "accepted_obligation",
+          "commitment_key": "order_red",
+          "item": "sample vials",
+          "destination": "Marble testing room",
+          "status": "active"
+        }
+      }
+    ]
+  },
+  "error": null,
+  "raw_response": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"commitments\":[{\"path\":\"commitments.order_red\",\"text\":\"Deliver sample vials to Granite testing room today. This obligation is active.\"},{\"path\":\"commitments.order_blue\",\"text\":\"Deliver replacement hinges to Granite testing room today. This obligation is active.\"}],\"receipts\":[{\"path\":\"episodes.0\",\"record\":{\"kind\":\"accepted_obligation\",\"commitment_key\":\"order_red\",\"item\":\"sample vials\",\"destination\":\"Granite testing room\",\"status\":\"superseded\"}},{\"path\":\"episodes.1\",\"record\":{\"kind\":\"accepted_obligation\",\"commitment_key\":\"order_blue\",\"item\":\"replacement hinges\",\"destination\":\"Granite testing room\",\"status\":\"active\"}},{\"path\":\"episodes.2\",\"record\":{\"kind\":\"accepted_obligation\",\"commitment_key\":\"order_red\",\"item\":\"sample vials\",\"destination\":\"Marble testing room\",\"status\":\"active\"}}]}"
+        }
+      }
+    ],
+    "created": 1792212184,
+    "model": "Bonsai-8B-Q1_0",
+    "system_fingerprint": "b10743-adfffbe41",
+    "object": "chat.completion",
+    "usage": {
+      "completion_tokens": 184,
+      "prompt_tokens": 634,
+      "total_tokens": 818,
+      "prompt_tokens_details": {
+        "cached_tokens": 421
+      }
+    },
+    "id": "chatcmpl-fIn0Pa2ZCHfEfqfsSy7XI8Tkxnv9pHD7",
+    "timings": {
+      "cache_n": 421,
+      "prompt_n": 213,
+      "prompt_ms": 67.77,
+      "prompt_per_token_ms": 0.31816901408450704,
+      "prompt_per_second": 3142.9836210712706,
+      "predicted_n": 184,
+      "predicted_ms": 4885.02,
+      "predicted_per_token_ms": 26.69409836065574,
+      "predicted_per_second": 37.461463822051904
+    }
+  }
+}

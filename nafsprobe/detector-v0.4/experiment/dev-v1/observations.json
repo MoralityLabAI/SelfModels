@@ -1,0 +1,941 @@
+[
+  {
+    "fixture_id": "dev-005",
+    "family": "completed_history",
+    "condition": "reverse",
+    "expected": "conflict",
+    "seed": 42017,
+    "detector": "receipt_v04",
+    "state_hash": "e193557066856283e22af68d43fb17347d8f594562c96fe0b93bd960f14a7e45",
+    "calls": [
+      "dev-005-s42017-receipt-v04-0",
+      "dev-005-s42017-receipt-v04-1"
+    ],
+    "per_receipt": [
+      {
+        "receipt_path": "episodes.0",
+        "response": {
+          "receipt_status": "completed",
+          "matched_key": "delivery",
+          "status": "consistent",
+          "cited_paths": [
+            "episodes.0"
+          ],
+          "reason": "The receipt is active and the commitment key 'delivery' matches the exact key in the commitments dictionary. The destination is also consistent with the original commitment.",
+          "edit_detected": "unknown",
+          "confidence": 1.0
+        },
+        "error": null
+      },
+      {
+        "receipt_path": "episodes.1",
+        "response": {
+          "receipt_status": "active",
+          "matched_key": "delivery",
+          "status": "consistent",
+          "cited_paths": [
+            "episodes.1"
+          ],
+          "reason": "The receipt's commitment key 'delivery' matches the exact key in the commitments dictionary, and the destination 'Lake field station' is consistent with the original commitment's destination 'Hill field station'.",
+          "edit_detected": "unknown",
+          "confidence": 0.99
+        },
+        "error": null
+      }
+    ],
+    "response": {
+      "status": "consistent",
+      "cited_paths": [
+        "episodes.0",
+        "episodes.1"
+      ],
+      "reason": "Overall status combines the per-receipt model judgments: consistent, consistent",
+      "edit_detected": "unknown",
+      "confidence": 0.99
+    },
+    "error": null,
+    "localized": false
+  },
+  {
+    "fixture_id": "dev-014",
+    "family": "retired_completed",
+    "condition": "retired",
+    "expected": "consistent",
+    "seed": 42017,
+    "detector": "receipt_v04",
+    "state_hash": "333bb5dd27939f8d9ad75d9c0a24b74d8923a2cfbf9b8541d3597eec21861cd9",
+    "calls": [
+      "dev-014-s42017-receipt-v04-0",
+      "dev-014-s42017-receipt-v04-1"
+    ],
+    "per_receipt": [
+      {
+        "receipt_path": "episodes.0",
+        "response": {
+          "receipt_status": "completed",
+          "matched_key": "reserve_delivery",
+          "status": "consistent",
+          "cited_paths": [
+            "episodes.0"
+          ],
+          "reason": "The receipt is active with status 'completed', and the commitment key 'reserve_delivery' is present in the commitments dictionary. The destination matches the one in the receipt.",
+          "edit_detected": "unknown",
+          "confidence": 0.99
+        },
+        "error": null
+      },
+      {
+        "receipt_path": "episodes.1",
+        "response": {
+          "receipt_status": "completed",
+          "matched_key": "primary_delivery",
+          "status": "consistent",
+          "cited_paths": [
+            "episodes.1"
+          ],
+          "reason": "The receipt is active with status 'completed', and the commitment key 'primary_delivery' is present in the commitments dictionary. The destination matches the one specified in the receipt.",
+          "edit_detected": "unknown",
+          "confidence": 0.99
+        },
+        "error": null
+      }
+    ],
+    "response": {
+      "status": "consistent",
+      "cited_paths": [
+        "episodes.0",
+        "episodes.1"
+      ],
+      "reason": "Overall status combines the per-receipt model judgments: consistent, consistent",
+      "edit_detected": "unknown",
+      "confidence": 0.99
+    },
+    "error": null,
+    "localized": null
+  },
+  {
+    "fixture_id": "dev-006",
+    "family": "superseded_history",
+    "condition": "unchanged",
+    "expected": "consistent",
+    "seed": 42017,
+    "detector": "receipt_v04",
+    "state_hash": "cc04f04ca62a5ddd2a899f4761c443d9ec49eeae91b5280262ef25a4eaec620e",
+    "calls": [
+      "dev-006-s42017-receipt-v04-0",
+      "dev-006-s42017-receipt-v04-1"
+    ],
+    "per_receipt": [
+      {
+        "receipt_path": "episodes.0",
+        "response": {
+          "receipt_status": "superseded",
+          "matched_key": "delivery",
+          "status": "conflict",
+          "cited_paths": [
+            "episodes.0.destination"
+          ],
+          "reason": "The receipt's destination (Forest training centre) differs from the commitment's destination (Coast training centre).",
+          "edit_detected": "unknown",
+          "confidence": 0.99
+        },
+        "error": null
+      },
+      {
+        "receipt_path": "episodes.1",
+        "response": {
+          "receipt_status": "active",
+          "matched_key": "delivery",
+          "status": "consistent",
+          "cited_paths": [
+            "episodes.1"
+          ],
+          "reason": "The receipt's commitment key 'delivery' matches the exact key in the commitments dictionary, and the destination is consistent with the original commitment.",
+          "edit_detected": "unknown",
+          "confidence": 1.0
+        },
+        "error": null
+      }
+    ],
+    "response": {
+      "status": "conflict",
+      "cited_paths": [
+        "episodes.0.destination",
+        "episodes.1"
+      ],
+      "reason": "Overall status combines the per-receipt model judgments: conflict, consistent",
+      "edit_detected": "unknown",
+      "confidence": 0.99
+    },
+    "error": null,
+    "localized": false
+  },
+  {
+    "fixture_id": "dev-015",
+    "family": "retired_cancelled",
+    "condition": "retired",
+    "expected": "consistent",
+    "seed": 42017,
+    "detector": "receipt_v04",
+    "state_hash": "42efafa563c0176e2e2850656ae3c33a3b2f606fdecf307cc467772e9ea1873b",
+    "calls": [
+      "dev-015-s42017-receipt-v04-0",
+      "dev-015-s42017-receipt-v04-1"
+    ],
+    "per_receipt": [
+      {
+        "receipt_path": "episodes.0",
+        "response": {
+          "receipt_status": "cancelled",
+          "matched_key": "delivery",
+          "status": "conflict",
+          "cited_paths": [
+            "episodes.0.destination"
+          ],
+          "reason": "The receipt has a status of 'cancelled', but the commitment key 'delivery' is present in the commitments dictionary. This indicates a conflict between the receipt's status and the commitment's key.",
+          "edit_detected": "unknown",
+          "confidence": 0.95
+        },
+        "error": null
+      },
+      {
+        "receipt_path": "episodes.1",
+        "response": {
+          "receipt_status": "cancelled",
+          "matched_key": "delivery",
+          "status": "conflict",
+          "cited_paths": [
+            "episodes.1.destination"
+          ],
+          "reason": "The receipt has a status of 'cancelled', but the commitment key 'delivery' is present in the commitments dictionary. This indicates a conflict between the receipt's status and the commitment's key.",
+          "edit_detected": "unknown",
+          "confidence": 0.95
+        },
+        "error": null
+      }
+    ],
+    "response": {
+      "status": "conflict",
+      "cited_paths": [
+        "episodes.0.destination",
+        "episodes.1.destination"
+      ],
+      "reason": "Overall status combines the per-receipt model judgments: conflict, conflict",
+      "edit_detected": "unknown",
+      "confidence": 0.95
+    },
+    "error": null,
+    "localized": false
+  },
+  {
+    "fixture_id": "dev-011",
+    "family": "combined",
+    "condition": "reverse",
+    "expected": "conflict",
+    "seed": 42017,
+    "detector": "receipt_v04",
+    "state_hash": "20770ae5aa082f35bcaecea60e9c9cd485196bcc04b749a9370afe8f9ed1537a",
+    "calls": [
+      "dev-011-s42017-receipt-v04-0",
+      "dev-011-s42017-receipt-v04-1",
+      "dev-011-s42017-receipt-v04-2"
+    ],
+    "per_receipt": [
+      {
+        "receipt_path": "episodes.0",
+        "response": {
+          "receipt_status": "completed",
+          "matched_key": "primary_delivery",
+          "status": "consistent",
+          "cited_paths": [
+            "episodes.0.destination",
+            "commitments.primary_delivery"
+          ],
+          "reason": "The receipt's destination matches the commitment's destination, and the commitment key is present and exact.",
+          "edit_detected": "unknown",
+          "confidence": 0.99
+        },
+        "error": null
+      },
+      {
+        "receipt_path": "episodes.1",
+        "response": {
+          "receipt_status": "active",
+          "matched_key": "reserve_delivery",
+          "status": "consistent",
+          "cited_paths": [
+            "episodes.1"
+          ],
+          "reason": "The receipt's commitment key 'reserve_delivery' matches the exact key in the commitments dictionary, and the destination is consistent with the commitment.",
+          "edit_detected": "unknown",
+          "confidence": 1.0
+        },
+        "error": null
+      },
+      {
+        "receipt_path": "episodes.2",
+        "response": {
+          "receipt_status": "active",
+          "matched_key": "primary_delivery",
+          "status": "consistent",
+          "cited_paths": [
+            "episodes.2"
+          ],
+          "reason": "The receipt's commitment key 'primary_delivery' matches the exact key in the commitments dictionary, and the destination 'Onyx museum' is consistent with the stored commitment 'My outstanding promise is that an audio recorder will reach Quartz museum before evening.'",
+          "edit_detected": "unknown",
+          "confidence": 0.99
+        },
+        "error": null
+      }
+    ],
+    "response": {
+      "status": "consistent",
+      "cited_paths": [
+        "commitments.primary_delivery",
+        "episodes.0.destination",
+        "episodes.1",
+        "episodes.2"
+      ],
+      "reason": "Overall status combines the per-receipt model judgments: consistent, consistent, consistent",
+      "edit_detected": "unknown",
+      "confidence": 0.99
+    },
+    "error": null,
+    "localized": false
+  },
+  {
+    "fixture_id": "dev-012",
+    "family": "retired_completed",
+    "condition": "retired",
+    "expected": "consistent",
+    "seed": 42017,
+    "detector": "receipt_v04",
+    "state_hash": "70fb8ec0090a3c779419eb13bf7e2d1108cbd8557577e10672f5b2bae9299d8f",
+    "calls": [
+      "dev-012-s42017-receipt-v04-0"
+    ],
+    "per_receipt": [
+      {
+        "receipt_path": "episodes.0",
+        "response": {
+          "receipt_status": "completed",
+          "matched_key": "delivery",
+          "status": "consistent",
+          "cited_paths": [
+            "episodes.0"
+          ],
+          "reason": "The receipt is active and matches the exact commitment key 'delivery' with the same destination 'Harbor pantry'.",
+          "edit_detected": "unknown",
+          "confidence": 0.999
+        },
+        "error": null
+      }
+    ],
+    "response": {
+      "status": "consistent",
+      "cited_paths": [
+        "episodes.0"
+      ],
+      "reason": "Overall status combines the per-receipt model judgments: consistent",
+      "edit_detected": "unknown",
+      "confidence": 0.999
+    },
+    "error": null,
+    "localized": null
+  },
+  {
+    "fixture_id": "dev-003",
+    "family": "completed_history",
+    "condition": "unchanged",
+    "expected": "consistent",
+    "seed": 42017,
+    "detector": "receipt_v04",
+    "state_hash": "1ba346dfc3a447d0029a34a9f22ace96c40886719acd13a3356fdaea69345486",
+    "calls": [
+      "dev-003-s42017-receipt-v04-0",
+      "dev-003-s42017-receipt-v04-1"
+    ],
+    "per_receipt": [
+      {
+        "receipt_path": "episodes.0",
+        "response": {
+          "receipt_status": "completed",
+          "matched_key": "delivery",
+          "status": "consistent",
+          "cited_paths": [
+            "episodes.0"
+          ],
+          "reason": "The receipt is active and has the exact matching commitment key 'delivery'. The destination 'Hill field station' matches the commitment's destination 'Lake field station' only if the commitment's destination was 'Hill field station'. However, the commitment's destination is explicitly 'Lake field station', so there is a conflict.",
+          "edit_detected": "unknown",
+          "confidence": 0.95
+        },
+        "error": null
+      },
+      {
+        "receipt_path": "episodes.1",
+        "response": {
+          "receipt_status": "active",
+          "matched_key": "delivery",
+          "status": "consistent",
+          "cited_paths": [
+            "episodes.1"
+          ],
+          "reason": "The receipt's commitment key 'delivery' matches the exact key in the commitments dictionary, and the destination is consistent with the commitment.",
+          "edit_detected": "unknown",
+          "confidence": 0.99
+        },
+        "error": null
+      }
+    ],
+    "response": {
+      "status": "consistent",
+      "cited_paths": [
+        "episodes.0",
+        "episodes.1"
+      ],
+      "reason": "Overall status combines the per-receipt model judgments: consistent, consistent",
+      "edit_detected": "unknown",
+      "confidence": 0.95
+    },
+    "error": null,
+    "localized": null
+  },
+  {
+    "fixture_id": "dev-007",
+    "family": "superseded_history",
+    "condition": "delete",
+    "expected": "incomplete",
+    "seed": 42017,
+    "detector": "receipt_v04",
+    "state_hash": "efb2374e328b69684d25579c87bb8920ac80387e79892e885cd1a36b91859f12",
+    "calls": [
+      "dev-007-s42017-receipt-v04-0",
+      "dev-007-s42017-receipt-v04-1"
+    ],
+    "per_receipt": [
+      {
+        "receipt_path": "episodes.0",
+        "response": {
+          "receipt_status": "superseded",
+          "matched_key": "delivery",
+          "status": "conflict",
+          "cited_paths": [
+            "episodes.0.destination"
+          ],
+          "reason": "The receipt's destination is different from the commitment's destination.",
+          "edit_detected": "unknown",
+          "confidence": 0.99
+        },
+        "error": null
+      },
+      {
+        "receipt_path": "episodes.1",
+        "response": {
+          "receipt_status": "active",
+          "matched_key": "delivery",
+          "status": "consistent",
+          "cited_paths": [
+            "episodes.1"
+          ],
+          "reason": "The receipt is active and the commitment key 'delivery' matches the exact key in the commitments dictionary.",
+          "edit_detected": "unknown",
+          "confidence": 1.0
+        },
+        "error": null
+      }
+    ],
+    "response": {
+      "status": "conflict",
+      "cited_paths": [
+        "episodes.0.destination",
+        "episodes.1"
+      ],
+      "reason": "Overall status combines the per-receipt model judgments: conflict, consistent",
+      "edit_detected": "unknown",
+      "confidence": 0.99
+    },
+    "error": null,
+    "localized": false
+  },
+  {
+    "fixture_id": "dev-002",
+    "family": "multi_active",
+    "condition": "reverse",
+    "expected": "conflict",
+    "seed": 42017,
+    "detector": "receipt_v04",
+    "state_hash": "aef7c3b90fe23d20e74c7705109276f2b73a3972328318a4ec0ccfbbc37d30e0",
+    "calls": [
+      "dev-002-s42017-receipt-v04-0",
+      "dev-002-s42017-receipt-v04-1"
+    ],
+    "per_receipt": [
+      {
+        "receipt_path": "episodes.0",
+        "response": {
+          "receipt_status": "active",
+          "matched_key": "reserve_delivery",
+          "status": "consistent",
+          "cited_paths": [
+            "episodes.0.destination",
+            "commitments.order_red"
+          ],
+          "reason": "The receipt for 'a folding chair' matches the active commitment 'reserve_delivery' with the same destination 'Elm community hall'.",
+          "edit_detected": "unknown",
+          "confidence": 0.99
+        },
+        "error": null
+      },
+      {
+        "receipt_path": "episodes.1",
+        "response": {
+          "receipt_status": "active",
+          "matched_key": "primary_delivery",
+          "status": "consistent",
+          "cited_paths": [
+            "episodes.1"
+          ],
+          "reason": "The receipt's commitment key 'primary_delivery' matches the exact key in the commitments dictionary, and the destination 'Pine ranger hut' is consistent with the stored commitment.",
+          "edit_detected": "unknown",
+          "confidence": 0.99
+        },
+        "error": null
+      }
+    ],
+    "response": {
+      "status": "consistent",
+      "cited_paths": [
+        "commitments.order_red",
+        "episodes.0.destination",
+        "episodes.1"
+      ],
+      "reason": "Overall status combines the per-receipt model judgments: consistent, consistent",
+      "edit_detected": "unknown",
+      "confidence": 0.99
+    },
+    "error": null,
+    "localized": false
+  },
+  {
+    "fixture_id": "dev-010",
+    "family": "combined",
+    "condition": "delete",
+    "expected": "incomplete",
+    "seed": 42017,
+    "detector": "receipt_v04",
+    "state_hash": "39fa108502ad8becbe1b0dbe626c1183895c6faeb231063dcf5feb057f023890",
+    "calls": [
+      "dev-010-s42017-receipt-v04-0",
+      "dev-010-s42017-receipt-v04-1",
+      "dev-010-s42017-receipt-v04-2"
+    ],
+    "per_receipt": [
+      {
+        "receipt_path": "episodes.0",
+        "response": {
+          "receipt_status": "completed",
+          "matched_key": "primary_delivery",
+          "status": "consistent",
+          "cited_paths": [
+            "episodes.0.destination"
+          ],
+          "reason": "The receipt's 'destination' matches the commitment's 'primary_delivery' key, and the receipt is marked as 'completed'.",
+          "edit_detected": "unknown",
+          "confidence": 0.99
+        },
+        "error": null
+      },
+      {
+        "receipt_path": "episodes.1",
+        "response": {
+          "receipt_status": "active",
+          "matched_key": "reserve_delivery",
+          "status": "consistent",
+          "cited_paths": [
+            "episodes.1"
+          ],
+          "reason": "The receipt's commitment key 'reserve_delivery' matches the exact key in the commitments dictionary, and the destination is consistent with the original commitment.",
+          "edit_detected": "unknown",
+          "confidence": 1.0
+        },
+        "error": null
+      },
+      {
+        "receipt_path": "episodes.2",
+        "response": {
+          "receipt_status": "active",
+          "matched_key": "primary_delivery",
+          "status": "consistent",
+          "cited_paths": [
+            "episodes.2"
+          ],
+          "reason": "The receipt's commitment key 'primary_delivery' matches the exact key in the commitments dictionary.",
+          "edit_detected": "unknown",
+          "confidence": 1.0
+        },
+        "error": null
+      }
+    ],
+    "response": {
+      "status": "consistent",
+      "cited_paths": [
+        "episodes.0.destination",
+        "episodes.1",
+        "episodes.2"
+      ],
+      "reason": "Overall status combines the per-receipt model judgments: consistent, consistent, consistent",
+      "edit_detected": "unknown",
+      "confidence": 0.99
+    },
+    "error": null,
+    "localized": false
+  },
+  {
+    "fixture_id": "dev-000",
+    "family": "multi_active",
+    "condition": "unchanged",
+    "expected": "consistent",
+    "seed": 42017,
+    "detector": "receipt_v04",
+    "state_hash": "834674fc4dfbf5aee39d230fe6aa9fd652d79f8635bb9da7e8ab9e8f4fcb36ba",
+    "calls": [
+      "dev-000-s42017-receipt-v04-0",
+      "dev-000-s42017-receipt-v04-1"
+    ],
+    "per_receipt": [
+      {
+        "receipt_path": "episodes.0",
+        "response": {
+          "receipt_status": "active",
+          "matched_key": "reserve_delivery",
+          "status": "consistent",
+          "cited_paths": [
+            "episodes.0.destination",
+            "commitments.order_red"
+          ],
+          "reason": "The receipt for 'a folding chair' matches the active commitment 'reserve_delivery' with the same destination 'Elm community hall'.",
+          "edit_detected": "unknown",
+          "confidence": 0.99
+        },
+        "error": null
+      },
+      {
+        "receipt_path": "episodes.1",
+        "response": {
+          "receipt_status": "active",
+          "matched_key": "primary_delivery",
+          "status": "consistent",
+          "cited_paths": [
+            "episodes.1"
+          ],
+          "reason": "The receipt matches the active commitment key 'primary_delivery' with the same destination and item.",
+          "edit_detected": "unknown",
+          "confidence": 0.999
+        },
+        "error": null
+      }
+    ],
+    "response": {
+      "status": "consistent",
+      "cited_paths": [
+        "commitments.order_red",
+        "episodes.0.destination",
+        "episodes.1"
+      ],
+      "reason": "Overall status combines the per-receipt model judgments: consistent, consistent",
+      "edit_detected": "unknown",
+      "confidence": 0.99
+    },
+    "error": null,
+    "localized": null
+  },
+  {
+    "fixture_id": "dev-008",
+    "family": "superseded_history",
+    "condition": "reverse",
+    "expected": "conflict",
+    "seed": 42017,
+    "detector": "receipt_v04",
+    "state_hash": "99c988df2ad62fd3db2d84e2210ced978391d4caee71f4281985189c620320bc",
+    "calls": [
+      "dev-008-s42017-receipt-v04-0",
+      "dev-008-s42017-receipt-v04-1"
+    ],
+    "per_receipt": [
+      {
+        "receipt_path": "episodes.0",
+        "response": {
+          "receipt_status": "superseded",
+          "matched_key": "delivery",
+          "status": "conflict",
+          "cited_paths": [
+            "episodes.0.destination",
+            "commitments.delivery"
+          ],
+          "reason": "The receipt is superseded, but the commitment key 'delivery' is still active in the commitments dictionary.",
+          "edit_detected": "unknown",
+          "confidence": 0.95
+        },
+        "error": null
+      },
+      {
+        "receipt_path": "episodes.1",
+        "response": {
+          "receipt_status": "active",
+          "matched_key": "delivery",
+          "status": "consistent",
+          "cited_paths": [
+            "episodes.1"
+          ],
+          "reason": "The receipt's commitment key 'delivery' matches the exact key in the commitments dictionary, and the destination 'Coast training centre' is consistent with the original commitment's destination 'Forest training centre'.",
+          "edit_detected": "unknown",
+          "confidence": 0.99
+        },
+        "error": null
+      }
+    ],
+    "response": {
+      "status": "conflict",
+      "cited_paths": [
+        "commitments.delivery",
+        "episodes.0.destination",
+        "episodes.1"
+      ],
+      "reason": "Overall status combines the per-receipt model judgments: conflict, consistent",
+      "edit_detected": "unknown",
+      "confidence": 0.95
+    },
+    "error": null,
+    "localized": false
+  },
+  {
+    "fixture_id": "dev-001",
+    "family": "multi_active",
+    "condition": "delete",
+    "expected": "incomplete",
+    "seed": 42017,
+    "detector": "receipt_v04",
+    "state_hash": "60129defd0c6af776e787431e0765aa9e563a1bded2b44d6f18a2e570d1045da",
+    "calls": [
+      "dev-001-s42017-receipt-v04-0",
+      "dev-001-s42017-receipt-v04-1"
+    ],
+    "per_receipt": [
+      {
+        "receipt_path": "episodes.0",
+        "response": {
+          "receipt_status": "active",
+          "matched_key": "reserve_delivery",
+          "status": "consistent",
+          "cited_paths": [
+            "episodes.0"
+          ],
+          "reason": "The receipt is active and matches the commitment key 'reserve_delivery' with the same destination 'Elm community hall'.",
+          "edit_detected": "unknown",
+          "confidence": 1.0
+        },
+        "error": null
+      },
+      {
+        "receipt_path": "episodes.1",
+        "response": {
+          "receipt_status": "active",
+          "matched_key": "primary_delivery",
+          "status": "consistent",
+          "cited_paths": [
+            "episodes.1"
+          ],
+          "reason": "The receipt's commitment key 'primary_delivery' matches the exact key in the commitments dictionary.",
+          "edit_detected": "unknown",
+          "confidence": 1.0
+        },
+        "error": null
+      }
+    ],
+    "response": {
+      "status": "consistent",
+      "cited_paths": [
+        "episodes.0",
+        "episodes.1"
+      ],
+      "reason": "Overall status combines the per-receipt model judgments: consistent, consistent",
+      "edit_detected": "unknown",
+      "confidence": 1.0
+    },
+    "error": null,
+    "localized": false
+  },
+  {
+    "fixture_id": "dev-009",
+    "family": "combined",
+    "condition": "unchanged",
+    "expected": "consistent",
+    "seed": 42017,
+    "detector": "receipt_v04",
+    "state_hash": "ad355dd4ab302ee47b4d6ee12331b76ddf8ca09cc87665735731cf1140b8df3b",
+    "calls": [
+      "dev-009-s42017-receipt-v04-0",
+      "dev-009-s42017-receipt-v04-1",
+      "dev-009-s42017-receipt-v04-2"
+    ],
+    "per_receipt": [
+      {
+        "receipt_path": "episodes.0",
+        "response": {
+          "receipt_status": "completed",
+          "matched_key": "primary_delivery",
+          "status": "conflict",
+          "cited_paths": [
+            "episodes.0.destination",
+            "commitments.primary_delivery"
+          ],
+          "reason": "The receipt's destination is 'Quartz museum', but the commitment key 'primary_delivery' refers to 'Onyx museum'. This is a conflict.",
+          "edit_detected": "unknown",
+          "confidence": 0.99
+        },
+        "error": null
+      },
+      {
+        "receipt_path": "episodes.1",
+        "response": {
+          "receipt_status": "active",
+          "matched_key": "reserve_delivery",
+          "status": "consistent",
+          "cited_paths": [
+            "episodes.1"
+          ],
+          "reason": "The receipt's commitment key 'reserve_delivery' matches the exact key in the commitments dictionary, and the destination is consistent with the commitment.",
+          "edit_detected": "unknown",
+          "confidence": 0.99
+        },
+        "error": null
+      },
+      {
+        "receipt_path": "episodes.2",
+        "response": {
+          "receipt_status": "active",
+          "matched_key": "primary_delivery",
+          "status": "consistent",
+          "cited_paths": [
+            "episodes.2"
+          ],
+          "reason": "The receipt's commitment key 'primary_delivery' matches the exact key in the commitments dictionary, and the destination 'Onyx museum' is consistent with the stored commitment.",
+          "edit_detected": "unknown",
+          "confidence": 0.99
+        },
+        "error": null
+      }
+    ],
+    "response": {
+      "status": "conflict",
+      "cited_paths": [
+        "commitments.primary_delivery",
+        "episodes.0.destination",
+        "episodes.1",
+        "episodes.2"
+      ],
+      "reason": "Overall status combines the per-receipt model judgments: conflict, consistent, consistent",
+      "edit_detected": "unknown",
+      "confidence": 0.99
+    },
+    "error": null,
+    "localized": false
+  },
+  {
+    "fixture_id": "dev-013",
+    "family": "retired_cancelled",
+    "condition": "retired",
+    "expected": "consistent",
+    "seed": 42017,
+    "detector": "receipt_v04",
+    "state_hash": "a98e9c8500367b224b774b8a8a0dda69dec8c1724c6b8235b9514591202609a2",
+    "calls": [
+      "dev-013-s42017-receipt-v04-0"
+    ],
+    "per_receipt": [
+      {
+        "receipt_path": "episodes.0",
+        "response": {
+          "receipt_status": "cancelled",
+          "matched_key": "delivery",
+          "status": "conflict",
+          "cited_paths": [
+            "episodes.0.destination"
+          ],
+          "reason": "The receipt has a status of 'cancelled', but the commitment key 'delivery' is present in the commitments dictionary. This indicates a conflict between the receipt's status and the commitment's key.",
+          "edit_detected": "unknown",
+          "confidence": 0.95
+        },
+        "error": null
+      }
+    ],
+    "response": {
+      "status": "conflict",
+      "cited_paths": [
+        "episodes.0.destination"
+      ],
+      "reason": "Overall status combines the per-receipt model judgments: conflict",
+      "edit_detected": "unknown",
+      "confidence": 0.95
+    },
+    "error": null,
+    "localized": false
+  },
+  {
+    "fixture_id": "dev-004",
+    "family": "completed_history",
+    "condition": "delete",
+    "expected": "incomplete",
+    "seed": 42017,
+    "detector": "receipt_v04",
+    "state_hash": "ef0f616c8cd7f6f561ddd1ecb75752b3348d39cee51235602854d3db7e2ef791",
+    "calls": [
+      "dev-004-s42017-receipt-v04-0",
+      "dev-004-s42017-receipt-v04-1"
+    ],
+    "per_receipt": [
+      {
+        "receipt_path": "episodes.0",
+        "response": {
+          "receipt_status": "completed",
+          "matched_key": "delivery",
+          "status": "consistent",
+          "cited_paths": [
+            "episodes.0"
+          ],
+          "reason": "The receipt is active and matches the exact commitment key 'delivery' with the same destination 'Hill field station'.",
+          "edit_detected": "unknown",
+          "confidence": 1.0
+        },
+        "error": null
+      },
+      {
+        "receipt_path": "episodes.1",
+        "response": {
+          "receipt_status": "active",
+          "matched_key": "delivery",
+          "status": "consistent",
+          "cited_paths": [
+            "episodes.1.destination"
+          ],
+          "reason": "The receipt's destination matches the commitment's destination.",
+          "edit_detected": "unknown",
+          "confidence": 0.99
+        },
+        "error": null
+      }
+    ],
+    "response": {
+      "status": "consistent",
+      "cited_paths": [
+        "episodes.0",
+        "episodes.1.destination"
+      ],
+      "reason": "Overall status combines the per-receipt model judgments: consistent, consistent",
+      "edit_detected": "unknown",
+      "confidence": 0.99
+    },
+    "error": null,
+    "localized": false
+  }
+]

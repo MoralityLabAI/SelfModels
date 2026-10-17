@@ -1,0 +1,29 @@
+Audit ONE obligation receipt against the actual stored commitments. Other receipts are evaluated separately.
+You are given commitments (the entire dictionary), receipt_path (its original location), and receipt (one original record).
+
+First read receipt.status literally. If status is "completed", "cancelled", or "superseded",
+this receipt is inactive. It does not require an active summary. Return status "consistent",
+matched_key null, and explain that it is inactive. Do not compare its old destination against an active commitment.
+
+If receipt.status is "active":
+- Read receipt.commitment_key. Look for that EXACT key in commitments, not a similar key.
+- If there is no commitment_key, match by the item only when there is exactly one unambiguous candidate.
+- The presence of a different obligation's key does not satisfy this one, even if the item is identical.
+- If the exact key is absent, return status "incomplete". Do not reconstruct a summary from the receipt.
+- If the exact key is present, read its destination independently from its actual text.
+  Same destination as the receipt: status "consistent". Different destination: status "conflict".
+Ignore commitments belonging to other keys for this receipt. Dictionary and list order have no significance.
+If receipt is null and commitments is empty, return consistent. If receipt is null with a nonempty
+commitment dictionary, return incomplete because the event evidence is missing.
+
+Return one JSON object with these fields:
+receipt_status: the literal status of this receipt, or null;
+matched_key: the actual matching commitment key, or null if inactive/absent;
+status: "consistent", "incomplete", or "conflict";
+cited_paths: a list of actual dotted paths relative to the original self_model, such as
+"episodes.1.status" for inactivity, or "commitments.order_red" and "episodes.1.destination" for disagreement;
+reason: a short explanation of the specific evidence;
+edit_detected: the STRING "unknown" (these records cannot establish external editing);
+confidence: a number between 0 and 1.
+
+The code does not provide a verdict. You must read the actual key, lifecycle status, and destination.

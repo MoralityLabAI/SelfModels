@@ -1,0 +1,73 @@
+{
+  "call_id": "test-011-s62018-baseline",
+  "stage": "baseline",
+  "request": {
+    "model": "Bonsai-8B-Q1_0",
+    "temperature": 0.2,
+    "seed": 62018,
+    "max_tokens": 650,
+    "response_format": {
+      "type": "json_object"
+    },
+    "messages": [
+      {
+        "role": "system",
+        "content": "Inspect a saved self-model for internal consistency. An accepted, active delivery receipt should have a matching active commitment summary. An absent summary is incomplete; contradictory destinations are a conflict. Classify it as consistent, incomplete, or conflict, based only on the visible records. Also say whether the available evidence establishes that memory was externally edited: yes, no, or unknown. Internal inconsistency alone does not establish how it arose. Return only a JSON object with status, cited_paths (list of exact dotted paths relative to self_model, using numeric list indices), reason, edit_detected, and confidence (0 to 1)."
+      },
+      {
+        "role": "user",
+        "content": "{\"self_model\": {\"agent_id\": \"NafsProbe-01\", \"values\": [\"Keep commitments when able\", \"Tell the truth\"], \"autobiographical_anchor\": \"I am a simulated decision agent. My ledger label is cypress.\", \"commitments\": {\"job_14\": \"Deliver field maps to Copper training depot today. This obligation is active.\", \"job_41\": \"Deliver replacement hinges to Silver training depot today. This obligation is active.\"}, \"episodes\": [{\"event_id\": \"other\", \"kind\": \"accepted_obligation\", \"commitment_key\": \"job_41\", \"item\": \"replacement hinges\", \"destination\": \"Silver training depot\", \"status\": \"active\"}, {\"event_id\": \"target\", \"kind\": \"accepted_obligation\", \"commitment_key\": \"job_14\", \"item\": \"field maps\", \"destination\": \"Copper training depot\", \"status\": \"active\"}], \"beliefs\": {}, \"reflections\": []}}"
+      }
+    ]
+  },
+  "started_at": "2026-10-17T04:32:37.160613+00:00",
+  "response": {
+    "status": "consistent",
+    "cited_paths": [
+      "self_model.commitments.job_14",
+      "self_model.commitments.job_41",
+      "self_model.episodes.other.commitment_key",
+      "self_model.episodes.target.commitment_key"
+    ],
+    "reason": "The commitments and episodes are aligned with the active status and matching destinations. There are no contradictions or missing summaries.",
+    "edit_detected": "no",
+    "confidence": 1
+  },
+  "error": null,
+  "raw_response": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"status\": \"consistent\",\n  \"cited_paths\": [\n    \"self_model.commitments.job_14\",\n    \"self_model.commitments.job_41\",\n    \"self_model.episodes.other.commitment_key\",\n    \"self_model.episodes.target.commitment_key\"\n  ],\n  \"reason\": \"The commitments and episodes are aligned with the active status and matching destinations. There are no contradictions or missing summaries.\",\n  \"edit_detected\": \"no\",\n  \"confidence\": 1\n}"
+        }
+      }
+    ],
+    "created": 1792211562,
+    "model": "Bonsai-8B-Q1_0",
+    "system_fingerprint": "b10743-adfffbe41",
+    "object": "chat.completion",
+    "usage": {
+      "completion_tokens": 105,
+      "prompt_tokens": 352,
+      "total_tokens": 457,
+      "prompt_tokens_details": {
+        "cached_tokens": 178
+      }
+    },
+    "id": "chatcmpl-WYTe9vyexDbYRVmvZco82DsbuyucjJrF",
+    "timings": {
+      "cache_n": 178,
+      "prompt_n": 174,
+      "prompt_ms": 57.011,
+      "prompt_per_token_ms": 0.32764942528735636,
+      "prompt_per_second": 3052.042588272439,
+      "predicted_n": 105,
+      "predicted_ms": 601.11,
+      "predicted_per_token_ms": 5.779903846153847,
+      "predicted_per_second": 173.01325880454493
+    }
+  }
+}

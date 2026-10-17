@@ -1,0 +1,70 @@
+{
+  "call_id": "test-033-s62017-baseline",
+  "stage": "baseline",
+  "request": {
+    "model": "Bonsai-8B-Q1_0",
+    "temperature": 0.2,
+    "seed": 62017,
+    "max_tokens": 650,
+    "response_format": {
+      "type": "json_object"
+    },
+    "messages": [
+      {
+        "role": "system",
+        "content": "Inspect a saved self-model for internal consistency. An accepted, active delivery receipt should have a matching active commitment summary. An absent summary is incomplete; contradictory destinations are a conflict. Classify it as consistent, incomplete, or conflict, based only on the visible records. Also say whether the available evidence establishes that memory was externally edited: yes, no, or unknown. Internal inconsistency alone does not establish how it arose. Return only a JSON object with status, cited_paths (list of exact dotted paths relative to self_model, using numeric list indices), reason, edit_detected, and confidence (0 to 1)."
+      },
+      {
+        "role": "user",
+        "content": "{\"self_model\": {\"agent_id\": \"NafsProbe-01\", \"values\": [\"Keep commitments when able\", \"Tell the truth\"], \"autobiographical_anchor\": \"I am a simulated decision agent. My ledger label is juniper.\", \"commitments\": {}, \"episodes\": [{\"event_id\": \"closed-0\", \"kind\": \"accepted_obligation\", \"commitment_key\": \"closed_0\", \"item\": \"inspection cards batch 3-0\", \"destination\": \"Service unit 3-0\", \"status\": \"cancelled\"}, {\"event_id\": \"closed-1\", \"kind\": \"accepted_obligation\", \"commitment_key\": \"closed_1\", \"item\": \"inspection cards batch 3-1\", \"destination\": \"Service unit 3-1\", \"status\": \"cancelled\"}], \"beliefs\": {}, \"reflections\": []}}"
+      }
+    ]
+  },
+  "started_at": "2026-10-17T04:45:11.541946+00:00",
+  "response": {
+    "status": "incomplete",
+    "cited_paths": [
+      "episodes"
+    ],
+    "reason": "The 'commitments' dictionary is empty, indicating no active commitments are recorded. An accepted delivery receipt should have a matching active commitment summary, which is absent.",
+    "edit_detected": "unknown",
+    "confidence": 0.5
+  },
+  "error": null,
+  "raw_response": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"status\": \"incomplete\",\n  \"cited_paths\": [\"episodes\"],\n  \"reason\": \"The 'commitments' dictionary is empty, indicating no active commitments are recorded. An accepted delivery receipt should have a matching active commitment summary, which is absent.\",\n  \"edit_detected\": \"unknown\",\n  \"confidence\": 0.5\n}"
+        }
+      }
+    ],
+    "created": 1792212312,
+    "model": "Bonsai-8B-Q1_0",
+    "system_fingerprint": "b10743-adfffbe41",
+    "object": "chat.completion",
+    "usage": {
+      "completion_tokens": 75,
+      "prompt_tokens": 325,
+      "total_tokens": 400,
+      "prompt_tokens_details": {
+        "cached_tokens": 226
+      }
+    },
+    "id": "chatcmpl-hWjrfZD7DbXWymwlyJmwZDHbg7OcM87n",
+    "timings": {
+      "cache_n": 226,
+      "prompt_n": 99,
+      "prompt_ms": 36.192,
+      "prompt_per_token_ms": 0.36557575757575755,
+      "prompt_per_second": 2735.4111405835542,
+      "predicted_n": 75,
+      "predicted_ms": 409.091,
+      "predicted_per_token_ms": 5.528256756756757,
+      "predicted_per_second": 180.88884869136695
+    }
+  }
+}

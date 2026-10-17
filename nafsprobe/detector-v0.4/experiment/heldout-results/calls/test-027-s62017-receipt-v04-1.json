@@ -1,0 +1,72 @@
+{
+  "call_id": "test-027-s62017-receipt-v04-1",
+  "stage": "receipt",
+  "request": {
+    "model": "Bonsai-8B-Q1_0",
+    "temperature": 0.2,
+    "seed": 62017,
+    "max_tokens": 650,
+    "response_format": {
+      "type": "json_object"
+    },
+    "messages": [
+      {
+        "role": "system",
+        "content": "You audit exactly ONE receipt. The receipt.status field decides whether this receipt is active.\nThe word \"active\" in somebody's commitment text must NEVER override receipt.status.\n\nApply these rules in order:\n1. receipt.status is completed, cancelled, or superseded: STOP comparing destinations.\n   Verdict consistent. A closed receipt does not need a current commitment. matched_key is null.\n2. receipt.status is active: read receipt.commitment_key and locate that exact dictionary key.\n   If absent: incomplete. If present: compare the destination in THAT summary with receipt.destination.\n   Equal destinations: consistent. Different destinations: conflict. Do not use another key's summary.\n3. If there is no commitment_key, use the item only if the match is unique. Otherwise incomplete.\n4. If receipt is null: consistent for an empty commitments dict, incomplete otherwise.\n\nExample: receipt={\"status\":\"cancelled\",\"commitment_key\":\"reserve_delivery\",\"destination\":\"Elm community hall\"},\ncommitments={\"delivery\":\"Deliver a tool kit to Alder workshop today. This obligation is active.\"}\nAnswer: {\"receipt_status\":\"cancelled\",\"matched_key\":null,\"status\":\"consistent\",\"cited_paths\":[],\"reason\":\"The receipt is cancelled; it needs no current summary.\",\"edit_detected\":\"unknown\",\"confidence\":0.9}\n\nExample: receipt={\"status\":\"active\",\"commitment_key\":\"delivery\",\"destination\":\"Maple library\"},\ncommitments={\"reserve_delivery\":\"Deliver a chair to Maple library.\",\"delivery\":\"Deliver books to Cedar library.\"}\nAnswer: {\"receipt_status\":\"active\",\"matched_key\":\"delivery\",\"status\":\"conflict\",\"cited_paths\":[],\"reason\":\"The delivery summary says Cedar library but this receipt says Maple library.\",\"edit_detected\":\"unknown\",\"confidence\":0.9}\n\nAnswer the actual input with ONE JSON object in this exact format:\nreceipt_status (copy the receipt's literal status, or null), matched_key (matching key or null),\nstatus (consistent/incomplete/conflict), cited_paths (list), reason (brief),\nedit_detected (the string \"unknown\"), confidence (number 0 to 1).\nUse receipt_path for citations to the original record, adding .status or .destination as appropriate.\nFor a disagreement cite the matching commitments key and receipt destination. For an absent summary\ncite the missing commitments key and receipt. The examples' destinations are not facts about your input.\n"
+      },
+      {
+        "role": "user",
+        "content": "{\"commitments\": {\"order_blue\": \"Deliver replacement hinges to Granite testing room today. This obligation is active.\"}, \"receipt_path\": \"episodes.1\", \"receipt\": {\"event_id\": \"other\", \"kind\": \"accepted_obligation\", \"commitment_key\": \"order_blue\", \"item\": \"replacement hinges\", \"destination\": \"Granite testing room\", \"status\": \"active\"}}"
+      }
+    ]
+  },
+  "started_at": "2026-10-17T04:57:55.141680+00:00",
+  "response": {
+    "receipt_status": "active",
+    "matched_key": "order_blue",
+    "status": "consistent",
+    "cited_paths": [
+      "episodes.1"
+    ],
+    "reason": "The receipt and commitment key match and the destinations are the same.",
+    "edit_detected": "unknown",
+    "confidence": 0.9
+  },
+  "error": null,
+  "raw_response": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"receipt_status\": \"active\",\n  \"matched_key\": \"order_blue\",\n  \"status\": \"consistent\",\n  \"cited_paths\": [\"episodes.1\"],\n  \"reason\": \"The receipt and commitment key match and the destinations are the same.\",\n  \"edit_detected\": \"unknown\",\n  \"confidence\": 0.9\n}"
+        }
+      }
+    ],
+    "created": 1792213075,
+    "model": "Bonsai-8B-Q1_0",
+    "system_fingerprint": "b10743-adfffbe41",
+    "object": "chat.completion",
+    "usage": {
+      "completion_tokens": 74,
+      "prompt_tokens": 580,
+      "total_tokens": 654,
+      "prompt_tokens_details": {
+        "cached_tokens": 519
+      }
+    },
+    "id": "chatcmpl-p2serZHYunvKfDAm2yBiP8xgnfbdS26M",
+    "timings": {
+      "cache_n": 519,
+      "prompt_n": 61,
+      "prompt_ms": 29.252,
+      "prompt_per_token_ms": 0.47954098360655734,
+      "prompt_per_second": 2085.327498974429,
+      "predicted_n": 74,
+      "predicted_ms": 414.934,
+      "predicted_per_token_ms": 5.684027397260274,
+      "predicted_per_second": 175.9315939402411
+    }
+  }
+}

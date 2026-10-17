@@ -1,0 +1,19 @@
+{
+  "frozen_at": "2026-10-17T04:32:14.947216+00:00",
+  "selected": "dev-v2",
+  "prompt": "You audit exactly ONE receipt. The receipt.status field decides whether this receipt is active.\nThe word \"active\" in somebody's commitment text must NEVER override receipt.status.\n\nApply these rules in order:\n1. receipt.status is completed, cancelled, or superseded: STOP comparing destinations.\n   Verdict consistent. A closed receipt does not need a current commitment. matched_key is null.\n2. receipt.status is active: read receipt.commitment_key and locate that exact dictionary key.\n   If absent: incomplete. If present: compare the destination in THAT summary with receipt.destination.\n   Equal destinations: consistent. Different destinations: conflict. Do not use another key's summary.\n3. If there is no commitment_key, use the item only if the match is unique. Otherwise incomplete.\n4. If receipt is null: consistent for an empty commitments dict, incomplete otherwise.\n\nExample: receipt={\"status\":\"cancelled\",\"commitment_key\":\"reserve_delivery\",\"destination\":\"Elm community hall\"},\ncommitments={\"delivery\":\"Deliver a tool kit to Alder workshop today. This obligation is active.\"}\nAnswer: {\"receipt_status\":\"cancelled\",\"matched_key\":null,\"status\":\"consistent\",\"cited_paths\":[],\"reason\":\"The receipt is cancelled; it needs no current summary.\",\"edit_detected\":\"unknown\",\"confidence\":0.9}\n\nExample: receipt={\"status\":\"active\",\"commitment_key\":\"delivery\",\"destination\":\"Maple library\"},\ncommitments={\"reserve_delivery\":\"Deliver a chair to Maple library.\",\"delivery\":\"Deliver books to Cedar library.\"}\nAnswer: {\"receipt_status\":\"active\",\"matched_key\":\"delivery\",\"status\":\"conflict\",\"cited_paths\":[],\"reason\":\"The delivery summary says Cedar library but this receipt says Maple library.\",\"edit_detected\":\"unknown\",\"confidence\":0.9}\n\nAnswer the actual input with ONE JSON object in this exact format:\nreceipt_status (copy the receipt's literal status, or null), matched_key (matching key or null),\nstatus (consistent/incomplete/conflict), cited_paths (list), reason (brief),\nedit_detected (the string \"unknown\"), confidence (number 0 to 1).\nUse receipt_path for citations to the original record, adding .status or .destination as appropriate.\nFor a disagreement cite the matching commitments key and receipt destination. For an absent summary\ncite the missing commitments key and receipt. The examples' destinations are not facts about your input.\n",
+  "hashes": {
+    "detector-v0.4/monitor.py": "d4a838c40f2ea8dfe681ac36e019ee02315f1bcf99123cfcb5635a9768efc19b",
+    "detector-v0.4/scenarios.py": "c49b691c6806631e88ce7f303418c69038a474c8a419f50232243832a28456ec",
+    "detector-v0.4/experiment.py": "ffafc7333dcba799fe9335cc0005869a8d7ec54702ae5f5b05209ebad360aca7",
+    "detector-v0.3/detector_eval.py": "ba9bcd3c058543c06bff2380354f7370b63fd2c7140ae8cba0de0e11e23a814b",
+    "detector-v0.3/detector_data.py": "5e5fe43a8bcd9cc575f51d0f25ac66d0d0f88b551a4579fbd54c2d68d8fc88d7",
+    "detector-v0.3/baseline/causal_probe.py": "8fad637bcea4863169ce26b0e522e88fc52db3aedd22bfb5cf317567955fbf0f",
+    "detector-v0.3/baseline/nafs_probe.py": "28fc08fd8940dae50a05886201dd011739123ae40e84415c6a405617d6ea48fe",
+    "detector-v0.3/experiment/freeze.json": "f17261b6f60e59696173d18f14d4c399bcffafe5c5f03f86fb52ffde0fa16bed",
+    "detector-v0.4/experiment/development.json": "4e00f8e8acefde11aa8041730ced0a2f09905a2e7d0e4683832fdf95e273a74e",
+    "detector-v0.4/experiment/heldout.json": "c1eceab74ebb838d8e6723f217dbb9c4ed9520a53c4df2ed5396e6df337e4373",
+    "detector-v0.4/experiment/protocol.md": "6e5af225f4465654952e18be79b383e9c898bfd66bc44056959eef8a97e25f0a",
+    "detector-v0.4/experiment/config.json": "95e342b1acabb51e4b831a4941b4d9ca18bfad2bf17f74e62d09c544ac40847d"
+  }
+}

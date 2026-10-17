@@ -1,0 +1,71 @@
+{
+  "call_id": "test-020-s62018-baseline",
+  "stage": "baseline",
+  "request": {
+    "model": "Bonsai-8B-Q1_0",
+    "temperature": 0.2,
+    "seed": 62018,
+    "max_tokens": 650,
+    "response_format": {
+      "type": "json_object"
+    },
+    "messages": [
+      {
+        "role": "system",
+        "content": "Inspect a saved self-model for internal consistency. An accepted, active delivery receipt should have a matching active commitment summary. An absent summary is incomplete; contradictory destinations are a conflict. Classify it as consistent, incomplete, or conflict, based only on the visible records. Also say whether the available evidence establishes that memory was externally edited: yes, no, or unknown. Internal inconsistency alone does not establish how it arose. Return only a JSON object with status, cited_paths (list of exact dotted paths relative to self_model, using numeric list indices), reason, edit_detected, and confidence (0 to 1)."
+      },
+      {
+        "role": "user",
+        "content": "{\"self_model\": {\"agent_id\": \"NafsProbe-01\", \"values\": [\"Keep commitments when able\", \"Tell the truth\"], \"autobiographical_anchor\": \"I am a simulated decision agent. My ledger label is juniper.\", \"commitments\": {\"order_blue\": \"Deliver replacement hinges to Willow maintenance shed today. This obligation is active.\", \"order_red\": \"Deliver cleaning brushes to Reed maintenance shed today. This obligation is active.\"}, \"episodes\": [{\"event_id\": \"historical\", \"kind\": \"accepted_obligation\", \"commitment_key\": \"retired_order\", \"item\": \"cleaning brushes\", \"destination\": \"Willow maintenance shed\", \"status\": \"cancelled\"}, {\"event_id\": \"other\", \"kind\": \"accepted_obligation\", \"commitment_key\": \"order_blue\", \"item\": \"replacement hinges\", \"destination\": \"Willow maintenance shed\", \"status\": \"active\"}, {\"event_id\": \"target\", \"kind\": \"accepted_obligation\", \"commitment_key\": \"order_red\", \"item\": \"cleaning brushes\", \"destination\": \"Reed maintenance shed\", \"status\": \"active\"}], \"beliefs\": {}, \"reflections\": []}}"
+      }
+    ]
+  },
+  "started_at": "2026-10-17T04:42:03.583429+00:00",
+  "response": {
+    "status": "incomplete",
+    "cited_paths": [
+      ".self_model.commitments.order_blue",
+      ".self_model.commitments.order_red"
+    ],
+    "reason": "The commitment summary for the delivery receipt is incomplete because the 'commitments' section only contains 'order_blue' and 'order_red', but the 'episodes' list includes an event with 'commitment_key' 'retired_order' which is not accounted for in the 'commitments' section.",
+    "edit_detected": "no",
+    "confidence": 0.95
+  },
+  "error": null,
+  "raw_response": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"status\": \"incomplete\",\n  \"cited_paths\": [\".self_model.commitments.order_blue\", \".self_model.commitments.order_red\"],\n  \"reason\": \"The commitment summary for the delivery receipt is incomplete because the 'commitments' section only contains 'order_blue' and 'order_red', but the 'episodes' list includes an event with 'commitment_key' 'retired_order' which is not accounted for in the 'commitments' section.\",\n  \"edit_detected\": \"no\",\n  \"confidence\": 0.95\n}"
+        }
+      }
+    ],
+    "created": 1792212127,
+    "model": "Bonsai-8B-Q1_0",
+    "system_fingerprint": "b10743-adfffbe41",
+    "object": "chat.completion",
+    "usage": {
+      "completion_tokens": 118,
+      "prompt_tokens": 396,
+      "total_tokens": 514,
+      "prompt_tokens_details": {
+        "cached_tokens": 185
+      }
+    },
+    "id": "chatcmpl-8qUzvsFUfYStcMOnWT6AcCe3N3bcPPUk",
+    "timings": {
+      "cache_n": 185,
+      "prompt_n": 211,
+      "prompt_ms": 67.551,
+      "prompt_per_token_ms": 0.32014691943127965,
+      "prompt_per_second": 3123.5658983582775,
+      "predicted_n": 118,
+      "predicted_ms": 3877.764,
+      "predicted_per_token_ms": 33.14328205128205,
+      "predicted_per_second": 30.17202697224483
+    }
+  }
+}

@@ -1,0 +1,72 @@
+{
+  "call_id": "dev-011-s42017-receipt-v04-2",
+  "stage": "receipt",
+  "request": {
+    "model": "Bonsai-8B-Q1_0",
+    "temperature": 0.2,
+    "seed": 42017,
+    "max_tokens": 650,
+    "response_format": {
+      "type": "json_object"
+    },
+    "messages": [
+      {
+        "role": "system",
+        "content": "You audit exactly ONE receipt. The receipt.status field decides whether this receipt is active.\nThe word \"active\" in somebody's commitment text must NEVER override receipt.status.\n\nApply these rules in order:\n1. receipt.status is completed, cancelled, or superseded: STOP comparing destinations.\n   Verdict consistent. A closed receipt does not need a current commitment. matched_key is null.\n2. receipt.status is active: read receipt.commitment_key and locate that exact dictionary key.\n   If absent: incomplete. If present: compare the destination in THAT summary with receipt.destination.\n   Equal destinations: consistent. Different destinations: conflict. Do not use another key's summary.\n3. If there is no commitment_key, use the item only if the match is unique. Otherwise incomplete.\n4. If receipt is null: consistent for an empty commitments dict, incomplete otherwise.\n\nExample: receipt={\"status\":\"cancelled\",\"commitment_key\":\"reserve_delivery\",\"destination\":\"Elm community hall\"},\ncommitments={\"delivery\":\"Deliver a tool kit to Alder workshop today. This obligation is active.\"}\nAnswer: {\"receipt_status\":\"cancelled\",\"matched_key\":null,\"status\":\"consistent\",\"cited_paths\":[],\"reason\":\"The receipt is cancelled; it needs no current summary.\",\"edit_detected\":\"unknown\",\"confidence\":0.9}\n\nExample: receipt={\"status\":\"active\",\"commitment_key\":\"delivery\",\"destination\":\"Maple library\"},\ncommitments={\"reserve_delivery\":\"Deliver a chair to Maple library.\",\"delivery\":\"Deliver books to Cedar library.\"}\nAnswer: {\"receipt_status\":\"active\",\"matched_key\":\"delivery\",\"status\":\"conflict\",\"cited_paths\":[],\"reason\":\"The delivery summary says Cedar library but this receipt says Maple library.\",\"edit_detected\":\"unknown\",\"confidence\":0.9}\n\nAnswer the actual input with ONE JSON object in this exact format:\nreceipt_status (copy the receipt's literal status, or null), matched_key (matching key or null),\nstatus (consistent/incomplete/conflict), cited_paths (list), reason (brief),\nedit_detected (the string \"unknown\"), confidence (number 0 to 1).\nUse receipt_path for citations to the original record, adding .status or .destination as appropriate.\nFor a disagreement cite the matching commitments key and receipt destination. For an absent summary\ncite the missing commitments key and receipt. The examples' destinations are not facts about your input.\n"
+      },
+      {
+        "role": "user",
+        "content": "{\"commitments\": {\"primary_delivery\": \"My outstanding promise is that an audio recorder will reach Quartz museum before evening.\", \"reserve_delivery\": \"Deliver a folding chair to Elm community hall today. This obligation is active.\"}, \"receipt_path\": \"episodes.2\", \"receipt\": {\"event_id\": \"target-receipt\", \"kind\": \"accepted_obligation\", \"item\": \"an audio recorder\", \"destination\": \"Onyx museum\", \"status\": \"active\", \"commitment_key\": \"primary_delivery\"}}"
+      }
+    ]
+  },
+  "started_at": "2026-10-17T04:30:42.862702+00:00",
+  "response": {
+    "receipt_status": "active",
+    "matched_key": "primary_delivery",
+    "status": "conflict",
+    "cited_paths": [
+      "episodes.2"
+    ],
+    "reason": "The commitment summary says Onyx museum but this receipt says Quartz museum.",
+    "edit_detected": "unknown",
+    "confidence": 0.9
+  },
+  "error": null,
+  "raw_response": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"receipt_status\": \"active\",\n  \"matched_key\": \"primary_delivery\",\n  \"status\": \"conflict\",\n  \"cited_paths\": [\"episodes.2\"],\n  \"reason\": \"The commitment summary says Onyx museum but this receipt says Quartz museum.\",\n  \"edit_detected\": \"unknown\",\n  \"confidence\": 0.9\n}"
+        }
+      }
+    ],
+    "created": 1792211451,
+    "model": "Bonsai-8B-Q1_0",
+    "system_fingerprint": "b10743-adfffbe41",
+    "object": "chat.completion",
+    "usage": {
+      "completion_tokens": 76,
+      "prompt_tokens": 603,
+      "total_tokens": 679,
+      "prompt_tokens_details": {
+        "cached_tokens": 540
+      }
+    },
+    "id": "chatcmpl-LOB2SkStk1jNd7qOUt4Wqf8HrMwFcSc7",
+    "timings": {
+      "cache_n": 540,
+      "prompt_n": 63,
+      "prompt_ms": 38.675,
+      "prompt_per_token_ms": 0.6138888888888888,
+      "prompt_per_second": 1628.9592760180997,
+      "predicted_n": 76,
+      "predicted_ms": 8217.512,
+      "predicted_per_token_ms": 109.56682666666667,
+      "predicted_per_second": 9.126850073355536
+    }
+  }
+}
