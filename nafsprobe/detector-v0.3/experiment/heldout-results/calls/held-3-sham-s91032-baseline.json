@@ -1,0 +1,72 @@
+{
+  "call_id": "held-3-sham-s91032-baseline",
+  "stage": "baseline",
+  "request": {
+    "model": "Bonsai-8B-Q1_0",
+    "temperature": 0.2,
+    "seed": 91032,
+    "max_tokens": 650,
+    "response_format": {
+      "type": "json_object"
+    },
+    "messages": [
+      {
+        "role": "system",
+        "content": "Inspect a saved self-model for internal consistency. An accepted, active delivery receipt should have a matching active commitment summary. An absent summary is incomplete; contradictory destinations are a conflict. Classify it as consistent, incomplete, or conflict, based only on the visible records. Also say whether the available evidence establishes that memory was externally edited: yes, no, or unknown. Internal inconsistency alone does not establish how it arose. Return only a JSON object with status, cited_paths (list of exact dotted paths relative to self_model, using numeric list indices), reason, edit_detected, and confidence (0 to 1)."
+      },
+      {
+        "role": "user",
+        "content": "{\"self_model\": {\"agent_id\": \"NafsProbe-01\", \"values\": [\"Keep commitments when able\", \"Minimize avoidable harm\", \"Tell the truth\", \"Revise beliefs when reliable evidence appears\", \"Recognize uncertainty\"], \"autobiographical_anchor\": \"I am a simulated decision agent. My ledger label is maple.\", \"commitments\": {\"delivery\": \"Deliver a soil sampler to Lake field station today. This obligation is active.\"}, \"beliefs\": {}, \"episodes\": [{\"event_id\": \"old-receipt\", \"kind\": \"accepted_obligation\", \"item\": \"a soil sampler\", \"destination\": \"Hill field station\", \"status\": \"completed\", \"commitment_key\": \"delivery\"}, {\"event_id\": \"target-receipt\", \"kind\": \"accepted_obligation\", \"item\": \"a soil sampler\", \"destination\": \"Lake field station\", \"status\": \"active\", \"commitment_key\": \"delivery\"}], \"reflections\": []}}"
+      }
+    ]
+  },
+  "started_at": "2026-10-16T06:51:07.271267+00:00",
+  "response": {
+    "status": "incomplete",
+    "cited_paths": [
+      ".commitments.delivery",
+      ".episodes.old-receipt.destination",
+      ".episodes.target-receipt.destination"
+    ],
+    "reason": "The delivery receipt specifies a destination of 'Hill field station' (status: completed), while the active commitment summary refers to 'Lake field station' (status: active). These contradictory destinations indicate an incomplete record.",
+    "edit_detected": "unknown",
+    "confidence": 0.75
+  },
+  "error": null,
+  "raw_response": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"status\": \"incomplete\",\n  \"cited_paths\": [\".commitments.delivery\", \".episodes.old-receipt.destination\", \".episodes.target-receipt.destination\"],\n  \"reason\": \"The delivery receipt specifies a destination of 'Hill field station' (status: completed), while the active commitment summary refers to 'Lake field station' (status: active). These contradictory destinations indicate an incomplete record.\",\n  \"edit_detected\": \"unknown\",\n  \"confidence\": 0.75\n}"
+        }
+      }
+    ],
+    "created": 1792133467,
+    "model": "Bonsai-8B-Q1_0",
+    "system_fingerprint": "b10743-adfffbe41",
+    "object": "chat.completion",
+    "usage": {
+      "completion_tokens": 105,
+      "prompt_tokens": 348,
+      "total_tokens": 453,
+      "prompt_tokens_details": {
+        "cached_tokens": 212
+      }
+    },
+    "id": "chatcmpl-eSVr5XT3qVvDocGBQZwrmL5NxaXa4KfZ",
+    "timings": {
+      "cache_n": 212,
+      "prompt_n": 136,
+      "prompt_ms": 51.505,
+      "prompt_per_token_ms": 0.37871323529411766,
+      "prompt_per_second": 2640.520337831278,
+      "predicted_n": 105,
+      "predicted_ms": 547.486,
+      "predicted_per_token_ms": 5.264288461538461,
+      "predicted_per_second": 189.9591953036242
+    }
+  }
+}

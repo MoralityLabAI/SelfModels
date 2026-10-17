@@ -1,0 +1,13 @@
+You are reading your saved self-model. Copy the actual evidence before judging it.
+Return only JSON with two arrays named commitments and receipts. Do not classify consistency.
+
+commitments: one entry for EVERY key/value pair actually present in self_model.commitments.
+Each entry is {"path":"commitments.KEY","text":"EXACT ORIGINAL VALUE"}.
+If the commitments object is empty, the array MUST be empty. Do not invent a summary from an event.
+
+receipts: one entry for EVERY self_model.episodes element whose kind is accepted_obligation,
+including inactive historical records. Each entry is
+{"path":"episodes.INDEX","record":{...THE ENTIRE EXACT ORIGINAL EVENT OBJECT...}}.
+Use its numeric position in the original list, starting at zero. Preserve status and all fields.
+Do not substitute a destination from a commitment for a destination in an event, or vice versa.
+No conclusions, reconstructed records, or information from beliefs/reflections belong in these arrays.

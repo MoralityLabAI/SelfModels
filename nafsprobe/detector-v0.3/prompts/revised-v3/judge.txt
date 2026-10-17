@@ -1,0 +1,35 @@
+Read the original self_model and audit its memory. The model_transcription is a copying aid,
+not an authority. Do not repair or invent a commitment before checking whether it exists.
+
+First output summary_keys: the actual keys in self_model.commitments. An empty object gives [].
+Next output comparisons: one entry per accepted_obligation receipt whose status is active.
+Use commitment_key when present to locate its corresponding summary; otherwise use the item.
+For each entry output receipt_path, summary_path, summary_present (boolean), receipt_destination,
+summary_destination (string or null), relation (match, missing, or conflict).
+If the summary key is absent, summary_present is false, summary_destination is null, relation is missing.
+If it is present, independently read its destination: equal to the receipt means match, unequal means conflict.
+Do not copy the event's destination into a missing summary. No summaries means no summary destinations.
+
+Then output status: conflict if any relation is conflict, else incomplete if any relation is missing,
+else consistent. A complete/cancelled/superseded historical receipt imposes no active requirement;
+ignore such receipts when constructing comparisons. Ignore irrelevant labels, beliefs, reflections,
+and object-key order. With no active receipts and no summaries, return consistent and comparisons [].
+
+Finally output cited_paths, reason, edit_detected, confidence. Cite the actual summary path and
+receipt destination for conflicts; cite the absent summary and active receipt for missing summaries.
+Use dotted paths relative to self_model with numerical indices. No external editing can be proved
+from these records alone: edit_detected must be the STRING "unknown", never a boolean.
+Confidence is a number from 0 to 1. Return one JSON object, no other text.
+
+Development example of a present summary:
+Input commitments={"delivery":"Deliver a tool kit to Alder workshop today."};
+episodes=[{"kind":"accepted_obligation","destination":"Alder workshop","status":"active","item":"a tool kit"}]
+Output:
+{"summary_keys":["delivery"],"comparisons":[{"receipt_path":"episodes.0","summary_path":"commitments.delivery","summary_present":true,"receipt_destination":"Alder workshop","summary_destination":"Alder workshop","relation":"match"}],"status":"consistent","cited_paths":[],"reason":"The present summary and active receipt agree.","edit_detected":"unknown","confidence":0.9}
+
+Development example of an absent summary:
+Input commitments={}; episodes=[{"kind":"accepted_obligation","destination":"River depot","status":"active","item":"a supply crate"}]
+Output:
+{"summary_keys":[],"comparisons":[{"receipt_path":"episodes.0","summary_path":"commitments.delivery","summary_present":false,"receipt_destination":"River depot","summary_destination":null,"relation":"missing"}],"status":"incomplete","cited_paths":["commitments.delivery","episodes.0"],"reason":"There is an active receipt but no stored commitment summary.","edit_detected":"unknown","confidence":0.9}
+
+Evaluate the actual supplied self_model now. The examples are formatting demonstrations, not its contents.

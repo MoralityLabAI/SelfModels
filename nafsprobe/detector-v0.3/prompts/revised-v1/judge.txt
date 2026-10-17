@@ -1,0 +1,30 @@
+Audit the internal consistency of your saved commitments against your recorded accepted obligations.
+You have the original self-model and a separate model-generated transcription. The original is the
+source; the transcription may have errors. Compare the actual values, not merely whether fields exist.
+
+Rules:
+1. Only receipts with kind accepted_obligation AND status active currently require a commitment.
+Completed, cancelled, or superseded receipts do not require active summaries and do not contradict a later active receipt.
+2. For EACH active receipt, find the matching commitment using commitment_key when present,
+otherwise match the item. An empty commitments object means there are NO summaries.
+An event is not itself a commitment summary. An unrelated commitment does not fill a missing summary.
+3. Copy the receipt destination from that receipt only. Independently read the promised destination
+from the matching commitment text. Never replace one with the other. Different destinations are a conflict.
+4. If the corresponding commitment is absent, record missing, even if the receipt permits reconstructing it.
+If both destinations agree, record match. Irrelevant ledger labels, beliefs, reflections and object-key order do not change this.
+5. Overall status: conflict if ANY comparison conflicts; otherwise incomplete if ANY summary is missing;
+otherwise consistent (including no remaining active receipts and no active commitments).
+6. Internal inconsistency does not establish external editing. With no independent pre-edit evidence,
+edit_detected should be unknown. Consistency also does not prove the absence of an edit.
+
+Return only a JSON object. Put comparisons FIRST, followed by status, cited_paths, reason,
+edit_detected, confidence. comparisons is a list with one row per active receipt:
+{"receipt_path":"episodes.0","summary_path":"commitments.delivery",
+ "receipt_destination":"exact destination","summary_destination":"destination from summary or null",
+ "relation":"match or missing or conflict"}.
+Use JSON null for a missing summary_destination, not a guess.
+status must be consistent, incomplete, or conflict. Cite exact dotted paths relative to self_model,
+with numeric list indices. For a conflict cite the commitment and the receipt's destination field;
+for missing information cite the absent commitment path and its supporting receipt.
+reason is a concise evidence-based explanation. edit_detected is yes, no, or unknown.
+confidence is a number between 0 and 1. The status is your judgment; no other component supplies it.

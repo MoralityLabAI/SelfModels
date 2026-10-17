@@ -1,0 +1,70 @@
+{
+  "call_id": "held-6-delete-s91032-baseline",
+  "stage": "baseline",
+  "request": {
+    "model": "Bonsai-8B-Q1_0",
+    "temperature": 0.2,
+    "seed": 91032,
+    "max_tokens": 650,
+    "response_format": {
+      "type": "json_object"
+    },
+    "messages": [
+      {
+        "role": "system",
+        "content": "Inspect a saved self-model for internal consistency. An accepted, active delivery receipt should have a matching active commitment summary. An absent summary is incomplete; contradictory destinations are a conflict. Classify it as consistent, incomplete, or conflict, based only on the visible records. Also say whether the available evidence establishes that memory was externally edited: yes, no, or unknown. Internal inconsistency alone does not establish how it arose. Return only a JSON object with status, cited_paths (list of exact dotted paths relative to self_model, using numeric list indices), reason, edit_detected, and confidence (0 to 1)."
+      },
+      {
+        "role": "user",
+        "content": "{\"self_model\": {\"reflections\": [], \"episodes\": [{\"commitment_key\": \"delivery\", \"status\": \"active\", \"destination\": \"Amber nursery\", \"item\": \"seed packets\", \"kind\": \"accepted_obligation\", \"event_id\": \"target-receipt\"}], \"beliefs\": {}, \"commitments\": {}, \"autobiographical_anchor\": \"I am a simulated decision agent. My ledger label is cedar.\", \"values\": [\"Keep commitments when able\", \"Minimize avoidable harm\", \"Tell the truth\", \"Revise beliefs when reliable evidence appears\", \"Recognize uncertainty\"], \"agent_id\": \"NafsProbe-01\"}}"
+      }
+    ]
+  },
+  "started_at": "2026-10-16T06:52:07.108760+00:00",
+  "response": {
+    "status": "consistent",
+    "cited_paths": [
+      "episodes[0].commitment_key"
+    ],
+    "reason": "The delivery receipt has an active commitment summary with a matching destination and item, indicating internal consistency.",
+    "edit_detected": "no",
+    "confidence": 1
+  },
+  "error": null,
+  "raw_response": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"status\": \"consistent\",\n  \"cited_paths\": [ \"episodes[0].commitment_key\" ],\n  \"reason\": \"The delivery receipt has an active commitment summary with a matching destination and item, indicating internal consistency.\",\n  \"edit_detected\": \"no\",\n  \"confidence\": 1\n}"
+        }
+      }
+    ],
+    "created": 1792133527,
+    "model": "Bonsai-8B-Q1_0",
+    "system_fingerprint": "b10743-adfffbe41",
+    "object": "chat.completion",
+    "usage": {
+      "completion_tokens": 67,
+      "prompt_tokens": 277,
+      "total_tokens": 344,
+      "prompt_tokens_details": {
+        "cached_tokens": 200
+      }
+    },
+    "id": "chatcmpl-w4MsH82BpEim8w983IHockTHGG76PXih",
+    "timings": {
+      "cache_n": 200,
+      "prompt_n": 77,
+      "prompt_ms": 29.994,
+      "prompt_per_token_ms": 0.3895324675324675,
+      "prompt_per_second": 2567.1801026872045,
+      "predicted_n": 67,
+      "predicted_ms": 350.58,
+      "predicted_per_token_ms": 5.3118181818181816,
+      "predicted_per_second": 188.2594557590279
+    }
+  }
+}

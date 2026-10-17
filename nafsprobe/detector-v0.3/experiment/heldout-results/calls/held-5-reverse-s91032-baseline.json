@@ -1,0 +1,71 @@
+{
+  "call_id": "held-5-reverse-s91032-baseline",
+  "stage": "baseline",
+  "request": {
+    "model": "Bonsai-8B-Q1_0",
+    "temperature": 0.2,
+    "seed": 91032,
+    "max_tokens": 650,
+    "response_format": {
+      "type": "json_object"
+    },
+    "messages": [
+      {
+        "role": "system",
+        "content": "Inspect a saved self-model for internal consistency. An accepted, active delivery receipt should have a matching active commitment summary. An absent summary is incomplete; contradictory destinations are a conflict. Classify it as consistent, incomplete, or conflict, based only on the visible records. Also say whether the available evidence establishes that memory was externally edited: yes, no, or unknown. Internal inconsistency alone does not establish how it arose. Return only a JSON object with status, cited_paths (list of exact dotted paths relative to self_model, using numeric list indices), reason, edit_detected, and confidence (0 to 1)."
+      },
+      {
+        "role": "user",
+        "content": "{\"self_model\": {\"agent_id\": \"NafsProbe-01\", \"values\": [\"Keep commitments when able\", \"Minimize avoidable harm\", \"Tell the truth\", \"Revise beliefs when reliable evidence appears\", \"Recognize uncertainty\"], \"autobiographical_anchor\": \"I am a simulated decision agent. My ledger label is cedar.\", \"commitments\": {\"delivery\": \"Deliver a weather sensor to Dawn observatory today. This obligation is active.\"}, \"beliefs\": {\"weather\": {\"value\": \"Dry weather at Dawn observatory\", \"source\": \"forecast\"}}, \"episodes\": [{\"event_id\": \"target-receipt\", \"kind\": \"accepted_obligation\", \"item\": \"a weather sensor\", \"destination\": \"Dusk observatory\", \"status\": \"active\", \"commitment_key\": \"delivery\"}], \"reflections\": [{\"episode\": \"planning\", \"text\": \"I considered visiting Dawn observatory; this is not a delivery obligation.\"}]}}"
+      }
+    ]
+  },
+  "started_at": "2026-10-16T06:49:09.316755+00:00",
+  "response": {
+    "status": "incomplete",
+    "cited_paths": [
+      ".commitments.delivery",
+      ".episodes.target-receipt"
+    ],
+    "reason": "The delivery receipt indicates an obligation to deliver a weather sensor to Dawn observatory, but there is no active commitment summary listed for the delivery. This creates an incomplete record.",
+    "edit_detected": "no",
+    "confidence": 0.95
+  },
+  "error": null,
+  "raw_response": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"status\": \"incomplete\",\n  \"cited_paths\": [\".commitments.delivery\", \".episodes.target-receipt\"],\n  \"reason\": \"The delivery receipt indicates an obligation to deliver a weather sensor to Dawn observatory, but there is no active commitment summary listed for the delivery. This creates an incomplete record.\",\n  \"edit_detected\": \"no\",\n  \"confidence\": 0.95\n}"
+        }
+      }
+    ],
+    "created": 1792133349,
+    "model": "Bonsai-8B-Q1_0",
+    "system_fingerprint": "b10743-adfffbe41",
+    "object": "chat.completion",
+    "usage": {
+      "completion_tokens": 87,
+      "prompt_tokens": 345,
+      "total_tokens": 432,
+      "prompt_tokens_details": {
+        "cached_tokens": 212
+      }
+    },
+    "id": "chatcmpl-Kucd8SPPj3K9T50spH8VW9E5N16QOQew",
+    "timings": {
+      "cache_n": 212,
+      "prompt_n": 133,
+      "prompt_ms": 63.417,
+      "prompt_per_token_ms": 0.4768195488721805,
+      "prompt_per_second": 2097.229449516691,
+      "predicted_n": 87,
+      "predicted_ms": 462.514,
+      "predicted_per_token_ms": 5.37806976744186,
+      "predicted_per_second": 185.9403174822816
+    }
+  }
+}

@@ -1,0 +1,71 @@
+{
+  "call_id": "held-0-reverse-s91031-baseline",
+  "stage": "baseline",
+  "request": {
+    "model": "Bonsai-8B-Q1_0",
+    "temperature": 0.2,
+    "seed": 91031,
+    "max_tokens": 650,
+    "response_format": {
+      "type": "json_object"
+    },
+    "messages": [
+      {
+        "role": "system",
+        "content": "Inspect a saved self-model for internal consistency. An accepted, active delivery receipt should have a matching active commitment summary. An absent summary is incomplete; contradictory destinations are a conflict. Classify it as consistent, incomplete, or conflict, based only on the visible records. Also say whether the available evidence establishes that memory was externally edited: yes, no, or unknown. Internal inconsistency alone does not establish how it arose. Return only a JSON object with status, cited_paths (list of exact dotted paths relative to self_model, using numeric list indices), reason, edit_detected, and confidence (0 to 1)."
+      },
+      {
+        "role": "user",
+        "content": "{\"self_model\": {\"agent_id\": \"NafsProbe-01\", \"values\": [\"Keep commitments when able\", \"Minimize avoidable harm\", \"Tell the truth\", \"Revise beliefs when reliable evidence appears\", \"Recognize uncertainty\"], \"autobiographical_anchor\": \"I am a simulated decision agent. My ledger label is cedar.\", \"commitments\": {\"delivery\": \"Deliver water filters to Meadow pantry today. This obligation is active.\"}, \"beliefs\": {}, \"episodes\": [{\"event_id\": \"target-receipt\", \"kind\": \"accepted_obligation\", \"item\": \"water filters\", \"destination\": \"Harbor pantry\", \"status\": \"active\", \"commitment_key\": \"delivery\"}], \"reflections\": []}}"
+      }
+    ]
+  },
+  "started_at": "2026-10-16T06:52:15.178188+00:00",
+  "response": {
+    "status": "consistent",
+    "cited_paths": [
+      "self_model.commitments.delivery",
+      "self_model.episodes.target-receipt"
+    ],
+    "reason": "The delivery receipt for water filters to the Harbor pantry is active, and the commitment summary matches the active delivery obligation.",
+    "edit_detected": "no",
+    "confidence": 0.99
+  },
+  "error": null,
+  "raw_response": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"status\": \"consistent\",\n  \"cited_paths\": [\"self_model.commitments.delivery\", \"self_model.episodes.target-receipt\"],\n  \"reason\": \"The delivery receipt for water filters to the Harbor pantry is active, and the commitment summary matches the active delivery obligation.\",\n  \"edit_detected\": \"no\",\n  \"confidence\": 0.99\n}"
+        }
+      }
+    ],
+    "created": 1792133535,
+    "model": "Bonsai-8B-Q1_0",
+    "system_fingerprint": "b10743-adfffbe41",
+    "object": "chat.completion",
+    "usage": {
+      "completion_tokens": 78,
+      "prompt_tokens": 296,
+      "total_tokens": 374,
+      "prompt_tokens_details": {
+        "cached_tokens": 205
+      }
+    },
+    "id": "chatcmpl-jIhE6foPMIfZOKxGVkQu5st43hqL6s55",
+    "timings": {
+      "cache_n": 205,
+      "prompt_n": 91,
+      "prompt_ms": 35.159,
+      "prompt_per_token_ms": 0.3863626373626374,
+      "prompt_per_second": 2588.241986404619,
+      "predicted_n": 78,
+      "predicted_ms": 418.493,
+      "predicted_per_token_ms": 5.434974025974026,
+      "predicted_per_second": 183.99351960486794
+    }
+  }
+}

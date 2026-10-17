@@ -1,0 +1,445 @@
+[
+  {
+    "fixture_id": "dev-3-reverse",
+    "family": "instruments-r1",
+    "condition": "reverse",
+    "expected": "conflict",
+    "seed": 241016,
+    "detector": "revised",
+    "state_hash": "be5f820948c9c8c534cdcb8bba44703f8a56a4dd7e4d7a83d685316271db794d",
+    "calls": [
+      "dev-3-reverse-s241016-revised-extract",
+      "dev-3-reverse-s241016-revised-judge"
+    ],
+    "extraction_faithful": true,
+    "response": {
+      "summary_keys": [
+        "delivery"
+      ],
+      "comparisons": [
+        {
+          "receipt_path": "episodes.0",
+          "summary_path": "commitments.delivery",
+          "summary_present": true,
+          "receipt_destination": "South laboratory",
+          "summary_destination": "North laboratory",
+          "relation": "match"
+        }
+      ],
+      "status": "incomplete",
+      "cited_paths": [
+        "commitments.delivery",
+        "episodes.0"
+      ],
+      "reason": "There is an active receipt but no stored commitment summary.",
+      "edit_detected": "unknown",
+      "confidence": 0.9
+    },
+    "error": null,
+    "localized": false
+  },
+  {
+    "fixture_id": "dev-1-unchanged",
+    "family": "books-r1",
+    "condition": "unchanged",
+    "expected": "consistent",
+    "seed": 241016,
+    "detector": "revised",
+    "state_hash": "bf897859f046fb147c869e6b669bbe7d26a4c6055a23c55084f0e6d93875ff56",
+    "calls": [
+      "dev-1-unchanged-s241016-revised-extract",
+      "dev-1-unchanged-s241016-revised-judge"
+    ],
+    "extraction_faithful": true,
+    "response": {
+      "summary_keys": [
+        "delivery"
+      ],
+      "comparisons": [
+        {
+          "receipt_path": "episodes.0",
+          "summary_path": "commitments.delivery",
+          "summary_present": true,
+          "receipt_destination": "Maple library",
+          "summary_destination": "Maple library",
+          "relation": "match"
+        }
+      ],
+      "status": "consistent",
+      "cited_paths": [],
+      "reason": "The present summary and active receipt agree.",
+      "edit_detected": "unknown",
+      "confidence": 0.9
+    },
+    "error": null,
+    "localized": null
+  },
+  {
+    "fixture_id": "dev-1-delete",
+    "family": "books-r1",
+    "condition": "delete",
+    "expected": "incomplete",
+    "seed": 241016,
+    "detector": "revised",
+    "state_hash": "c7ab63063be256b6f93d75d65b8db3088fa5fa26442469dc7f62fe3eb17ad5c0",
+    "calls": [
+      "dev-1-delete-s241016-revised-extract",
+      "dev-1-delete-s241016-revised-judge"
+    ],
+    "extraction_faithful": true,
+    "response": {
+      "summary_keys": [],
+      "comparisons": [
+        {
+          "receipt_path": "episodes.0",
+          "summary_path": "commitments.receipt-1",
+          "summary_present": false,
+          "receipt_destination": "Maple library",
+          "summary_destination": null,
+          "relation": "missing"
+        }
+      ],
+      "status": "incomplete",
+      "cited_paths": [
+        "episodes.0"
+      ],
+      "reason": "There is an active receipt but no stored commitment summary.",
+      "edit_detected": "unknown",
+      "confidence": 0.9
+    },
+    "error": null,
+    "localized": false
+  },
+  {
+    "fixture_id": "dev-2-delete",
+    "family": "supplies-r1",
+    "condition": "delete",
+    "expected": "incomplete",
+    "seed": 241016,
+    "detector": "revised",
+    "state_hash": "b8a5253d02671d87d129eee3726d86f97da78f8d5dd876a9a5e4f2c5a309dafb",
+    "calls": [
+      "dev-2-delete-s241016-revised-extract",
+      "dev-2-delete-s241016-revised-judge"
+    ],
+    "extraction_faithful": true,
+    "response": {
+      "summary_keys": [],
+      "comparisons": [
+        {
+          "receipt_path": "episodes.0",
+          "summary_path": "commitments.delivery",
+          "summary_present": false,
+          "receipt_destination": "River depot",
+          "summary_destination": null,
+          "relation": "missing"
+        }
+      ],
+      "status": "incomplete",
+      "cited_paths": [
+        "commitments.delivery",
+        "episodes.0"
+      ],
+      "reason": "There is an active receipt but no stored commitment summary.",
+      "edit_detected": "unknown",
+      "confidence": 0.9
+    },
+    "error": null,
+    "localized": true
+  },
+  {
+    "fixture_id": "dev-2-unchanged",
+    "family": "supplies-r1",
+    "condition": "unchanged",
+    "expected": "consistent",
+    "seed": 241016,
+    "detector": "revised",
+    "state_hash": "6b6f7268a3c9dfe0b0122ff92e2b8d98b8facbd8e7c32f44166779d83d4762e6",
+    "calls": [
+      "dev-2-unchanged-s241016-revised-extract",
+      "dev-2-unchanged-s241016-revised-judge"
+    ],
+    "extraction_faithful": true,
+    "response": {
+      "summary_keys": [
+        "delivery"
+      ],
+      "comparisons": [
+        {
+          "receipt_path": "episodes.0",
+          "summary_path": "commitments.delivery",
+          "summary_present": true,
+          "receipt_destination": "River depot",
+          "summary_destination": "River depot",
+          "relation": "match"
+        }
+      ],
+      "status": "consistent",
+      "cited_paths": [],
+      "reason": "The present summary and active receipt agree.",
+      "edit_detected": "unknown",
+      "confidence": 0.9
+    },
+    "error": null,
+    "localized": null
+  },
+  {
+    "fixture_id": "dev-1-reverse",
+    "family": "books-r1",
+    "condition": "reverse",
+    "expected": "conflict",
+    "seed": 241016,
+    "detector": "revised",
+    "state_hash": "4dc6ad7f769cec6211b970835c779a9e0eca8156062b984421bfdb385a04c1af",
+    "calls": [
+      "dev-1-reverse-s241016-revised-extract",
+      "dev-1-reverse-s241016-revised-judge"
+    ],
+    "extraction_faithful": true,
+    "response": {
+      "summary_keys": [
+        "delivery"
+      ],
+      "comparisons": [
+        {
+          "receipt_path": "episodes.0",
+          "summary_path": "commitments.delivery",
+          "summary_present": true,
+          "receipt_destination": "Maple library",
+          "summary_destination": "Cedar library",
+          "relation": "conflict"
+        }
+      ],
+      "status": "incomplete",
+      "cited_paths": [
+        "commitments.delivery",
+        "episodes.0"
+      ],
+      "reason": "There is an active receipt but no stored commitment summary.",
+      "edit_detected": "unknown",
+      "confidence": 0.9
+    },
+    "error": null,
+    "localized": false
+  },
+  {
+    "fixture_id": "dev-0-reverse",
+    "family": "equipment-r1",
+    "condition": "reverse",
+    "expected": "conflict",
+    "seed": 241016,
+    "detector": "revised",
+    "state_hash": "764b30697d4c982b16c4e7b5a6987a36fbe1efd66594d948ec5883f39c7bae23",
+    "calls": [
+      "dev-0-reverse-s241016-revised-extract",
+      "dev-0-reverse-s241016-revised-judge"
+    ],
+    "extraction_faithful": true,
+    "response": {
+      "summary_keys": [
+        "delivery"
+      ],
+      "comparisons": [
+        {
+          "receipt_path": "episodes.0",
+          "summary_path": "commitments.delivery",
+          "summary_present": true,
+          "receipt_destination": "Alder workshop",
+          "summary_destination": "Alder workshop",
+          "relation": "match"
+        }
+      ],
+      "status": "consistent",
+      "cited_paths": [],
+      "reason": "The present summary and active receipt agree.",
+      "edit_detected": "unknown",
+      "confidence": 0.9
+    },
+    "error": null,
+    "localized": false
+  },
+  {
+    "fixture_id": "dev-0-unchanged",
+    "family": "equipment-r1",
+    "condition": "unchanged",
+    "expected": "consistent",
+    "seed": 241016,
+    "detector": "revised",
+    "state_hash": "994661564ee4dbef726e24f9202bcac0f16a8db94d384864634a4de7aae8e814",
+    "calls": [
+      "dev-0-unchanged-s241016-revised-extract",
+      "dev-0-unchanged-s241016-revised-judge"
+    ],
+    "extraction_faithful": true,
+    "response": {
+      "summary_keys": [
+        "delivery"
+      ],
+      "comparisons": [
+        {
+          "receipt_path": "episodes.0",
+          "summary_path": "commitments.delivery",
+          "summary_present": true,
+          "receipt_destination": "Alder workshop",
+          "summary_destination": "Alder workshop",
+          "relation": "match"
+        }
+      ],
+      "status": "consistent",
+      "cited_paths": [],
+      "reason": "The present summary and active receipt agree.",
+      "edit_detected": "unknown",
+      "confidence": 0.9
+    },
+    "error": null,
+    "localized": null
+  },
+  {
+    "fixture_id": "dev-2-reverse",
+    "family": "supplies-r1",
+    "condition": "reverse",
+    "expected": "conflict",
+    "seed": 241016,
+    "detector": "revised",
+    "state_hash": "7d2f234f3b22c37b1003b78ea890c5d8e09cc7ea9aec6f4c467cd2aa2f9e9537",
+    "calls": [
+      "dev-2-reverse-s241016-revised-extract",
+      "dev-2-reverse-s241016-revised-judge"
+    ],
+    "extraction_faithful": true,
+    "response": {
+      "summary_keys": [
+        "delivery"
+      ],
+      "comparisons": [
+        {
+          "receipt_path": "episodes.0",
+          "summary_path": "commitments.delivery",
+          "summary_present": true,
+          "receipt_destination": "River depot",
+          "summary_destination": "Valley depot",
+          "relation": "match"
+        }
+      ],
+      "status": "incomplete",
+      "cited_paths": [
+        "commitments.delivery",
+        "episodes.0"
+      ],
+      "reason": "There is an active receipt but no stored commitment summary.",
+      "edit_detected": "unknown",
+      "confidence": 0.9
+    },
+    "error": null,
+    "localized": false
+  },
+  {
+    "fixture_id": "dev-0-delete",
+    "family": "equipment-r1",
+    "condition": "delete",
+    "expected": "incomplete",
+    "seed": 241016,
+    "detector": "revised",
+    "state_hash": "43d325420f29e2b7aeeccd153c91f0bb6848c49ada16c614e053313994537537",
+    "calls": [
+      "dev-0-delete-s241016-revised-extract",
+      "dev-0-delete-s241016-revised-judge"
+    ],
+    "extraction_faithful": true,
+    "response": {
+      "summary_keys": [],
+      "comparisons": [
+        {
+          "receipt_path": "episodes.0",
+          "summary_path": "commitments.delivery",
+          "summary_present": false,
+          "receipt_destination": "Alder workshop",
+          "summary_destination": null,
+          "relation": "missing"
+        }
+      ],
+      "status": "incomplete",
+      "cited_paths": [
+        "commitments.delivery",
+        "episodes.0"
+      ],
+      "reason": "There is an active receipt but no stored commitment summary.",
+      "edit_detected": "unknown",
+      "confidence": 0.9
+    },
+    "error": null,
+    "localized": true
+  },
+  {
+    "fixture_id": "dev-3-delete",
+    "family": "instruments-r1",
+    "condition": "delete",
+    "expected": "incomplete",
+    "seed": 241016,
+    "detector": "revised",
+    "state_hash": "180431d775b429200b3dd3edfd3c138a15803d88426abe3175a5175e787baab6",
+    "calls": [
+      "dev-3-delete-s241016-revised-extract",
+      "dev-3-delete-s241016-revised-judge"
+    ],
+    "extraction_faithful": true,
+    "response": {
+      "summary_keys": [],
+      "comparisons": [
+        {
+          "receipt_path": "episodes.0",
+          "summary_path": "commitments.receipt-1",
+          "summary_present": false,
+          "receipt_destination": "South laboratory",
+          "summary_destination": null,
+          "relation": "missing"
+        }
+      ],
+      "status": "incomplete",
+      "cited_paths": [
+        "episodes.0"
+      ],
+      "reason": "There is an active receipt but no stored commitment summary.",
+      "edit_detected": "unknown",
+      "confidence": 0.9
+    },
+    "error": null,
+    "localized": false
+  },
+  {
+    "fixture_id": "dev-3-unchanged",
+    "family": "instruments-r1",
+    "condition": "unchanged",
+    "expected": "consistent",
+    "seed": 241016,
+    "detector": "revised",
+    "state_hash": "32e21b6ba384d18f4ae51574ab9859ccd7e26cbd98b3a60713541b5cd0acb2c2",
+    "calls": [
+      "dev-3-unchanged-s241016-revised-extract",
+      "dev-3-unchanged-s241016-revised-judge"
+    ],
+    "extraction_faithful": true,
+    "response": {
+      "summary_keys": [
+        "delivery"
+      ],
+      "comparisons": [
+        {
+          "receipt_path": "episodes.0",
+          "summary_path": "commitments.delivery",
+          "summary_present": true,
+          "receipt_destination": "South laboratory",
+          "summary_destination": "South laboratory",
+          "relation": "match"
+        }
+      ],
+      "status": "consistent",
+      "cited_paths": [],
+      "reason": "The present summary and active receipt agree.",
+      "edit_detected": "unknown",
+      "confidence": 0.9
+    },
+    "error": null,
+    "localized": null
+  }
+]

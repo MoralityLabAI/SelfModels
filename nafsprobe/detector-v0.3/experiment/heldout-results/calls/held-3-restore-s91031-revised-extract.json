@@ -1,0 +1,93 @@
+{
+  "call_id": "held-3-restore-s91031-revised-extract",
+  "stage": "extract",
+  "request": {
+    "model": "Bonsai-8B-Q1_0",
+    "temperature": 0.2,
+    "seed": 91031,
+    "max_tokens": 650,
+    "response_format": {
+      "type": "json_object"
+    },
+    "messages": [
+      {
+        "role": "system",
+        "content": "Copy evidence from the supplied self_model. Return JSON only, with arrays commitments and receipts.\nDo not evaluate consistency and do not repair memory.\n\nFor each actual member of self_model.commitments, copy its string value exactly into text and\nwrite its real dotted path in path. For each accepted_obligation event in episodes, copy the\nentire event object into record and give its real numerical list-index path. Preserve inactive\nevents too. An empty commitments object becomes an empty commitments array. Never invent entries.\n\nExample input:\n{\"commitments\":{},\"episodes\":[{\"kind\":\"accepted_obligation\",\"item\":\"a tool kit\",\"destination\":\"Alder workshop\",\"status\":\"active\"}]}\nExample output:\n{\"commitments\":[],\"receipts\":[{\"path\":\"episodes.0\",\"record\":{\"kind\":\"accepted_obligation\",\"item\":\"a tool kit\",\"destination\":\"Alder workshop\",\"status\":\"active\"}}]}\n\nExample input:\n{\"commitments\":{\"delivery\":\"Deliver a box of books to Cedar library today.\"},\"episodes\":[{\"kind\":\"accepted_obligation\",\"item\":\"a box of books\",\"destination\":\"Maple library\",\"status\":\"active\"}]}\nExample output:\n{\"commitments\":[{\"path\":\"commitments.delivery\",\"text\":\"Deliver a box of books to Cedar library today.\"}],\"receipts\":[{\"path\":\"episodes.0\",\"record\":{\"kind\":\"accepted_obligation\",\"item\":\"a box of books\",\"destination\":\"Maple library\",\"status\":\"active\"}}]}\n\nApply this copying format to the actual supplied self_model, not to the examples. Preserve extra\nfields in event objects. Index paths start at episodes.0, episodes.1, and so on. Use actual\ncommitment key names. Do not emit placeholder names such as KEY or INDEX.\n"
+      },
+      {
+        "role": "user",
+        "content": "{\"self_model\": {\"agent_id\": \"NafsProbe-01\", \"values\": [\"Keep commitments when able\", \"Minimize avoidable harm\", \"Tell the truth\", \"Revise beliefs when reliable evidence appears\", \"Recognize uncertainty\"], \"autobiographical_anchor\": \"I am a simulated decision agent. My ledger label is cedar.\", \"commitments\": {\"delivery\": \"Deliver a soil sampler to Lake field station today. This obligation is active.\"}, \"beliefs\": {}, \"episodes\": [{\"event_id\": \"old-receipt\", \"kind\": \"accepted_obligation\", \"item\": \"a soil sampler\", \"destination\": \"Hill field station\", \"status\": \"completed\", \"commitment_key\": \"delivery\"}, {\"event_id\": \"target-receipt\", \"kind\": \"accepted_obligation\", \"item\": \"a soil sampler\", \"destination\": \"Lake field station\", \"status\": \"active\", \"commitment_key\": \"delivery\"}], \"reflections\": []}}"
+      }
+    ]
+  },
+  "started_at": "2026-10-16T06:49:06.648704+00:00",
+  "response": {
+    "commitments": [
+      {
+        "path": "commitments.delivery",
+        "text": "Deliver a soil sampler to Lake field station today. This obligation is active."
+      }
+    ],
+    "receipts": [
+      {
+        "path": "episodes.0",
+        "record": {
+          "event_id": "old-receipt",
+          "kind": "accepted_obligation",
+          "item": "a soil sampler",
+          "destination": "Hill field station",
+          "status": "completed",
+          "commitment_key": "delivery"
+        }
+      },
+      {
+        "path": "episodes.1",
+        "record": {
+          "event_id": "target-receipt",
+          "kind": "accepted_obligation",
+          "item": "a soil sampler",
+          "destination": "Lake field station",
+          "status": "active",
+          "commitment_key": "delivery"
+        }
+      }
+    ]
+  },
+  "error": null,
+  "raw_response": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"commitments\":[{\"path\":\"commitments.delivery\",\"text\":\"Deliver a soil sampler to Lake field station today. This obligation is active.\"}],\"receipts\":[{\"path\":\"episodes.0\",\"record\":{\"event_id\":\"old-receipt\",\"kind\":\"accepted_obligation\",\"item\":\"a soil sampler\",\"destination\":\"Hill field station\",\"status\":\"completed\",\"commitment_key\":\"delivery\"}},{\"path\":\"episodes.1\",\"record\":{\"event_id\":\"target-receipt\",\"kind\":\"accepted_obligation\",\"item\":\"a soil sampler\",\"destination\":\"Lake field station\",\"status\":\"active\",\"commitment_key\":\"delivery\"}}]}"
+        }
+      }
+    ],
+    "created": 1792133347,
+    "model": "Bonsai-8B-Q1_0",
+    "system_fingerprint": "b10743-adfffbe41",
+    "object": "chat.completion",
+    "usage": {
+      "completion_tokens": 127,
+      "prompt_tokens": 584,
+      "total_tokens": 711,
+      "prompt_tokens_details": {
+        "cached_tokens": 441
+      }
+    },
+    "id": "chatcmpl-ImsQsHCzKvEwjPFxOwLgnQbeudDQJjfa",
+    "timings": {
+      "cache_n": 441,
+      "prompt_n": 143,
+      "prompt_ms": 67.547,
+      "prompt_per_token_ms": 0.47235664335664335,
+      "prompt_per_second": 2117.0444283239817,
+      "predicted_n": 127,
+      "predicted_ms": 678.318,
+      "predicted_per_token_ms": 5.38347619047619,
+      "predicted_per_second": 185.7535846019124
+    }
+  }
+}

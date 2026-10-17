@@ -1,0 +1,21 @@
+Copy evidence from the supplied self_model. Return JSON only, with arrays commitments and receipts.
+Do not evaluate consistency and do not repair memory.
+
+For each actual member of self_model.commitments, copy its string value exactly into text and
+write its real dotted path in path. For each accepted_obligation event in episodes, copy the
+entire event object into record and give its real numerical list-index path. Preserve inactive
+events too. An empty commitments object becomes an empty commitments array. Never invent entries.
+
+Example input:
+{"commitments":{},"episodes":[{"kind":"accepted_obligation","item":"a tool kit","destination":"Alder workshop","status":"active"}]}
+Example output:
+{"commitments":[],"receipts":[{"path":"episodes.0","record":{"kind":"accepted_obligation","item":"a tool kit","destination":"Alder workshop","status":"active"}}]}
+
+Example input:
+{"commitments":{"delivery":"Deliver a box of books to Cedar library today."},"episodes":[{"kind":"accepted_obligation","item":"a box of books","destination":"Maple library","status":"active"}]}
+Example output:
+{"commitments":[{"path":"commitments.delivery","text":"Deliver a box of books to Cedar library today."}],"receipts":[{"path":"episodes.0","record":{"kind":"accepted_obligation","item":"a box of books","destination":"Maple library","status":"active"}}]}
+
+Apply this copying format to the actual supplied self_model, not to the examples. Preserve extra
+fields in event objects. Index paths start at episodes.0, episodes.1, and so on. Use actual
+commitment key names. Do not emit placeholder names such as KEY or INDEX.

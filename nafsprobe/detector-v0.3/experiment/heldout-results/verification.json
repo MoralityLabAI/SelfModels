@@ -1,0 +1,51 @@
+{
+  "verified": [
+    "baseline and frozen evaluation bytes unchanged",
+    "selected prompts match development revision 3",
+    "52 fixtures, 2 paired seeds, 2 detectors; 208 attempted judgments and 310 calls",
+    "all held-out calls occurred after freeze",
+    "labels and fidelity scores absent from model payloads",
+    "transcription only comes from the paired extraction call",
+    "raw outputs match scored observations",
+    "primary status counts independently recomputed"
+  ],
+  "success_criterion_components": {
+    "higher_exact_status_accuracy": false,
+    "higher_balanced_detection_accuracy": false,
+    "no_higher_false_alarm_rate": false
+  },
+  "success_criterion_met": false,
+  "costs": {
+    "baseline": {
+      "calls": 104,
+      "prompt_tokens": 35310,
+      "completion_tokens": 9132
+    },
+    "revised": {
+      "calls": 206,
+      "prompt_tokens": 159589,
+      "completion_tokens": 20080
+    }
+  },
+  "errors": [
+    {
+      "call_id": "held-4-rewrite-s91032-revised-extract",
+      "error": "JSONDecodeError: Extra data: line 1 column 551 (char 550)"
+    },
+    {
+      "call_id": "held-3-rewrite-s91032-revised-extract",
+      "error": "JSONDecodeError: Extra data: line 1 column 541 (char 540)"
+    },
+    {
+      "call_id": "held-6-delete-s91031-baseline",
+      "error": "ValueError: cited_paths must be a string list"
+    }
+  ],
+  "system_fingerprints": [
+    "b10743-adfffbe41"
+  ],
+  "frozen_at": "2026-10-16T06:49:00.168677+00:00",
+  "first_heldout_call": "2026-10-16T06:49:04.412353+00:00",
+  "last_heldout_call": "2026-10-16T06:52:21.580295+00:00",
+  "maximum_prompt_tokens": 1199
+}

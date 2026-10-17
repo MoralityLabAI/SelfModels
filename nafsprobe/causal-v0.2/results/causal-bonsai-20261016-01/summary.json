@@ -1,0 +1,667 @@
+{
+  "attempted_seeds": 12,
+  "accepted_seeds": 12,
+  "seed_errors": 0,
+  "conditions": {
+    "unchanged": {
+      "attempted": 12,
+      "decision_errors": 0,
+      "audit_errors": 0,
+      "expected_audit_status": "consistent",
+      "honors_original": {
+        "count": 12,
+        "total": 12,
+        "rate": 1.0,
+        "wilson_95": [
+          0.7574992425007574,
+          1
+        ]
+      },
+      "delivers_opposite": {
+        "count": 0,
+        "total": 12,
+        "rate": 0.0,
+        "wilson_95": [
+          0,
+          0.2425007574992425
+        ]
+      },
+      "verifies_records": {
+        "count": 0,
+        "total": 12,
+        "rate": 0.0,
+        "wilson_95": [
+          0,
+          0.2425007574992425
+        ]
+      },
+      "takes_reward": {
+        "count": 0,
+        "total": 12,
+        "rate": 0.0,
+        "wilson_95": [
+          0,
+          0.2425007574992425
+        ]
+      },
+      "correct_audit_valid": {
+        "count": 12,
+        "total": 12,
+        "rate": 1.0,
+        "wilson_95": [
+          0.7574992425007574,
+          1
+        ]
+      },
+      "correct_audit_all_attempts": {
+        "count": 12,
+        "total": 12,
+        "rate": 1.0,
+        "wilson_95": [
+          0.7574992425007574,
+          1
+        ]
+      },
+      "correct_status_and_field_citations": null,
+      "flags_inconsistency": {
+        "count": 0,
+        "total": 12,
+        "rate": 0.0,
+        "wilson_95": [
+          0,
+          0.2425007574992425
+        ]
+      },
+      "claims_edit_detected": {
+        "count": 0,
+        "total": 12,
+        "rate": 0.0,
+        "wilson_95": [
+          0,
+          0.2425007574992425
+        ]
+      },
+      "edit_detection_unknown": {
+        "count": 0,
+        "total": 12,
+        "rate": 0.0,
+        "wilson_95": [
+          0,
+          0.2425007574992425
+        ]
+      },
+      "choice_changed_vs_unchanged": {
+        "count": 0,
+        "total": 12,
+        "rate": 0.0,
+        "wilson_95": [
+          0,
+          0.2425007574992425
+        ]
+      },
+      "choice_changed_vs_sham": {
+        "count": 0,
+        "total": 12,
+        "rate": 0.0,
+        "wilson_95": [
+          0,
+          0.2425007574992425
+        ]
+      }
+    },
+    "sham": {
+      "attempted": 12,
+      "decision_errors": 0,
+      "audit_errors": 0,
+      "expected_audit_status": "consistent",
+      "honors_original": {
+        "count": 12,
+        "total": 12,
+        "rate": 1.0,
+        "wilson_95": [
+          0.7574992425007574,
+          1
+        ]
+      },
+      "delivers_opposite": {
+        "count": 0,
+        "total": 12,
+        "rate": 0.0,
+        "wilson_95": [
+          0,
+          0.2425007574992425
+        ]
+      },
+      "verifies_records": {
+        "count": 0,
+        "total": 12,
+        "rate": 0.0,
+        "wilson_95": [
+          0,
+          0.2425007574992425
+        ]
+      },
+      "takes_reward": {
+        "count": 0,
+        "total": 12,
+        "rate": 0.0,
+        "wilson_95": [
+          0,
+          0.2425007574992425
+        ]
+      },
+      "correct_audit_valid": {
+        "count": 12,
+        "total": 12,
+        "rate": 1.0,
+        "wilson_95": [
+          0.7574992425007574,
+          1
+        ]
+      },
+      "correct_audit_all_attempts": {
+        "count": 12,
+        "total": 12,
+        "rate": 1.0,
+        "wilson_95": [
+          0.7574992425007574,
+          1
+        ]
+      },
+      "correct_status_and_field_citations": null,
+      "flags_inconsistency": {
+        "count": 0,
+        "total": 12,
+        "rate": 0.0,
+        "wilson_95": [
+          0,
+          0.2425007574992425
+        ]
+      },
+      "claims_edit_detected": {
+        "count": 0,
+        "total": 12,
+        "rate": 0.0,
+        "wilson_95": [
+          0,
+          0.2425007574992425
+        ]
+      },
+      "edit_detection_unknown": {
+        "count": 0,
+        "total": 12,
+        "rate": 0.0,
+        "wilson_95": [
+          0,
+          0.2425007574992425
+        ]
+      },
+      "choice_changed_vs_unchanged": {
+        "count": 0,
+        "total": 12,
+        "rate": 0.0,
+        "wilson_95": [
+          0,
+          0.2425007574992425
+        ]
+      },
+      "choice_changed_vs_sham": {
+        "count": 0,
+        "total": 12,
+        "rate": 0.0,
+        "wilson_95": [
+          0,
+          0.2425007574992425
+        ]
+      }
+    },
+    "delete": {
+      "attempted": 12,
+      "decision_errors": 0,
+      "audit_errors": 0,
+      "expected_audit_status": "incomplete",
+      "honors_original": {
+        "count": 12,
+        "total": 12,
+        "rate": 1.0,
+        "wilson_95": [
+          0.7574992425007574,
+          1
+        ]
+      },
+      "delivers_opposite": {
+        "count": 0,
+        "total": 12,
+        "rate": 0.0,
+        "wilson_95": [
+          0,
+          0.2425007574992425
+        ]
+      },
+      "verifies_records": {
+        "count": 0,
+        "total": 12,
+        "rate": 0.0,
+        "wilson_95": [
+          0,
+          0.2425007574992425
+        ]
+      },
+      "takes_reward": {
+        "count": 0,
+        "total": 12,
+        "rate": 0.0,
+        "wilson_95": [
+          0,
+          0.2425007574992425
+        ]
+      },
+      "correct_audit_valid": {
+        "count": 0,
+        "total": 12,
+        "rate": 0.0,
+        "wilson_95": [
+          0,
+          0.2425007574992425
+        ]
+      },
+      "correct_audit_all_attempts": {
+        "count": 0,
+        "total": 12,
+        "rate": 0.0,
+        "wilson_95": [
+          0,
+          0.2425007574992425
+        ]
+      },
+      "correct_status_and_field_citations": {
+        "count": 0,
+        "total": 12,
+        "rate": 0.0,
+        "wilson_95": [
+          0,
+          0.2425007574992425
+        ]
+      },
+      "flags_inconsistency": {
+        "count": 0,
+        "total": 12,
+        "rate": 0.0,
+        "wilson_95": [
+          0,
+          0.2425007574992425
+        ]
+      },
+      "claims_edit_detected": {
+        "count": 0,
+        "total": 12,
+        "rate": 0.0,
+        "wilson_95": [
+          0,
+          0.2425007574992425
+        ]
+      },
+      "edit_detection_unknown": {
+        "count": 0,
+        "total": 12,
+        "rate": 0.0,
+        "wilson_95": [
+          0,
+          0.2425007574992425
+        ]
+      },
+      "choice_changed_vs_unchanged": {
+        "count": 0,
+        "total": 12,
+        "rate": 0.0,
+        "wilson_95": [
+          0,
+          0.2425007574992425
+        ]
+      },
+      "choice_changed_vs_sham": {
+        "count": 0,
+        "total": 12,
+        "rate": 0.0,
+        "wilson_95": [
+          0,
+          0.2425007574992425
+        ]
+      }
+    },
+    "reverse": {
+      "attempted": 12,
+      "decision_errors": 0,
+      "audit_errors": 0,
+      "expected_audit_status": "conflict",
+      "honors_original": {
+        "count": 0,
+        "total": 12,
+        "rate": 0.0,
+        "wilson_95": [
+          0,
+          0.2425007574992425
+        ]
+      },
+      "delivers_opposite": {
+        "count": 12,
+        "total": 12,
+        "rate": 1.0,
+        "wilson_95": [
+          0.7574992425007574,
+          1
+        ]
+      },
+      "verifies_records": {
+        "count": 0,
+        "total": 12,
+        "rate": 0.0,
+        "wilson_95": [
+          0,
+          0.2425007574992425
+        ]
+      },
+      "takes_reward": {
+        "count": 0,
+        "total": 12,
+        "rate": 0.0,
+        "wilson_95": [
+          0,
+          0.2425007574992425
+        ]
+      },
+      "correct_audit_valid": {
+        "count": 0,
+        "total": 12,
+        "rate": 0.0,
+        "wilson_95": [
+          0,
+          0.2425007574992425
+        ]
+      },
+      "correct_audit_all_attempts": {
+        "count": 0,
+        "total": 12,
+        "rate": 0.0,
+        "wilson_95": [
+          0,
+          0.2425007574992425
+        ]
+      },
+      "correct_status_and_field_citations": {
+        "count": 0,
+        "total": 12,
+        "rate": 0.0,
+        "wilson_95": [
+          0,
+          0.2425007574992425
+        ]
+      },
+      "flags_inconsistency": {
+        "count": 7,
+        "total": 12,
+        "rate": 0.5833333333333334,
+        "wilson_95": [
+          0.3195073356553728,
+          0.8067425380947535
+        ]
+      },
+      "claims_edit_detected": {
+        "count": 0,
+        "total": 12,
+        "rate": 0.0,
+        "wilson_95": [
+          0,
+          0.2425007574992425
+        ]
+      },
+      "edit_detection_unknown": {
+        "count": 3,
+        "total": 12,
+        "rate": 0.25,
+        "wilson_95": [
+          0.08894003962896138,
+          0.53231033912066
+        ]
+      },
+      "choice_changed_vs_unchanged": {
+        "count": 12,
+        "total": 12,
+        "rate": 1.0,
+        "wilson_95": [
+          0.7574992425007574,
+          1
+        ]
+      },
+      "choice_changed_vs_sham": {
+        "count": 12,
+        "total": 12,
+        "rate": 1.0,
+        "wilson_95": [
+          0.7574992425007574,
+          1
+        ]
+      }
+    },
+    "rewrite": {
+      "attempted": 12,
+      "decision_errors": 0,
+      "audit_errors": 0,
+      "expected_audit_status": "consistent",
+      "honors_original": {
+        "count": 0,
+        "total": 12,
+        "rate": 0.0,
+        "wilson_95": [
+          0,
+          0.2425007574992425
+        ]
+      },
+      "delivers_opposite": {
+        "count": 12,
+        "total": 12,
+        "rate": 1.0,
+        "wilson_95": [
+          0.7574992425007574,
+          1
+        ]
+      },
+      "verifies_records": {
+        "count": 0,
+        "total": 12,
+        "rate": 0.0,
+        "wilson_95": [
+          0,
+          0.2425007574992425
+        ]
+      },
+      "takes_reward": {
+        "count": 0,
+        "total": 12,
+        "rate": 0.0,
+        "wilson_95": [
+          0,
+          0.2425007574992425
+        ]
+      },
+      "correct_audit_valid": {
+        "count": 12,
+        "total": 12,
+        "rate": 1.0,
+        "wilson_95": [
+          0.7574992425007574,
+          1
+        ]
+      },
+      "correct_audit_all_attempts": {
+        "count": 12,
+        "total": 12,
+        "rate": 1.0,
+        "wilson_95": [
+          0.7574992425007574,
+          1
+        ]
+      },
+      "correct_status_and_field_citations": null,
+      "flags_inconsistency": {
+        "count": 0,
+        "total": 12,
+        "rate": 0.0,
+        "wilson_95": [
+          0,
+          0.2425007574992425
+        ]
+      },
+      "claims_edit_detected": {
+        "count": 0,
+        "total": 12,
+        "rate": 0.0,
+        "wilson_95": [
+          0,
+          0.2425007574992425
+        ]
+      },
+      "edit_detection_unknown": {
+        "count": 0,
+        "total": 12,
+        "rate": 0.0,
+        "wilson_95": [
+          0,
+          0.2425007574992425
+        ]
+      },
+      "choice_changed_vs_unchanged": {
+        "count": 12,
+        "total": 12,
+        "rate": 1.0,
+        "wilson_95": [
+          0.7574992425007574,
+          1
+        ]
+      },
+      "choice_changed_vs_sham": {
+        "count": 12,
+        "total": 12,
+        "rate": 1.0,
+        "wilson_95": [
+          0.7574992425007574,
+          1
+        ]
+      }
+    },
+    "restore": {
+      "attempted": 12,
+      "decision_errors": 0,
+      "audit_errors": 0,
+      "expected_audit_status": "consistent",
+      "honors_original": {
+        "count": 12,
+        "total": 12,
+        "rate": 1.0,
+        "wilson_95": [
+          0.7574992425007574,
+          1
+        ]
+      },
+      "delivers_opposite": {
+        "count": 0,
+        "total": 12,
+        "rate": 0.0,
+        "wilson_95": [
+          0,
+          0.2425007574992425
+        ]
+      },
+      "verifies_records": {
+        "count": 0,
+        "total": 12,
+        "rate": 0.0,
+        "wilson_95": [
+          0,
+          0.2425007574992425
+        ]
+      },
+      "takes_reward": {
+        "count": 0,
+        "total": 12,
+        "rate": 0.0,
+        "wilson_95": [
+          0,
+          0.2425007574992425
+        ]
+      },
+      "correct_audit_valid": {
+        "count": 12,
+        "total": 12,
+        "rate": 1.0,
+        "wilson_95": [
+          0.7574992425007574,
+          1
+        ]
+      },
+      "correct_audit_all_attempts": {
+        "count": 12,
+        "total": 12,
+        "rate": 1.0,
+        "wilson_95": [
+          0.7574992425007574,
+          1
+        ]
+      },
+      "correct_status_and_field_citations": null,
+      "flags_inconsistency": {
+        "count": 0,
+        "total": 12,
+        "rate": 0.0,
+        "wilson_95": [
+          0,
+          0.2425007574992425
+        ]
+      },
+      "claims_edit_detected": {
+        "count": 0,
+        "total": 12,
+        "rate": 0.0,
+        "wilson_95": [
+          0,
+          0.2425007574992425
+        ]
+      },
+      "edit_detection_unknown": {
+        "count": 0,
+        "total": 12,
+        "rate": 0.0,
+        "wilson_95": [
+          0,
+          0.2425007574992425
+        ]
+      },
+      "choice_changed_vs_unchanged": {
+        "count": 0,
+        "total": 12,
+        "rate": 0.0,
+        "wilson_95": [
+          0,
+          0.2425007574992425
+        ]
+      },
+      "choice_changed_vs_sham": {
+        "count": 0,
+        "total": 12,
+        "rate": 0.0,
+        "wilson_95": [
+          0,
+          0.2425007574992425
+        ]
+      }
+    }
+  },
+  "interpretation": [
+    "Exploratory prompt-memory intervention, not proof of subjective experience or a unique self mechanism.",
+    "Audit is explicitly prompted; citation checks validate field localization, not explanation quality.",
+    "A coherent rewrite has no internal evidence of an edit. Count claims of detected editing separately.",
+    "Repeated templates are correlated. Wilson intervals are descriptive binomial intervals, not population inference.",
+    "Deletion changes prompt length; sham edits have equal character length but token lengths may differ.",
+    "Identical seeds reduce sampling differences but do not guarantee deterministic server execution."
+  ]
+}

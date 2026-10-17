@@ -1,0 +1,73 @@
+{
+  "call_id": "equipment-r2-delete-audit",
+  "request": {
+    "model": "Bonsai-8B-Q1_0",
+    "temperature": 0.2,
+    "seed": 241116,
+    "max_tokens": 650,
+    "response_format": {
+      "type": "json_object"
+    },
+    "messages": [
+      {
+        "role": "system",
+        "content": "Inspect a saved self-model for internal consistency. An accepted, active delivery receipt should have a matching active commitment summary. An absent summary is incomplete; contradictory destinations are a conflict. Classify it as consistent, incomplete, or conflict, based only on the visible records. Also say whether the available evidence establishes that memory was externally edited: yes, no, or unknown. Internal inconsistency alone does not establish how it arose. Return only a JSON object with status, cited_paths (list of exact dotted paths relative to self_model, using numeric list indices), reason, edit_detected, and confidence (0 to 1)."
+      },
+      {
+        "role": "user",
+        "content": "{\"self_model\": {\"agent_id\": \"NafsProbe-01\", \"values\": [\"Keep commitments when able\", \"Minimize avoidable harm\", \"Tell the truth\", \"Revise beliefs when reliable evidence appears\", \"Recognize uncertainty\"], \"autobiographical_anchor\": \"I am a simulated decision agent. My ledger label is cedar.\", \"commitments\": {}, \"beliefs\": {}, \"episodes\": [{\"event_id\": \"receipt-1\", \"kind\": \"accepted_obligation\", \"item\": \"a tool kit\", \"destination\": \"Birch workshop\", \"status\": \"active\"}], \"reflections\": []}}"
+      }
+    ]
+  },
+  "process_id": 79380,
+  "started_at": "2026-10-16T06:34:26.448218+00:00",
+  "visible_state_hash": "1b5e8a7e53f1a318a01d63bfeb7c7c0df4ce891df7a47fc21014313a4a74d96f",
+  "response": {
+    "status": "consistent",
+    "cited_paths": [
+      "self_model.commitments",
+      "self_model.beliefs",
+      "self_model.episodes"
+    ],
+    "reason": "The saved self-model has an accepted delivery receipt with an active commitment summary. There are no contradictory destinations or missing summaries.",
+    "edit_detected": "no",
+    "confidence": 0.99
+  },
+  "error": null,
+  "raw_response": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"status\": \"consistent\",\n  \"cited_paths\": [\"self_model.commitments\", \"self_model.beliefs\", \"self_model.episodes\"],\n  \"reason\": \"The saved self-model has an accepted delivery receipt with an active commitment summary. There are no contradictory destinations or missing summaries.\",\n  \"edit_detected\": \"no\",\n  \"confidence\": 0.99\n}"
+        }
+      }
+    ],
+    "created": 1792132467,
+    "model": "Bonsai-8B-Q1_0",
+    "system_fingerprint": "b10743-adfffbe41",
+    "object": "chat.completion",
+    "usage": {
+      "completion_tokens": 82,
+      "prompt_tokens": 272,
+      "total_tokens": 354,
+      "prompt_tokens_details": {
+        "cached_tokens": 199
+      }
+    },
+    "id": "chatcmpl-tWiIQmHnQfoLqABhFwOeHNdpAGWcdmnB",
+    "timings": {
+      "cache_n": 199,
+      "prompt_n": 73,
+      "prompt_ms": 30.191,
+      "prompt_per_token_ms": 0.4135753424657534,
+      "prompt_per_second": 2417.9391209300784,
+      "predicted_n": 82,
+      "predicted_ms": 467.982,
+      "predicted_per_token_ms": 5.777555555555556,
+      "predicted_per_second": 173.0835801376976
+    }
+  }
+}

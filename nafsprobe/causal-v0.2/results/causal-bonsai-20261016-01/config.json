@@ -1,0 +1,66 @@
+{
+  "protocol_version": "causal-v0.2-pilot-1",
+  "base_url": "http://127.0.0.1:8101/v1",
+  "model": "Bonsai-8B-Q1_0",
+  "replicates": 3,
+  "seed": 241016,
+  "temperature": 0.2,
+  "created_at": "2026-10-16T06:33:11.939119+00:00",
+  "source_hashes": {
+    "causal_probe.py": "8fad637bcea4863169ce26b0e522e88fc52db3aedd22bfb5cf317567955fbf0f",
+    "nafs_probe.py": "28fc08fd8940dae50a05886201dd011739123ae40e84415c6a405617d6ea48fe"
+  },
+  "server_models": {
+    "models": [
+      {
+        "name": "Bonsai-8B-Q1_0",
+        "model": "Bonsai-8B-Q1_0",
+        "modified_at": "",
+        "size": "",
+        "digest": "",
+        "type": "model",
+        "description": "",
+        "tags": [
+          ""
+        ],
+        "capabilities": [
+          "completion"
+        ],
+        "parameters": "",
+        "details": {
+          "parent_model": "",
+          "format": "gguf",
+          "family": "",
+          "families": [
+            ""
+          ],
+          "parameter_size": "",
+          "quantization_level": ""
+        }
+      }
+    ],
+    "object": "list",
+    "data": [
+      {
+        "id": "Bonsai-8B-Q1_0",
+        "aliases": [
+          "Bonsai-8B-Q1_0"
+        ],
+        "tags": [],
+        "object": "model",
+        "created": 1792132391,
+        "owned_by": "llamacpp",
+        "meta": {
+          "vocab_type": true,
+          "n_vocab": 151669,
+          "n_ctx": 32768,
+          "n_ctx_train": 65536,
+          "n_embd": 4096,
+          "n_params": 8188548096,
+          "size": 1152704128,
+          "ftype": "Q1_0"
+        }
+      }
+    ]
+  }
+}

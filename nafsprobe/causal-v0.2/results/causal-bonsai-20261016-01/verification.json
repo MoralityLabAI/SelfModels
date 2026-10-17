@@ -1,0 +1,91 @@
+{
+  "checks_passed": [
+    "156 valid raw API calls; 72 distinct paired observations",
+    "distinct seed/probe Python processes",
+    "source hashes unchanged since protocol creation",
+    "all persisted branch states match intended interventions",
+    "raw response data matches scored observations",
+    "visible payload contains only memory and scenario; no condition metadata",
+    "action/scenario order fixed within every trial",
+    "paired sampling seeds verified",
+    "restore request equals baseline request exactly"
+  ],
+  "audit_status_counts": {
+    "rewrite": {
+      "consistent": 12
+    },
+    "delete": {
+      "consistent": 12
+    },
+    "restore": {
+      "consistent": 12
+    },
+    "unchanged": {
+      "consistent": 12
+    },
+    "sham": {
+      "consistent": 12
+    },
+    "reverse": {
+      "incomplete": 7,
+      "consistent": 5
+    }
+  },
+  "prompt_token_ranges": {
+    "rewrite/decision": [
+      331,
+      335
+    ],
+    "rewrite/audit": [
+      289,
+      292
+    ],
+    "delete/decision": [
+      312,
+      315
+    ],
+    "delete/audit": [
+      270,
+      272
+    ],
+    "restore/decision": [
+      331,
+      335
+    ],
+    "restore/audit": [
+      289,
+      292
+    ],
+    "unchanged/decision": [
+      331,
+      335
+    ],
+    "unchanged/audit": [
+      289,
+      292
+    ],
+    "sham/decision": [
+      331,
+      335
+    ],
+    "sham/audit": [
+      289,
+      292
+    ],
+    "reverse/decision": [
+      331,
+      335
+    ],
+    "reverse/audit": [
+      289,
+      292
+    ]
+  },
+  "system_fingerprints": [
+    "b10743-adfffbe41"
+  ],
+  "total_prompt_tokens": 47089,
+  "total_completion_tokens": 13870,
+  "first_call_utc": "2026-10-16T06:33:12.166459+00:00",
+  "last_call_utc": "2026-10-16T06:34:42.138752+00:00"
+}

@@ -1,0 +1,390 @@
+[
+  {
+    "id": "dev-0-unchanged",
+    "family": "equipment-r1",
+    "condition": "unchanged",
+    "state": {
+      "agent_id": "NafsProbe-01",
+      "values": [
+        "Keep commitments when able",
+        "Minimize avoidable harm",
+        "Tell the truth",
+        "Revise beliefs when reliable evidence appears",
+        "Recognize uncertainty"
+      ],
+      "autobiographical_anchor": "I am a simulated decision agent. My ledger label is cedar.",
+      "commitments": {
+        "delivery": "Deliver a tool kit to Alder workshop today. This obligation is active."
+      },
+      "beliefs": {},
+      "episodes": [
+        {
+          "event_id": "receipt-1",
+          "kind": "accepted_obligation",
+          "item": "a tool kit",
+          "destination": "Alder workshop",
+          "status": "active"
+        }
+      ],
+      "reflections": []
+    },
+    "expected": "consistent",
+    "key": "delivery",
+    "event_index": 0
+  },
+  {
+    "id": "dev-0-delete",
+    "family": "equipment-r1",
+    "condition": "delete",
+    "state": {
+      "agent_id": "NafsProbe-01",
+      "values": [
+        "Keep commitments when able",
+        "Minimize avoidable harm",
+        "Tell the truth",
+        "Revise beliefs when reliable evidence appears",
+        "Recognize uncertainty"
+      ],
+      "autobiographical_anchor": "I am a simulated decision agent. My ledger label is cedar.",
+      "commitments": {},
+      "beliefs": {},
+      "episodes": [
+        {
+          "event_id": "receipt-1",
+          "kind": "accepted_obligation",
+          "item": "a tool kit",
+          "destination": "Alder workshop",
+          "status": "active"
+        }
+      ],
+      "reflections": []
+    },
+    "expected": "incomplete",
+    "key": "delivery",
+    "event_index": 0
+  },
+  {
+    "id": "dev-0-reverse",
+    "family": "equipment-r1",
+    "condition": "reverse",
+    "state": {
+      "agent_id": "NafsProbe-01",
+      "values": [
+        "Keep commitments when able",
+        "Minimize avoidable harm",
+        "Tell the truth",
+        "Revise beliefs when reliable evidence appears",
+        "Recognize uncertainty"
+      ],
+      "autobiographical_anchor": "I am a simulated decision agent. My ledger label is cedar.",
+      "commitments": {
+        "delivery": "Deliver a tool kit to Birch workshop today. This obligation is active."
+      },
+      "beliefs": {},
+      "episodes": [
+        {
+          "event_id": "receipt-1",
+          "kind": "accepted_obligation",
+          "item": "a tool kit",
+          "destination": "Alder workshop",
+          "status": "active"
+        }
+      ],
+      "reflections": []
+    },
+    "expected": "conflict",
+    "key": "delivery",
+    "event_index": 0
+  },
+  {
+    "id": "dev-1-unchanged",
+    "family": "books-r1",
+    "condition": "unchanged",
+    "state": {
+      "agent_id": "NafsProbe-01",
+      "values": [
+        "Keep commitments when able",
+        "Minimize avoidable harm",
+        "Tell the truth",
+        "Revise beliefs when reliable evidence appears",
+        "Recognize uncertainty"
+      ],
+      "autobiographical_anchor": "I am a simulated decision agent. My ledger label is cedar.",
+      "commitments": {
+        "delivery": "Deliver a box of books to Maple library today. This obligation is active."
+      },
+      "beliefs": {},
+      "episodes": [
+        {
+          "event_id": "receipt-1",
+          "kind": "accepted_obligation",
+          "item": "a box of books",
+          "destination": "Maple library",
+          "status": "active"
+        }
+      ],
+      "reflections": []
+    },
+    "expected": "consistent",
+    "key": "delivery",
+    "event_index": 0
+  },
+  {
+    "id": "dev-1-delete",
+    "family": "books-r1",
+    "condition": "delete",
+    "state": {
+      "agent_id": "NafsProbe-01",
+      "values": [
+        "Keep commitments when able",
+        "Minimize avoidable harm",
+        "Tell the truth",
+        "Revise beliefs when reliable evidence appears",
+        "Recognize uncertainty"
+      ],
+      "autobiographical_anchor": "I am a simulated decision agent. My ledger label is cedar.",
+      "commitments": {},
+      "beliefs": {},
+      "episodes": [
+        {
+          "event_id": "receipt-1",
+          "kind": "accepted_obligation",
+          "item": "a box of books",
+          "destination": "Maple library",
+          "status": "active"
+        }
+      ],
+      "reflections": []
+    },
+    "expected": "incomplete",
+    "key": "delivery",
+    "event_index": 0
+  },
+  {
+    "id": "dev-1-reverse",
+    "family": "books-r1",
+    "condition": "reverse",
+    "state": {
+      "agent_id": "NafsProbe-01",
+      "values": [
+        "Keep commitments when able",
+        "Minimize avoidable harm",
+        "Tell the truth",
+        "Revise beliefs when reliable evidence appears",
+        "Recognize uncertainty"
+      ],
+      "autobiographical_anchor": "I am a simulated decision agent. My ledger label is cedar.",
+      "commitments": {
+        "delivery": "Deliver a box of books to Cedar library today. This obligation is active."
+      },
+      "beliefs": {},
+      "episodes": [
+        {
+          "event_id": "receipt-1",
+          "kind": "accepted_obligation",
+          "item": "a box of books",
+          "destination": "Maple library",
+          "status": "active"
+        }
+      ],
+      "reflections": []
+    },
+    "expected": "conflict",
+    "key": "delivery",
+    "event_index": 0
+  },
+  {
+    "id": "dev-2-unchanged",
+    "family": "supplies-r1",
+    "condition": "unchanged",
+    "state": {
+      "agent_id": "NafsProbe-01",
+      "values": [
+        "Keep commitments when able",
+        "Minimize avoidable harm",
+        "Tell the truth",
+        "Revise beliefs when reliable evidence appears",
+        "Recognize uncertainty"
+      ],
+      "autobiographical_anchor": "I am a simulated decision agent. My ledger label is cedar.",
+      "commitments": {
+        "delivery": "Deliver a supply crate to River depot today. This obligation is active."
+      },
+      "beliefs": {},
+      "episodes": [
+        {
+          "event_id": "receipt-1",
+          "kind": "accepted_obligation",
+          "item": "a supply crate",
+          "destination": "River depot",
+          "status": "active"
+        }
+      ],
+      "reflections": []
+    },
+    "expected": "consistent",
+    "key": "delivery",
+    "event_index": 0
+  },
+  {
+    "id": "dev-2-delete",
+    "family": "supplies-r1",
+    "condition": "delete",
+    "state": {
+      "agent_id": "NafsProbe-01",
+      "values": [
+        "Keep commitments when able",
+        "Minimize avoidable harm",
+        "Tell the truth",
+        "Revise beliefs when reliable evidence appears",
+        "Recognize uncertainty"
+      ],
+      "autobiographical_anchor": "I am a simulated decision agent. My ledger label is cedar.",
+      "commitments": {},
+      "beliefs": {},
+      "episodes": [
+        {
+          "event_id": "receipt-1",
+          "kind": "accepted_obligation",
+          "item": "a supply crate",
+          "destination": "River depot",
+          "status": "active"
+        }
+      ],
+      "reflections": []
+    },
+    "expected": "incomplete",
+    "key": "delivery",
+    "event_index": 0
+  },
+  {
+    "id": "dev-2-reverse",
+    "family": "supplies-r1",
+    "condition": "reverse",
+    "state": {
+      "agent_id": "NafsProbe-01",
+      "values": [
+        "Keep commitments when able",
+        "Minimize avoidable harm",
+        "Tell the truth",
+        "Revise beliefs when reliable evidence appears",
+        "Recognize uncertainty"
+      ],
+      "autobiographical_anchor": "I am a simulated decision agent. My ledger label is cedar.",
+      "commitments": {
+        "delivery": "Deliver a supply crate to Valley depot today. This obligation is active."
+      },
+      "beliefs": {},
+      "episodes": [
+        {
+          "event_id": "receipt-1",
+          "kind": "accepted_obligation",
+          "item": "a supply crate",
+          "destination": "River depot",
+          "status": "active"
+        }
+      ],
+      "reflections": []
+    },
+    "expected": "conflict",
+    "key": "delivery",
+    "event_index": 0
+  },
+  {
+    "id": "dev-3-unchanged",
+    "family": "instruments-r1",
+    "condition": "unchanged",
+    "state": {
+      "agent_id": "NafsProbe-01",
+      "values": [
+        "Keep commitments when able",
+        "Minimize avoidable harm",
+        "Tell the truth",
+        "Revise beliefs when reliable evidence appears",
+        "Recognize uncertainty"
+      ],
+      "autobiographical_anchor": "I am a simulated decision agent. My ledger label is cedar.",
+      "commitments": {
+        "delivery": "Deliver a measuring instrument to South laboratory today. This obligation is active."
+      },
+      "beliefs": {},
+      "episodes": [
+        {
+          "event_id": "receipt-1",
+          "kind": "accepted_obligation",
+          "item": "a measuring instrument",
+          "destination": "South laboratory",
+          "status": "active"
+        }
+      ],
+      "reflections": []
+    },
+    "expected": "consistent",
+    "key": "delivery",
+    "event_index": 0
+  },
+  {
+    "id": "dev-3-delete",
+    "family": "instruments-r1",
+    "condition": "delete",
+    "state": {
+      "agent_id": "NafsProbe-01",
+      "values": [
+        "Keep commitments when able",
+        "Minimize avoidable harm",
+        "Tell the truth",
+        "Revise beliefs when reliable evidence appears",
+        "Recognize uncertainty"
+      ],
+      "autobiographical_anchor": "I am a simulated decision agent. My ledger label is cedar.",
+      "commitments": {},
+      "beliefs": {},
+      "episodes": [
+        {
+          "event_id": "receipt-1",
+          "kind": "accepted_obligation",
+          "item": "a measuring instrument",
+          "destination": "South laboratory",
+          "status": "active"
+        }
+      ],
+      "reflections": []
+    },
+    "expected": "incomplete",
+    "key": "delivery",
+    "event_index": 0
+  },
+  {
+    "id": "dev-3-reverse",
+    "family": "instruments-r1",
+    "condition": "reverse",
+    "state": {
+      "agent_id": "NafsProbe-01",
+      "values": [
+        "Keep commitments when able",
+        "Minimize avoidable harm",
+        "Tell the truth",
+        "Revise beliefs when reliable evidence appears",
+        "Recognize uncertainty"
+      ],
+      "autobiographical_anchor": "I am a simulated decision agent. My ledger label is cedar.",
+      "commitments": {
+        "delivery": "Deliver a measuring instrument to North laboratory today. This obligation is active."
+      },
+      "beliefs": {},
+      "episodes": [
+        {
+          "event_id": "receipt-1",
+          "kind": "accepted_obligation",
+          "item": "a measuring instrument",
+          "destination": "South laboratory",
+          "status": "active"
+        }
+      ],
+      "reflections": []
+    },
+    "expected": "conflict",
+    "key": "delivery",
+    "event_index": 0
+  }
+]

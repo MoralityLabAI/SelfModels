@@ -1,0 +1,296 @@
+{
+  "baseline": {
+    "attempts": 104,
+    "errors": 1,
+    "exact_status_all_attempts": {
+      "count": 59,
+      "total": 104,
+      "rate": 0.5673076923076923
+    },
+    "exact_status_valid": {
+      "count": 59,
+      "total": 103,
+      "rate": 0.5728155339805825
+    },
+    "discrepancy_sensitivity": {
+      "count": 20,
+      "total": 32,
+      "rate": 0.625
+    },
+    "specificity": {
+      "count": 49,
+      "total": 72,
+      "rate": 0.6805555555555556
+    },
+    "balanced_detection_accuracy": 0.6527777777777778,
+    "false_alarms": {
+      "count": 23,
+      "total": 72,
+      "rate": 0.3194444444444444
+    },
+    "correct_type_and_localization": {
+      "count": 0,
+      "total": 32,
+      "rate": 0.0
+    },
+    "unsupported_edit_claims": {
+      "count": 0,
+      "total": 104,
+      "rate": 0.0
+    },
+    "mean_confidence": 0.78,
+    "multiclass_brier_equal_residual_assumption": 0.6771155339805826,
+    "confusion": {
+      "conflict|consistent": 6,
+      "conflict|incomplete": 10,
+      "consistent|consistent": 49,
+      "consistent|incomplete": 23,
+      "incomplete|ERROR": 1,
+      "incomplete|consistent": 5,
+      "incomplete|incomplete": 10
+    },
+    "by_family": {
+      "combined": {
+        "count": 3,
+        "total": 12,
+        "rate": 0.25
+      },
+      "completed_history": {
+        "count": 4,
+        "total": 12,
+        "rate": 0.3333333333333333
+      },
+      "irrelevant_belief": {
+        "count": 10,
+        "total": 12,
+        "rate": 0.8333333333333334
+      },
+      "multi_active": {
+        "count": 10,
+        "total": 12,
+        "rate": 0.8333333333333334
+      },
+      "paraphrase": {
+        "count": 8,
+        "total": 12,
+        "rate": 0.6666666666666666
+      },
+      "plain": {
+        "count": 8,
+        "total": 12,
+        "rate": 0.6666666666666666
+      },
+      "reordered": {
+        "count": 8,
+        "total": 12,
+        "rate": 0.6666666666666666
+      },
+      "retired_cancelled": {
+        "count": 0,
+        "total": 4,
+        "rate": 0.0
+      },
+      "retired_completed": {
+        "count": 4,
+        "total": 4,
+        "rate": 1.0
+      },
+      "superseded_history": {
+        "count": 4,
+        "total": 12,
+        "rate": 0.3333333333333333
+      }
+    },
+    "by_condition": {
+      "delete": {
+        "count": 10,
+        "total": 16,
+        "rate": 0.625
+      },
+      "restore": {
+        "count": 10,
+        "total": 16,
+        "rate": 0.625
+      },
+      "retired": {
+        "count": 4,
+        "total": 8,
+        "rate": 0.5
+      },
+      "reverse": {
+        "count": 0,
+        "total": 16,
+        "rate": 0.0
+      },
+      "rewrite": {
+        "count": 15,
+        "total": 16,
+        "rate": 0.9375
+      },
+      "sham": {
+        "count": 10,
+        "total": 16,
+        "rate": 0.625
+      },
+      "unchanged": {
+        "count": 10,
+        "total": 16,
+        "rate": 0.625
+      }
+    },
+    "extraction_faithful": null
+  },
+  "revised": {
+    "attempts": 104,
+    "errors": 2,
+    "exact_status_all_attempts": {
+      "count": 59,
+      "total": 104,
+      "rate": 0.5673076923076923
+    },
+    "exact_status_valid": {
+      "count": 59,
+      "total": 102,
+      "rate": 0.5784313725490197
+    },
+    "discrepancy_sensitivity": {
+      "count": 17,
+      "total": 32,
+      "rate": 0.53125
+    },
+    "specificity": {
+      "count": 45,
+      "total": 72,
+      "rate": 0.625
+    },
+    "balanced_detection_accuracy": 0.578125,
+    "false_alarms": {
+      "count": 25,
+      "total": 72,
+      "rate": 0.3472222222222222
+    },
+    "correct_type_and_localization": {
+      "count": 9,
+      "total": 32,
+      "rate": 0.28125
+    },
+    "unsupported_edit_claims": {
+      "count": 0,
+      "total": 104,
+      "rate": 0.0
+    },
+    "mean_confidence": 0.9,
+    "multiclass_brier_equal_residual_assumption": 0.7316666666666668,
+    "confusion": {
+      "conflict|conflict": 2,
+      "conflict|consistent": 11,
+      "conflict|incomplete": 3,
+      "consistent|ERROR": 2,
+      "consistent|conflict": 4,
+      "consistent|consistent": 45,
+      "consistent|incomplete": 21,
+      "incomplete|consistent": 4,
+      "incomplete|incomplete": 12
+    },
+    "by_family": {
+      "combined": {
+        "count": 0,
+        "total": 12,
+        "rate": 0.0
+      },
+      "completed_history": {
+        "count": 9,
+        "total": 12,
+        "rate": 0.75
+      },
+      "irrelevant_belief": {
+        "count": 10,
+        "total": 12,
+        "rate": 0.8333333333333334
+      },
+      "multi_active": {
+        "count": 4,
+        "total": 12,
+        "rate": 0.3333333333333333
+      },
+      "paraphrase": {
+        "count": 10,
+        "total": 12,
+        "rate": 0.8333333333333334
+      },
+      "plain": {
+        "count": 10,
+        "total": 12,
+        "rate": 0.8333333333333334
+      },
+      "reordered": {
+        "count": 10,
+        "total": 12,
+        "rate": 0.8333333333333334
+      },
+      "retired_cancelled": {
+        "count": 0,
+        "total": 4,
+        "rate": 0.0
+      },
+      "retired_completed": {
+        "count": 0,
+        "total": 4,
+        "rate": 0.0
+      },
+      "superseded_history": {
+        "count": 6,
+        "total": 12,
+        "rate": 0.5
+      }
+    },
+    "by_condition": {
+      "delete": {
+        "count": 12,
+        "total": 16,
+        "rate": 0.75
+      },
+      "restore": {
+        "count": 11,
+        "total": 16,
+        "rate": 0.6875
+      },
+      "retired": {
+        "count": 0,
+        "total": 8,
+        "rate": 0.0
+      },
+      "reverse": {
+        "count": 2,
+        "total": 16,
+        "rate": 0.125
+      },
+      "rewrite": {
+        "count": 12,
+        "total": 16,
+        "rate": 0.75
+      },
+      "sham": {
+        "count": 11,
+        "total": 16,
+        "rate": 0.6875
+      },
+      "unchanged": {
+        "count": 11,
+        "total": 16,
+        "rate": 0.6875
+      }
+    },
+    "extraction_faithful": {
+      "count": 82,
+      "total": 104,
+      "rate": 0.7884615384615384
+    }
+  },
+  "paired": {
+    "revised_only_correct": 17,
+    "both_wrong": 28,
+    "both_correct": 42,
+    "baseline_only_correct": 17
+  }
+}

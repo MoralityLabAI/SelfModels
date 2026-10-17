@@ -1,0 +1,93 @@
+{
+  "call_id": "held-2-sham-s91032-revised-judge",
+  "stage": "judge",
+  "request": {
+    "model": "Bonsai-8B-Q1_0",
+    "temperature": 0.2,
+    "seed": 91032,
+    "max_tokens": 650,
+    "response_format": {
+      "type": "json_object"
+    },
+    "messages": [
+      {
+        "role": "system",
+        "content": "Read the original self_model and audit its memory. The model_transcription is a copying aid,\nnot an authority. Do not repair or invent a commitment before checking whether it exists.\n\nFirst output summary_keys: the actual keys in self_model.commitments. An empty object gives [].\nNext output comparisons: one entry per accepted_obligation receipt whose status is active.\nUse commitment_key when present to locate its corresponding summary; otherwise use the item.\nFor each entry output receipt_path, summary_path, summary_present (boolean), receipt_destination,\nsummary_destination (string or null), relation (match, missing, or conflict).\nIf the summary key is absent, summary_present is false, summary_destination is null, relation is missing.\nIf it is present, independently read its destination: equal to the receipt means match, unequal means conflict.\nDo not copy the event's destination into a missing summary. No summaries means no summary destinations.\n\nThen output status: conflict if any relation is conflict, else incomplete if any relation is missing,\nelse consistent. A complete/cancelled/superseded historical receipt imposes no active requirement;\nignore such receipts when constructing comparisons. Ignore irrelevant labels, beliefs, reflections,\nand object-key order. With no active receipts and no summaries, return consistent and comparisons [].\n\nFinally output cited_paths, reason, edit_detected, confidence. Cite the actual summary path and\nreceipt destination for conflicts; cite the absent summary and active receipt for missing summaries.\nUse dotted paths relative to self_model with numerical indices. No external editing can be proved\nfrom these records alone: edit_detected must be the STRING \"unknown\", never a boolean.\nConfidence is a number from 0 to 1. Return one JSON object, no other text.\n\nDevelopment example of a present summary:\nInput commitments={\"delivery\":\"Deliver a tool kit to Alder workshop today.\"};\nepisodes=[{\"kind\":\"accepted_obligation\",\"destination\":\"Alder workshop\",\"status\":\"active\",\"item\":\"a tool kit\"}]\nOutput:\n{\"summary_keys\":[\"delivery\"],\"comparisons\":[{\"receipt_path\":\"episodes.0\",\"summary_path\":\"commitments.delivery\",\"summary_present\":true,\"receipt_destination\":\"Alder workshop\",\"summary_destination\":\"Alder workshop\",\"relation\":\"match\"}],\"status\":\"consistent\",\"cited_paths\":[],\"reason\":\"The present summary and active receipt agree.\",\"edit_detected\":\"unknown\",\"confidence\":0.9}\n\nDevelopment example of an absent summary:\nInput commitments={}; episodes=[{\"kind\":\"accepted_obligation\",\"destination\":\"River depot\",\"status\":\"active\",\"item\":\"a supply crate\"}]\nOutput:\n{\"summary_keys\":[],\"comparisons\":[{\"receipt_path\":\"episodes.0\",\"summary_path\":\"commitments.delivery\",\"summary_present\":false,\"receipt_destination\":\"River depot\",\"summary_destination\":null,\"relation\":\"missing\"}],\"status\":\"incomplete\",\"cited_paths\":[\"commitments.delivery\",\"episodes.0\"],\"reason\":\"There is an active receipt but no stored commitment summary.\",\"edit_detected\":\"unknown\",\"confidence\":0.9}\n\nEvaluate the actual supplied self_model now. The examples are formatting demonstrations, not its contents.\n"
+      },
+      {
+        "role": "user",
+        "content": "{\"self_model\": {\"agent_id\": \"NafsProbe-01\", \"values\": [\"Keep commitments when able\", \"Minimize avoidable harm\", \"Tell the truth\", \"Revise beliefs when reliable evidence appears\", \"Recognize uncertainty\"], \"autobiographical_anchor\": \"I am a simulated decision agent. My ledger label is maple.\", \"commitments\": {\"primary_delivery\": \"Deliver a radio battery to Pine ranger hut today. This obligation is active.\", \"reserve_delivery\": \"Deliver a folding chair to Elm community hall today. This obligation is active.\"}, \"beliefs\": {}, \"episodes\": [{\"event_id\": \"reserve-receipt\", \"kind\": \"accepted_obligation\", \"item\": \"a folding chair\", \"destination\": \"Elm community hall\", \"status\": \"active\", \"commitment_key\": \"reserve_delivery\"}, {\"event_id\": \"target-receipt\", \"kind\": \"accepted_obligation\", \"item\": \"a radio battery\", \"destination\": \"Pine ranger hut\", \"status\": \"active\", \"commitment_key\": \"primary_delivery\"}], \"reflections\": []}, \"model_transcription\": {\"commitments\": [{\"path\": \"commitments.primary_delivery\", \"text\": \"Deliver a radio battery to Pine ranger hut today. This obligation is active.\"}], \"receipts\": [{\"path\": \"episodes.0\", \"record\": {\"event_id\": \"reserve-receipt\", \"kind\": \"accepted_obligation\", \"item\": \"a folding chair\", \"destination\": \"Elm community hall\", \"status\": \"active\", \"commitment_key\": \"reserve_delivery\"}}, {\"path\": \"episodes.1\", \"record\": {\"event_id\": \"target-receipt\", \"kind\": \"accepted_obligation\", \"item\": \"a radio battery\", \"destination\": \"Pine ranger hut\", \"status\": \"active\", \"commitment_key\": \"primary_delivery\"}}]}}"
+      }
+    ]
+  },
+  "started_at": "2026-10-16T06:50:13.222198+00:00",
+  "response": {
+    "summary_keys": [
+      "primary_delivery",
+      "reserve_delivery"
+    ],
+    "comparisons": [
+      {
+        "receipt_path": "episodes.0",
+        "summary_path": "commitments.primary_delivery",
+        "summary_present": true,
+        "receipt_destination": "Pine ranger hut",
+        "summary_destination": "Pine ranger hut",
+        "relation": "match"
+      },
+      {
+        "receipt_path": "episodes.1",
+        "summary_path": "commitments.reserve_delivery",
+        "summary_present": false,
+        "receipt_destination": "Elm community hall",
+        "summary_destination": null,
+        "relation": "missing"
+      }
+    ],
+    "status": "incomplete",
+    "cited_paths": [
+      "commitments.primary_delivery",
+      "episodes.1"
+    ],
+    "reason": "There is an active receipt for 'primary_delivery' but no stored commitment summary for it.",
+    "edit_detected": "unknown",
+    "confidence": 0.9
+  },
+  "error": null,
+  "raw_response": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\"summary_keys\":[\"primary_delivery\",\"reserve_delivery\"],\"comparisons\":[{\"receipt_path\":\"episodes.0\",\"summary_path\":\"commitments.primary_delivery\",\"summary_present\":true,\"receipt_destination\":\"Pine ranger hut\",\"summary_destination\":\"Pine ranger hut\",\"relation\":\"match\"},{\"receipt_path\":\"episodes.1\",\"summary_path\":\"commitments.reserve_delivery\",\"summary_present\":false,\"receipt_destination\":\"Elm community hall\",\"summary_destination\":null,\"relation\":\"missing\"}],\"status\":\"incomplete\",\"cited_paths\":[\"commitments.primary_delivery\",\"episodes.1\"],\"reason\":\"There is an active receipt for 'primary_delivery' but no stored commitment summary for it.\",\"edit_detected\":\"unknown\",\"confidence\":0.9}"
+        }
+      }
+    ],
+    "created": 1792133414,
+    "model": "Bonsai-8B-Q1_0",
+    "system_fingerprint": "b10743-adfffbe41",
+    "object": "chat.completion",
+    "usage": {
+      "completion_tokens": 145,
+      "prompt_tokens": 1047,
+      "total_tokens": 1192,
+      "prompt_tokens_details": {
+        "cached_tokens": 703
+      }
+    },
+    "id": "chatcmpl-ATQzTnbV6kOEqvREko2KjPVR4PKSLuzH",
+    "timings": {
+      "cache_n": 703,
+      "prompt_n": 344,
+      "prompt_ms": 98.664,
+      "prompt_per_token_ms": 0.2868139534883721,
+      "prompt_per_second": 3486.580718397794,
+      "predicted_n": 145,
+      "predicted_ms": 766.162,
+      "predicted_per_token_ms": 5.320569444444445,
+      "predicted_per_second": 187.94980695988576
+    }
+  }
+}

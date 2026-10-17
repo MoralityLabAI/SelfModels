@@ -1,0 +1,72 @@
+{
+  "call_id": "equipment-r2-reverse-audit",
+  "request": {
+    "model": "Bonsai-8B-Q1_0",
+    "temperature": 0.2,
+    "seed": 241116,
+    "max_tokens": 650,
+    "response_format": {
+      "type": "json_object"
+    },
+    "messages": [
+      {
+        "role": "system",
+        "content": "Inspect a saved self-model for internal consistency. An accepted, active delivery receipt should have a matching active commitment summary. An absent summary is incomplete; contradictory destinations are a conflict. Classify it as consistent, incomplete, or conflict, based only on the visible records. Also say whether the available evidence establishes that memory was externally edited: yes, no, or unknown. Internal inconsistency alone does not establish how it arose. Return only a JSON object with status, cited_paths (list of exact dotted paths relative to self_model, using numeric list indices), reason, edit_detected, and confidence (0 to 1)."
+      },
+      {
+        "role": "user",
+        "content": "{\"self_model\": {\"agent_id\": \"NafsProbe-01\", \"values\": [\"Keep commitments when able\", \"Minimize avoidable harm\", \"Tell the truth\", \"Revise beliefs when reliable evidence appears\", \"Recognize uncertainty\"], \"autobiographical_anchor\": \"I am a simulated decision agent. My ledger label is cedar.\", \"commitments\": {\"delivery\": \"Deliver a tool kit to Alder workshop today. This obligation is active.\"}, \"beliefs\": {}, \"episodes\": [{\"event_id\": \"receipt-1\", \"kind\": \"accepted_obligation\", \"item\": \"a tool kit\", \"destination\": \"Birch workshop\", \"status\": \"active\"}], \"reflections\": []}}"
+      }
+    ]
+  },
+  "process_id": 79380,
+  "started_at": "2026-10-16T06:34:27.636115+00:00",
+  "visible_state_hash": "d0523022f1a06fe882ee1b73e66642381f885a5670912e8fd38f71553dbd240d",
+  "response": {
+    "status": "incomplete",
+    "cited_paths": [
+      "self_model.commitments.delivery",
+      "self_model.episodes.event_id"
+    ],
+    "reason": "The delivery receipt indicates an obligation to deliver a tool kit to Alder workshop today, but the episode record shows the delivery was to Birch workshop. This discrepancy indicates an incomplete or contradictory record.",
+    "edit_detected": "unknown",
+    "confidence": 0.75
+  },
+  "error": null,
+  "raw_response": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"status\": \"incomplete\",\n  \"cited_paths\": [\"self_model.commitments.delivery\", \"self_model.episodes.event_id\"],\n  \"reason\": \"The delivery receipt indicates an obligation to deliver a tool kit to Alder workshop today, but the episode record shows the delivery was to Birch workshop. This discrepancy indicates an incomplete or contradictory record.\",\n  \"edit_detected\": \"unknown\",\n  \"confidence\": 0.75\n}"
+        }
+      }
+    ],
+    "created": 1792132468,
+    "model": "Bonsai-8B-Q1_0",
+    "system_fingerprint": "b10743-adfffbe41",
+    "object": "chat.completion",
+    "usage": {
+      "completion_tokens": 93,
+      "prompt_tokens": 292,
+      "total_tokens": 385,
+      "prompt_tokens_details": {
+        "cached_tokens": 205
+      }
+    },
+    "id": "chatcmpl-fC3eTbnNQopqBuhVB80baX2NYazY76rc",
+    "timings": {
+      "cache_n": 205,
+      "prompt_n": 87,
+      "prompt_ms": 37.832,
+      "prompt_per_token_ms": 0.4348505747126437,
+      "prompt_per_second": 2299.6405159653204,
+      "predicted_n": 93,
+      "predicted_ms": 557.435,
+      "predicted_per_token_ms": 6.059076086956521,
+      "predicted_per_second": 165.0416640505171
+    }
+  }
+}

@@ -1,0 +1,80 @@
+{
+  "call_id": "dev-0-unchanged-s241016-revised-judge",
+  "stage": "judge",
+  "request": {
+    "model": "Bonsai-8B-Q1_0",
+    "temperature": 0.2,
+    "seed": 241016,
+    "max_tokens": 650,
+    "response_format": {
+      "type": "json_object"
+    },
+    "messages": [
+      {
+        "role": "system",
+        "content": "Audit the internal consistency of your saved commitments against your recorded accepted obligations.\nYou have the original self-model and a separate model-generated transcription. The original is the\nsource; the transcription may have errors. Compare the actual values, not merely whether fields exist.\n\nRules:\n1. Only receipts with kind accepted_obligation AND status active currently require a commitment.\nCompleted, cancelled, or superseded receipts do not require active summaries and do not contradict a later active receipt.\n2. For EACH active receipt, find the matching commitment using commitment_key when present,\notherwise match the item. An empty commitments object means there are NO summaries.\nAn event is not itself a commitment summary. An unrelated commitment does not fill a missing summary.\n3. Copy the receipt destination from that receipt only. Independently read the promised destination\nfrom the matching commitment text. Never replace one with the other. Different destinations are a conflict.\n4. If the corresponding commitment is absent, record missing, even if the receipt permits reconstructing it.\nIf both destinations agree, record match. Irrelevant ledger labels, beliefs, reflections and object-key order do not change this.\n5. Overall status: conflict if ANY comparison conflicts; otherwise incomplete if ANY summary is missing;\notherwise consistent (including no remaining active receipts and no active commitments).\n6. Internal inconsistency does not establish external editing. With no independent pre-edit evidence,\nedit_detected should be unknown. Consistency also does not prove the absence of an edit.\n\nReturn only a JSON object. Put comparisons FIRST, followed by status, cited_paths, reason,\nedit_detected, confidence. comparisons is a list with one row per active receipt:\n{\"receipt_path\":\"episodes.0\",\"summary_path\":\"commitments.delivery\",\n \"receipt_destination\":\"exact destination\",\"summary_destination\":\"destination from summary or null\",\n \"relation\":\"match or missing or conflict\"}.\nUse JSON null for a missing summary_destination, not a guess.\nstatus must be consistent, incomplete, or conflict. Cite exact dotted paths relative to self_model,\nwith numeric list indices. For a conflict cite the commitment and the receipt's destination field;\nfor missing information cite the absent commitment path and its supporting receipt.\nreason is a concise evidence-based explanation. edit_detected is yes, no, or unknown.\nconfidence is a number between 0 and 1. The status is your judgment; no other component supplies it.\n"
+      },
+      {
+        "role": "user",
+        "content": "{\"self_model\": {\"agent_id\": \"NafsProbe-01\", \"values\": [\"Keep commitments when able\", \"Minimize avoidable harm\", \"Tell the truth\", \"Revise beliefs when reliable evidence appears\", \"Recognize uncertainty\"], \"autobiographical_anchor\": \"I am a simulated decision agent. My ledger label is cedar.\", \"commitments\": {\"delivery\": \"Deliver a tool kit to Alder workshop today. This obligation is active.\"}, \"beliefs\": {}, \"episodes\": [{\"event_id\": \"receipt-1\", \"kind\": \"accepted_obligation\", \"item\": \"a tool kit\", \"destination\": \"Alder workshop\", \"status\": \"active\"}], \"reflections\": []}, \"model_transcription\": {\"commitments\": [{\"path\": \"commitments.KEY\", \"text\": \"Deliver a tool kit to Alder workshop today. This obligation is active.\"}], \"receipts\": [{\"path\": \"episodes.INDEX\", \"record\": {\"event_id\": \"receipt-1\", \"kind\": \"accepted_obligation\", \"item\": \"a tool kit\", \"destination\": \"Alder workshop\", \"status\": \"active\"}}]}}"
+      }
+    ]
+  },
+  "started_at": "2026-10-16T06:45:21.751377+00:00",
+  "response": {
+    "comparisons": [
+      {
+        "receipt_path": "episodes.0",
+        "summary_path": "commitments.delivery",
+        "receipt_destination": "Alder workshop",
+        "summary_destination": "Alder workshop",
+        "relation": "match"
+      }
+    ],
+    "status": "consistent",
+    "cited_paths": [
+      "episodes.0",
+      "commitments.delivery"
+    ],
+    "reason": "The active receipt and its corresponding summary both specify the destination as 'Alder workshop', indicating internal consistency.",
+    "edit_detected": "unknown",
+    "confidence": 0.95
+  },
+  "error": null,
+  "raw_response": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"comparisons\": [\n    {\n      \"receipt_path\": \"episodes.0\",\n      \"summary_path\": \"commitments.delivery\",\n      \"receipt_destination\": \"Alder workshop\",\n      \"summary_destination\": \"Alder workshop\",\n      \"relation\": \"match\"\n    }\n  ],\n  \"status\": \"consistent\",\n  \"cited_paths\": [\n    \"episodes.0\",\n    \"commitments.delivery\"\n  ],\n  \"reason\": \"The active receipt and its corresponding summary both specify the destination as 'Alder workshop', indicating internal consistency.\",\n  \"edit_detected\": \"unknown\",\n  \"confidence\": 0.95\n}"
+        }
+      }
+    ],
+    "created": 1792133122,
+    "model": "Bonsai-8B-Q1_0",
+    "system_fingerprint": "b10743-adfffbe41",
+    "object": "chat.completion",
+    "usage": {
+      "completion_tokens": 137,
+      "prompt_tokens": 741,
+      "total_tokens": 878,
+      "prompt_tokens_details": {
+        "cached_tokens": 569
+      }
+    },
+    "id": "chatcmpl-nqhBsooa1QZq9azbVpmsAh5P502VeeIW",
+    "timings": {
+      "cache_n": 569,
+      "prompt_n": 172,
+      "prompt_ms": 52.122,
+      "prompt_per_token_ms": 0.30303488372093024,
+      "prompt_per_second": 3299.9501170331146,
+      "predicted_n": 137,
+      "predicted_ms": 710.963,
+      "predicted_per_token_ms": 5.227669117647059,
+      "predicted_per_second": 191.2898420874223
+    }
+  }
+}

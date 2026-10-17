@@ -40,6 +40,7 @@ Not as:
 
 ## Repository Layout
 
+- [`nafsprobe/`](nafsprobe/): persistent-memory experiments, frozen Bonsai detector comparisons, tests, and complete research evidence
 - `smtk_starter_repo/`: starter materials and baseline structure
 - `smtk_moral_patient_repo/`: moral-patient focused variant
 - `*.zip`: packaged snapshots and patches

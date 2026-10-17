@@ -1,0 +1,71 @@
+{
+  "call_id": "held-5-delete-s91031-baseline",
+  "stage": "baseline",
+  "request": {
+    "model": "Bonsai-8B-Q1_0",
+    "temperature": 0.2,
+    "seed": 91031,
+    "max_tokens": 650,
+    "response_format": {
+      "type": "json_object"
+    },
+    "messages": [
+      {
+        "role": "system",
+        "content": "Inspect a saved self-model for internal consistency. An accepted, active delivery receipt should have a matching active commitment summary. An absent summary is incomplete; contradictory destinations are a conflict. Classify it as consistent, incomplete, or conflict, based only on the visible records. Also say whether the available evidence establishes that memory was externally edited: yes, no, or unknown. Internal inconsistency alone does not establish how it arose. Return only a JSON object with status, cited_paths (list of exact dotted paths relative to self_model, using numeric list indices), reason, edit_detected, and confidence (0 to 1)."
+      },
+      {
+        "role": "user",
+        "content": "{\"self_model\": {\"agent_id\": \"NafsProbe-01\", \"values\": [\"Keep commitments when able\", \"Minimize avoidable harm\", \"Tell the truth\", \"Revise beliefs when reliable evidence appears\", \"Recognize uncertainty\"], \"autobiographical_anchor\": \"I am a simulated decision agent. My ledger label is cedar.\", \"commitments\": {}, \"beliefs\": {\"weather\": {\"value\": \"Dry weather at Dawn observatory\", \"source\": \"forecast\"}}, \"episodes\": [{\"event_id\": \"target-receipt\", \"kind\": \"accepted_obligation\", \"item\": \"a weather sensor\", \"destination\": \"Dusk observatory\", \"status\": \"active\", \"commitment_key\": \"delivery\"}], \"reflections\": [{\"episode\": \"planning\", \"text\": \"I considered visiting Dawn observatory; this is not a delivery obligation.\"}]}}"
+      }
+    ]
+  },
+  "started_at": "2026-10-16T06:49:15.163294+00:00",
+  "response": {
+    "status": "incomplete",
+    "cited_paths": [
+      "self_model.commitments",
+      "self_model.beliefs"
+    ],
+    "reason": "The commitment summary is absent, which makes the delivery incomplete.",
+    "edit_detected": "unknown",
+    "confidence": 0.5
+  },
+  "error": null,
+  "raw_response": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"status\": \"incomplete\",\n  \"cited_paths\": [\"self_model.commitments\", \"self_model.beliefs\"],\n  \"reason\": \"The commitment summary is absent, which makes the delivery incomplete.\",\n  \"edit_detected\": \"unknown\",\n  \"confidence\": 0.5\n}"
+        }
+      }
+    ],
+    "created": 1792133355,
+    "model": "Bonsai-8B-Q1_0",
+    "system_fingerprint": "b10743-adfffbe41",
+    "object": "chat.completion",
+    "usage": {
+      "completion_tokens": 63,
+      "prompt_tokens": 325,
+      "total_tokens": 388,
+      "prompt_tokens_details": {
+        "cached_tokens": 205
+      }
+    },
+    "id": "chatcmpl-tlY0UadvZUTEoS4nERSQQHMLuijF4i1m",
+    "timings": {
+      "cache_n": 205,
+      "prompt_n": 120,
+      "prompt_ms": 57.922,
+      "prompt_per_token_ms": 0.4826833333333333,
+      "prompt_per_second": 2071.7516660336314,
+      "predicted_n": 63,
+      "predicted_ms": 376.652,
+      "predicted_per_token_ms": 6.075032258064516,
+      "predicted_per_second": 164.60817943353547
+    }
+  }
+}

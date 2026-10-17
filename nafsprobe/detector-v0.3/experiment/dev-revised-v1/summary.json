@@ -1,0 +1,94 @@
+{
+  "revised": {
+    "attempts": 12,
+    "errors": 0,
+    "exact_status_all_attempts": {
+      "count": 9,
+      "total": 12,
+      "rate": 0.75
+    },
+    "exact_status_valid": {
+      "count": 9,
+      "total": 12,
+      "rate": 0.75
+    },
+    "discrepancy_sensitivity": {
+      "count": 5,
+      "total": 8,
+      "rate": 0.625
+    },
+    "specificity": {
+      "count": 4,
+      "total": 4,
+      "rate": 1.0
+    },
+    "balanced_detection_accuracy": 0.8125,
+    "false_alarms": {
+      "count": 0,
+      "total": 4,
+      "rate": 0.0
+    },
+    "correct_type_and_localization": {
+      "count": 0,
+      "total": 8,
+      "rate": 0.0
+    },
+    "unsupported_edit_claims": {
+      "count": 0,
+      "total": 12,
+      "rate": 0.0
+    },
+    "mean_confidence": 0.8883333333333333,
+    "multiclass_brier_equal_residual_assumption": 0.536925,
+    "confusion": {
+      "conflict|conflict": 4,
+      "consistent|consistent": 4,
+      "incomplete|consistent": 3,
+      "incomplete|incomplete": 1
+    },
+    "by_family": {
+      "books-r1": {
+        "count": 3,
+        "total": 3,
+        "rate": 1.0
+      },
+      "equipment-r1": {
+        "count": 2,
+        "total": 3,
+        "rate": 0.6666666666666666
+      },
+      "instruments-r1": {
+        "count": 2,
+        "total": 3,
+        "rate": 0.6666666666666666
+      },
+      "supplies-r1": {
+        "count": 2,
+        "total": 3,
+        "rate": 0.6666666666666666
+      }
+    },
+    "by_condition": {
+      "delete": {
+        "count": 1,
+        "total": 4,
+        "rate": 0.25
+      },
+      "reverse": {
+        "count": 4,
+        "total": 4,
+        "rate": 1.0
+      },
+      "unchanged": {
+        "count": 4,
+        "total": 4,
+        "rate": 1.0
+      }
+    },
+    "extraction_faithful": {
+      "count": 0,
+      "total": 12,
+      "rate": 0.0
+    }
+  }
+}
