@@ -1,0 +1,25 @@
+name: QSM-02 recurrent channel gym
+on:
+  pull_request:
+    paths:
+      - 'research/quantum_self_models/**'
+      - '.github/workflows/qsm02.yml'
+  workflow_dispatch:
+jobs:
+  reproduce:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    defaults:
+      run:
+        working-directory: research/quantum_self_models
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: node qsm01_toy.mjs
+      - run: node qsm02_gym.mjs /tmp/qsm02.json
+      - run: python qsm02_verify.py /tmp/qsm02.json qsm02_summary.json qsm02_trajectories.csv
