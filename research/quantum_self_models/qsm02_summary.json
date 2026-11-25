@@ -1,0 +1,547 @@
+{
+  "label": "synthetic two-qubit recurrent channel identification; classical posterior controllers; no quantum advantage claim",
+  "config": {
+    "theta": 1.0471975511965976,
+    "BASE": [
+      0.8,
+      0.03,
+      0.03,
+      0.14
+    ],
+    "DRIFT": [
+      0.55,
+      0.17,
+      0.17,
+      0.11
+    ],
+    "T": 32,
+    "SPLIT": 8,
+    "SHIFT": 16,
+    "SEEDS": [
+      41,
+      43,
+      47
+    ],
+    "N": 256,
+    "probe_schedule": [
+      "XX",
+      "XI",
+      "XX",
+      "IX"
+    ],
+    "arms": [
+      {
+        "id": "bayes",
+        "mode": "full"
+      },
+      {
+        "id": "bayes_frozen",
+        "mode": "full",
+        "frozen": true
+      },
+      {
+        "id": "decision_factorized",
+        "mode": "decision_factorized"
+      },
+      {
+        "id": "factorized",
+        "mode": "factorized"
+      },
+      {
+        "id": "full_6bit",
+        "mode": "full",
+        "bits": 2
+      },
+      {
+        "id": "factor_6bit",
+        "mode": "factorized",
+        "bits": 3
+      },
+      {
+        "id": "full_12bit",
+        "mode": "full",
+        "bits": 4
+      },
+      {
+        "id": "factor_12bit",
+        "mode": "factorized",
+        "bits": 6
+      },
+      {
+        "id": "full_24bit",
+        "mode": "full",
+        "bits": 8
+      },
+      {
+        "id": "memoryless",
+        "mode": "memoryless"
+      },
+      {
+        "id": "decoy",
+        "mode": "full",
+        "decoy": true
+      },
+      {
+        "id": "blind",
+        "mode": "blind"
+      },
+      {
+        "id": "oracle",
+        "mode": "oracle"
+      }
+    ],
+    "task_reward": "exact expected terminal |00> restoration probability; no reward observation",
+    "diagnostic": "one fresh two-qubit channel use per step"
+  },
+  "validation": {
+    "trajectories": 1536,
+    "steps": 49152,
+    "decision_checks": 638976,
+    "certificateChecks": 359889,
+    "maxValueViolation": 3.3306690738754696e-16,
+    "maxCertificateViolation": 5.551115123125783e-17,
+    "maxDecodeError": 4.440892098500626e-16
+  },
+  "metrics": {
+    "stationary": {
+      "bayes": {
+        "memory_bits": null,
+        "reward": 0.7813339233398438,
+        "conditional_reference_regret": 0,
+        "prediction_mse": 0.12382066149428345,
+        "pre": 0.756378173828125,
+        "post": 0.7896525065104166,
+        "late": 0.78839111328125,
+        "agreement": 1,
+        "certified": 0.96875
+      },
+      "bayes_frozen": {
+        "memory_bits": null,
+        "reward": 0.7813339233398438,
+        "conditional_reference_regret": 0,
+        "prediction_mse": 0.12382066149428345,
+        "pre": 0.756378173828125,
+        "post": 0.7896525065104166,
+        "late": 0.78839111328125,
+        "agreement": 1,
+        "certified": 0.96875
+      },
+      "decision_factorized": {
+        "memory_bits": null,
+        "reward": 0.7784271240234375,
+        "conditional_reference_regret": 0.0032641365068931546,
+        "prediction_mse": 0.12464442262005637,
+        "pre": 0.74566650390625,
+        "post": 0.7893473307291666,
+        "late": 0.788116455078125,
+        "agreement": 0.9807535807291666,
+        "certified": 0.9274088541666666
+      },
+      "factorized": {
+        "memory_bits": null,
+        "reward": 0.7135009765625,
+        "conditional_reference_regret": 0.06757579576910099,
+        "prediction_mse": 0.13530129399746152,
+        "pre": 0.671600341796875,
+        "post": 0.7274678548177084,
+        "late": 0.725738525390625,
+        "agreement": 0.7882893880208334,
+        "certified": 0.5618896484375
+      },
+      "full_6bit": {
+        "memory_bits": 6,
+        "reward": 0.7223281860351562,
+        "conditional_reference_regret": 0.05967961368663318,
+        "prediction_mse": 0.14029949784278853,
+        "pre": 0.7099609375,
+        "post": 0.7264506022135416,
+        "late": 0.7265472412109375,
+        "agreement": 0.8126220703125,
+        "certified": 0.6271158854166666
+      },
+      "factor_6bit": {
+        "memory_bits": 6,
+        "reward": 0.7203903198242188,
+        "conditional_reference_regret": 0.060354066288343784,
+        "prediction_mse": 0.13016409675280252,
+        "pre": 0.6744384765625,
+        "post": 0.7357076009114584,
+        "late": 0.7340850830078125,
+        "agreement": 0.8169759114583334,
+        "certified": 0.5088704427083334
+      },
+      "full_12bit": {
+        "memory_bits": 12,
+        "reward": 0.7798385620117188,
+        "conditional_reference_regret": 0.0017093857760466715,
+        "prediction_mse": 0.1244963906393861,
+        "pre": 0.752960205078125,
+        "post": 0.7887980143229166,
+        "late": 0.787200927734375,
+        "agreement": 0.9767252604166666,
+        "certified": 0.8884684244791666
+      },
+      "factor_12bit": {
+        "memory_bits": 12,
+        "reward": 0.7135009765625,
+        "conditional_reference_regret": 0.06757579576910099,
+        "prediction_mse": 0.13501696599705465,
+        "pre": 0.671600341796875,
+        "post": 0.7274678548177084,
+        "late": 0.725738525390625,
+        "agreement": 0.7882893880208334,
+        "certified": 0.5390218098958334
+      },
+      "full_24bit": {
+        "memory_bits": 24,
+        "reward": 0.7813644409179688,
+        "conditional_reference_regret": 2.909417834576242e-7,
+        "prediction_mse": 0.12383090476159307,
+        "pre": 0.756378173828125,
+        "post": 0.7896931966145834,
+        "late": 0.7884521484375,
+        "agreement": 0.9997965494791666,
+        "certified": 0.9679768880208334
+      },
+      "memoryless": {
+        "memory_bits": null,
+        "reward": 0.5440292358398438,
+        "conditional_reference_regret": 0.23578016850348213,
+        "prediction_mse": 0.17313926933937007,
+        "pre": 0.54266357421875,
+        "post": 0.5444844563802084,
+        "late": 0.5445098876953125,
+        "agreement": 0.491455078125,
+        "certified": 0
+      },
+      "decoy": {
+        "memory_bits": null,
+        "reward": 0.49468994140625,
+        "conditional_reference_regret": 0.2867084526475928,
+        "prediction_mse": 0.2506776780455551,
+        "pre": 0.756378173828125,
+        "post": 0.4074605305989583,
+        "late": 0.392059326171875,
+        "agreement": 0.4591878255208333,
+        "certified": 0.3839111328125
+      },
+      "blind": {
+        "memory_bits": null,
+        "reward": 0.39099884033203125,
+        "conditional_reference_regret": 0.38931759206591704,
+        "prediction_mse": 0.1298067569732666,
+        "pre": 0.39044189453125,
+        "post": 0.3911844889322917,
+        "late": 0.391021728515625,
+        "agreement": 0.25830078125,
+        "certified": 0
+      },
+      "oracle": {
+        "memory_bits": null,
+        "reward": 1,
+        "conditional_reference_regret": 0.09984209316991731,
+        "prediction_mse": 0,
+        "pre": 1,
+        "post": 1,
+        "late": 1,
+        "agreement": 0.7401936848958334,
+        "certified": 0.6830647786458334
+      }
+    },
+    "shift": {
+      "bayes": {
+        "memory_bits": null,
+        "reward": 0.7136688232421875,
+        "conditional_reference_regret": 0,
+        "prediction_mse": 0.1469609341809039,
+        "pre": 0.74908447265625,
+        "post": 0.7018636067708334,
+        "late": 0.6566925048828125,
+        "agreement": 1,
+        "certified": 0.96875
+      },
+      "bayes_frozen": {
+        "memory_bits": null,
+        "reward": 0.7011032104492188,
+        "conditional_reference_regret": 0.011130468507759778,
+        "prediction_mse": 0.15108340684682667,
+        "pre": 0.74908447265625,
+        "post": 0.6851094563802084,
+        "late": 0.631561279296875,
+        "agreement": 0.9287516276041666,
+        "certified": 0.8312581380208334
+      },
+      "decision_factorized": {
+        "memory_bits": null,
+        "reward": 0.708099365234375,
+        "conditional_reference_regret": 0.004449741403501052,
+        "prediction_mse": 0.14639610554751933,
+        "pre": 0.734466552734375,
+        "post": 0.699310302734375,
+        "late": 0.6531982421875,
+        "agreement": 0.971435546875,
+        "certified": 0.7445882161458334
+      },
+      "factorized": {
+        "memory_bits": null,
+        "reward": 0.667816162109375,
+        "conditional_reference_regret": 0.04264671334011098,
+        "prediction_mse": 0.1527792847377055,
+        "pre": 0.663848876953125,
+        "post": 0.6691385904947916,
+        "late": 0.64031982421875,
+        "agreement": 0.7725830078125,
+        "certified": 0.3893636067708333
+      },
+      "full_6bit": {
+        "memory_bits": 6,
+        "reward": 0.631072998046875,
+        "conditional_reference_regret": 0.08237581226199446,
+        "prediction_mse": 0.16155694484710667,
+        "pre": 0.69525146484375,
+        "post": 0.60968017578125,
+        "late": 0.5499420166015625,
+        "agreement": 0.67333984375,
+        "certified": 0.3299153645833333
+      },
+      "factor_6bit": {
+        "memory_bits": 6,
+        "reward": 0.6577911376953125,
+        "conditional_reference_regret": 0.0547625725611324,
+        "prediction_mse": 0.15097294251124063,
+        "pre": 0.664642333984375,
+        "post": 0.6555074055989584,
+        "late": 0.6148529052734375,
+        "agreement": 0.7660725911458334,
+        "certified": 0.2534993489583333
+      },
+      "full_12bit": {
+        "memory_bits": 12,
+        "reward": 0.7118301391601562,
+        "conditional_reference_regret": 0.0011679764197827427,
+        "prediction_mse": 0.1471043662957616,
+        "pre": 0.7457275390625,
+        "post": 0.700531005859375,
+        "late": 0.6564178466796875,
+        "agreement": 0.9842529296875,
+        "certified": 0.8631184895833334
+      },
+      "factor_12bit": {
+        "memory_bits": 12,
+        "reward": 0.667816162109375,
+        "conditional_reference_regret": 0.04264671334011098,
+        "prediction_mse": 0.15265920543924003,
+        "pre": 0.663848876953125,
+        "post": 0.6691385904947916,
+        "late": 0.64031982421875,
+        "agreement": 0.7725830078125,
+        "certified": 0.3600667317708333
+      },
+      "full_24bit": {
+        "memory_bits": 24,
+        "reward": 0.7136688232421875,
+        "conditional_reference_regret": 0,
+        "prediction_mse": 0.14695865606166317,
+        "pre": 0.74908447265625,
+        "post": 0.7018636067708334,
+        "late": 0.6566925048828125,
+        "agreement": 1,
+        "certified": 0.9680989583333334
+      },
+      "memoryless": {
+        "memory_bits": null,
+        "reward": 0.5407180786132812,
+        "conditional_reference_regret": 0.17582733595896613,
+        "prediction_mse": 0.17269394689667186,
+        "pre": 0.53778076171875,
+        "post": 0.5416971842447916,
+        "late": 0.5416107177734375,
+        "agreement": 0.5000406901041666,
+        "certified": 0
+      },
+      "decoy": {
+        "memory_bits": null,
+        "reward": 0.4885711669921875,
+        "conditional_reference_regret": 0.2266851197456247,
+        "prediction_mse": 0.20568127116023527,
+        "pre": 0.74908447265625,
+        "post": 0.4017333984375,
+        "late": 0.3860931396484375,
+        "agreement": 0.4566650390625,
+        "certified": 0.3830973307291667
+      },
+      "blind": {
+        "memory_bits": null,
+        "reward": 0.38543701171875,
+        "conditional_reference_regret": 0.33115083616980073,
+        "prediction_mse": 0.1271495819091797,
+        "pre": 0.391265869140625,
+        "post": 0.3834940592447917,
+        "late": 0.3853302001953125,
+        "agreement": 0.24894205729166666,
+        "certified": 0
+      },
+      "oracle": {
+        "memory_bits": null,
+        "reward": 1,
+        "conditional_reference_regret": 0.10393890492882814,
+        "prediction_mse": 0,
+        "pre": 1,
+        "post": 1,
+        "late": 1,
+        "agreement": 0.6553548177083334,
+        "certified": 0.5269368489583334
+      }
+    }
+  },
+  "comparisons": {
+    "stationary": {
+      "bayes_minus_decoy_post": {
+        "mean": 0.3821919759114583,
+        "ci95": [
+          0.3714599609375,
+          0.3925272623697917
+        ],
+        "n": 768
+      },
+      "bayes_minus_decoy_pre": {
+        "mean": 0,
+        "ci95": [
+          0,
+          0
+        ],
+        "n": 768
+      },
+      "bayes_minus_memoryless_reward": {
+        "mean": 0.2373046875,
+        "ci95": [
+          0.22774505615234375,
+          0.24741363525390625
+        ],
+        "n": 768
+      },
+      "bayes_minus_factorized_reward": {
+        "mean": 0.06783294677734375,
+        "ci95": [
+          0.063934326171875,
+          0.0715484619140625
+        ],
+        "n": 768
+      },
+      "full_6bit_minus_factor_6bit_reward": {
+        "mean": 0.0019378662109375,
+        "ci95": [
+          -0.0033721923828125,
+          0.00708770751953125
+        ],
+        "n": 768
+      },
+      "full_12bit_minus_factor_12bit_reward": {
+        "mean": 0.06633758544921875,
+        "ci95": [
+          0.06238555908203125,
+          0.07012939453125
+        ],
+        "n": 768
+      },
+      "bayes_minus_full_12bit_reward": {
+        "mean": 0.001495361328125,
+        "ci95": [
+          0.00025177001953125,
+          0.00275421142578125
+        ],
+        "n": 768
+      },
+      "bayes_minus_full_24bit_reward": {
+        "mean": -0.000030517578125,
+        "ci95": [
+          -0.000152587890625,
+          0.000091552734375
+        ],
+        "n": 768
+      },
+      "bayes_minus_bayes_frozen_late": {
+        "mean": 0,
+        "ci95": [
+          0,
+          0
+        ],
+        "n": 768
+      }
+    },
+    "shift": {
+      "bayes_minus_decoy_post": {
+        "mean": 0.3001302083333333,
+        "ci95": [
+          0.291168212890625,
+          0.3090311686197917
+        ],
+        "n": 768
+      },
+      "bayes_minus_decoy_pre": {
+        "mean": 0,
+        "ci95": [
+          0,
+          0
+        ],
+        "n": 768
+      },
+      "bayes_minus_memoryless_reward": {
+        "mean": 0.17295074462890625,
+        "ci95": [
+          0.1640777587890625,
+          0.1818695068359375
+        ],
+        "n": 768
+      },
+      "bayes_minus_factorized_reward": {
+        "mean": 0.0458526611328125,
+        "ci95": [
+          0.0413055419921875,
+          0.05013275146484375
+        ],
+        "n": 768
+      },
+      "full_6bit_minus_factor_6bit_reward": {
+        "mean": -0.0267181396484375,
+        "ci95": [
+          -0.03215789794921875,
+          -0.02100372314453125
+        ],
+        "n": 768
+      },
+      "full_12bit_minus_factor_12bit_reward": {
+        "mean": 0.04401397705078125,
+        "ci95": [
+          0.03942108154296875,
+          0.0482177734375
+        ],
+        "n": 768
+      },
+      "bayes_minus_full_12bit_reward": {
+        "mean": 0.00183868408203125,
+        "ci95": [
+          0.00077056884765625,
+          0.002899169921875
+        ],
+        "n": 768
+      },
+      "bayes_minus_full_24bit_reward": {
+        "mean": 0,
+        "ci95": [
+          0,
+          0
+        ],
+        "n": 768
+      },
+      "bayes_minus_bayes_frozen_late": {
+        "mean": 0.0251312255859375,
+        "ci95": [
+          0.02044677734375,
+          0.0296630859375
+        ],
+        "n": 768
+      }
+    }
+  }
+}
