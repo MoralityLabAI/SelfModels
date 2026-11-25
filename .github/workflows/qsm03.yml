@@ -1,0 +1,30 @@
+name: QSM-03 hidden-regime and finite-history certificates
+on:
+  pull_request:
+    paths:
+      - 'research/quantum_self_models/**'
+      - '.github/workflows/qsm03.yml'
+  workflow_dispatch:
+jobs:
+  reproduce:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    defaults:
+      run:
+        working-directory: research/quantum_self_models
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - {script: qsm03_gym.mjs, stem: qsm03}
+          - {script: qsm03b_window.mjs, stem: qsm03b}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: node ${{ matrix.script }} /tmp/result.json
+      - run: python qsm03_verify.py /tmp/result.json ${{ matrix.stem }}_summary.json ${{ matrix.stem }}_trajectories.csv
