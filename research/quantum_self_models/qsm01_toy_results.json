@@ -1,0 +1,68 @@
+{
+  "label": "exact toy calculations; no training or hardware",
+  "classical_decision": [
+    {
+      "theta": 0.2617993877991494,
+      "blind": 0.9665063509461097,
+      "self_probe": 0.9751751452112365,
+      "decoy": 0.9665063509461097,
+      "swapped_sign": 0.9578375566809829,
+      "oracle": 1,
+      "causal_gain": 0.008668794265126789
+    },
+    {
+      "theta": 0.5235987755982988,
+      "blind": 0.875,
+      "self_probe": 0.9375,
+      "decoy": 0.875,
+      "swapped_sign": 0.8125,
+      "oracle": 1,
+      "causal_gain": 0.0625
+    },
+    {
+      "theta": 0.7853981633974483,
+      "blind": 0.75,
+      "self_probe": 0.926776695296637,
+      "decoy": 0.7500000000000002,
+      "swapped_sign": 0.5732233047033632,
+      "oracle": 1,
+      "causal_gain": 0.17677669529663675
+    },
+    {
+      "theta": 1.0471975511965976,
+      "blind": 0.625,
+      "self_probe": 0.9497595264191644,
+      "decoy": 0.6250000000000001,
+      "swapped_sign": 0.30024047358083567,
+      "oracle": 1,
+      "causal_gain": 0.3247595264191643
+    }
+  ],
+  "reference_coherence": [
+    {
+      "retained": 0,
+      "restore": 0.9999999999999998,
+      "reference_bell_fidelity": 0.4999999999999999
+    },
+    {
+      "retained": 0.25,
+      "restore": 0.9999999999999998,
+      "reference_bell_fidelity": 0.6249999999999999
+    },
+    {
+      "retained": 0.5,
+      "restore": 0.9999999999999998,
+      "reference_bell_fidelity": 0.7499999999999998
+    },
+    {
+      "retained": 0.75,
+      "restore": 0.9999999999999998,
+      "reference_bell_fidelity": 0.8749999999999998
+    },
+    {
+      "retained": 1,
+      "restore": 0.9999999999999998,
+      "reference_bell_fidelity": 0.9999999999999998
+    }
+  ]
+}
