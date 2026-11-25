@@ -86,7 +86,7 @@ function qsm03(){
       let q=arm.cert?compress(pre.p,arm):pre.p;
       p[arm.id]=q;
       let choice=decide(q),a=choice.a,reward=rewards[a][hidden],z=stats[arm.id],regret=Math.max(0,best.v[best.a]-best.v[a]),pr=sum(q.slice(4));
-      z.reward+=reward;z.regret+=regret;z.prediction_mse+=(choice.v[a]-reward)**2;z.regime_brier+=(pr-r)**2;z.regime_acc+=+(+(pr>=.5)===r);z.agreement+=+(a===best.a);
+      z.reward+=reward;z.regret+=regret;z.prediction_mse+=(choice.v[a]-reward)**2;z.regime_brier+=(pr-r)**2;z.regime_acc+=+(+(pr>=.5-1e-12)===r);z.agreement+=+(a===best.a);
       if(t<SPLIT)z.pre+=reward;else z.post+=reward;if(t>=SWITCH)z.late+=reward;
       if(arm.cert){
         let E=envelope(st[arm.id],pre.p,q,pre.z,k,y,t),actual=tv(exact,q),h=hdist(exact,q),cert=gapCert(q,a,E);

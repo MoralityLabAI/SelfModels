@@ -130,3 +130,7 @@ Executed both JS functions in the sandbox. Standalone Node and repository CI rep
     python qsm03_verify.py /tmp/qsm03b.json qsm03b_summary.json qsm03b_trajectories.csv
 
 Raw episode-policy rows and summary JSON committed. The PR's CI reruns both simulations and validates all receipts. No paid compute or QPU time used.
+
+### Cross-runtime tie audit
+
+The original QSM-03A Node 22 CI replay failed on regime accuracy: product_14 matched accuracy differed at the floating-point boundary p(r=1)=0.5. Classify probabilities within 1e-12 below 0.5 as regime 1, matching the deterministic tie convention. The regenerated sandbox receipts differ only in regime_acc (39 aggregate cells, 10487 episode-policy rows); all reward, Brier, regret, decision and certificate metrics are unchanged. The full receipt verifier remains unchanged. Node CI for this correction is required before merge. QSM-03B independently passed its original Node CI.
