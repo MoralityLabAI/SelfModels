@@ -1,0 +1,25 @@
+name: QSM-04 active self-diagnostics
+on:
+  pull_request:
+    paths:
+      - 'research/quantum_self_models/qsm04*'
+      - 'research/quantum_self_models/QSM04_REPORT.md'
+      - '.github/workflows/qsm04.yml'
+  workflow_dispatch:
+jobs:
+  reproduce:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    defaults:
+      run:
+        working-directory: research/quantum_self_models
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: node qsm04_active.mjs /tmp/result.json
+      - run: python qsm04_verify.py /tmp/result.json qsm04_summary.json qsm04_trajectories.csv
