@@ -1,0 +1,27 @@
+{
+  "base_commit": "e2019ea2077b9dacffa3dbc68999bf7477ad79bf",
+  "fixture_source": {
+    "collatz_core_sha256": "24ff52171aedf890c33439896ab5e71de65d9b05d557ba61d162f3623aa5dbca",
+    "commit": "e2019ea2077b9dacffa3dbc68999bf7477ad79bf",
+    "path": "research/arithmetic_self_models/asm01.py",
+    "sha256": "aac5acbbc6a6c06147e89acbc6d627a4c0dd85c9af717d19ddbdbb9268c7ef6e"
+  },
+  "heldout": false,
+  "model_training": false,
+  "paid_compute": false,
+  "protected_splits_changed": false,
+  "repository": "MoralityLabAI/SelfModels",
+  "schema": "MIC18-port/provenance/v1",
+  "scope": "same fixed 50 episodes and 16 counterfactual phases; prior development exposure recorded in PROTOCOL.json",
+  "shared_core": {
+    "commit": "cbab90625887153f57af5f1211d4307e053232b7",
+    "license": "Apache-2.0",
+    "license_copy": "LICENSE.MIC18",
+    "path": "gyms/MIC18/finite_memory.py",
+    "protocol_commit": "9bf11c5e55b0fd5bc14390a3cfacfd11fd73070d",
+    "repository": "MoralityLabAI/EvalMath",
+    "sha256": "9fa386bd52c6925e41e7151e163b34df01f553eb6a214fe4737960dfd2109abc"
+  },
+  "shared_core_local_path": "mic18_core.py",
+  "source_byte_policy": "exact upstream bytes, verified before shared-core use"
+}
