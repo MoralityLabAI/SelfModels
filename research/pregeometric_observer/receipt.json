@@ -1,0 +1,504 @@
+{
+  "budget_results": [
+    {
+      "balanced_accuracy_of_selected_policy": "1/2",
+      "budget": 0,
+      "certificate_coverage": "0/1",
+      "certified_worlds": 0,
+      "correct_worlds": 12,
+      "first_query": null,
+      "mean_queries": "0/1",
+      "optimal_uniform_accuracy": "3/4"
+    },
+    {
+      "balanced_accuracy_of_selected_policy": "1/2",
+      "budget": 1,
+      "certificate_coverage": "0/1",
+      "certified_worlds": 0,
+      "correct_worlds": 12,
+      "first_query": 0,
+      "mean_queries": "1/1",
+      "optimal_uniform_accuracy": "3/4"
+    },
+    {
+      "balanced_accuracy_of_selected_policy": "1/2",
+      "budget": 2,
+      "certificate_coverage": "1/2",
+      "certified_worlds": 8,
+      "correct_worlds": 12,
+      "first_query": 0,
+      "mean_queries": "2/1",
+      "optimal_uniform_accuracy": "3/4"
+    },
+    {
+      "balanced_accuracy_of_selected_policy": "1/2",
+      "budget": 3,
+      "certificate_coverage": "1/2",
+      "certified_worlds": 8,
+      "correct_worlds": 12,
+      "first_query": 0,
+      "mean_queries": "5/2",
+      "optimal_uniform_accuracy": "3/4"
+    },
+    {
+      "balanced_accuracy_of_selected_policy": "1/1",
+      "budget": 4,
+      "certificate_coverage": "1/1",
+      "certified_worlds": 16,
+      "correct_worlds": 16,
+      "first_query": 0,
+      "mean_queries": "3/1",
+      "optimal_uniform_accuracy": "1/1"
+    }
+  ],
+  "certified_version_spaces": 36,
+  "distinct_version_spaces": 81,
+  "exact_certificate_optimum": {
+    "expected_queries_uniform": "3/1",
+    "worst_case_queries": 4
+  },
+  "finite_state_observer": {
+    "correct_worlds": 16,
+    "expected_queries_uniform": "3/1",
+    "minimum_state_bits_claimed": false,
+    "state_bits_scope": "fixed program and query-response interface accounted separately",
+    "states_including_terminals": 8,
+    "sufficient_internal_state_bits": 3,
+    "traces": [
+      {
+        "prediction": false,
+        "record": [
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            3,
+            0
+          ]
+        ],
+        "states": [
+          0,
+          1,
+          3,
+          4,
+          7
+        ],
+        "world": 0
+      },
+      {
+        "prediction": true,
+        "record": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            0
+          ]
+        ],
+        "states": [
+          0,
+          2,
+          6
+        ],
+        "world": 1
+      },
+      {
+        "prediction": true,
+        "record": [
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "states": [
+          0,
+          1,
+          6
+        ],
+        "world": 2
+      },
+      {
+        "prediction": false,
+        "record": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            3,
+            0
+          ]
+        ],
+        "states": [
+          0,
+          2,
+          3,
+          4,
+          7
+        ],
+        "world": 3
+      },
+      {
+        "prediction": true,
+        "record": [
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            0
+          ]
+        ],
+        "states": [
+          0,
+          1,
+          3,
+          5,
+          6
+        ],
+        "world": 4
+      },
+      {
+        "prediction": true,
+        "record": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            0
+          ]
+        ],
+        "states": [
+          0,
+          2,
+          6
+        ],
+        "world": 5
+      },
+      {
+        "prediction": true,
+        "record": [
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "states": [
+          0,
+          1,
+          6
+        ],
+        "world": 6
+      },
+      {
+        "prediction": true,
+        "record": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            0
+          ]
+        ],
+        "states": [
+          0,
+          2,
+          3,
+          5,
+          6
+        ],
+        "world": 7
+      },
+      {
+        "prediction": true,
+        "record": [
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            3,
+            1
+          ]
+        ],
+        "states": [
+          0,
+          1,
+          3,
+          4,
+          6
+        ],
+        "world": 8
+      },
+      {
+        "prediction": true,
+        "record": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            0
+          ]
+        ],
+        "states": [
+          0,
+          2,
+          6
+        ],
+        "world": 9
+      },
+      {
+        "prediction": true,
+        "record": [
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "states": [
+          0,
+          1,
+          6
+        ],
+        "world": 10
+      },
+      {
+        "prediction": true,
+        "record": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            3,
+            1
+          ]
+        ],
+        "states": [
+          0,
+          2,
+          3,
+          4,
+          6
+        ],
+        "world": 11
+      },
+      {
+        "prediction": false,
+        "record": [
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            1
+          ]
+        ],
+        "states": [
+          0,
+          1,
+          3,
+          5,
+          7
+        ],
+        "world": 12
+      },
+      {
+        "prediction": true,
+        "record": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            0
+          ]
+        ],
+        "states": [
+          0,
+          2,
+          6
+        ],
+        "world": 13
+      },
+      {
+        "prediction": true,
+        "record": [
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "states": [
+          0,
+          1,
+          6
+        ],
+        "world": 14
+      },
+      {
+        "prediction": false,
+        "record": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            1
+          ]
+        ],
+        "states": [
+          0,
+          2,
+          3,
+          5,
+          7
+        ],
+        "world": 15
+      }
+    ],
+    "worst_case_queries": 4
+  },
+  "indistinguishability_witness": {
+    "queried_indices": [
+      0,
+      1,
+      2
+    ],
+    "shared_response": [
+      0,
+      0,
+      0
+    ],
+    "worlds": [
+      0,
+      8
+    ],
+    "x_dependence": [
+      false,
+      true
+    ]
+  },
+  "prior": "uniform over all 16 Boolean functions of two inputs",
+  "schema": "pgc-observer-budget-v1",
+  "scope": {
+    "einstein_variables": "undetermined",
+    "four_dimensions": "undetermined",
+    "lorentzian_signature": "undetermined",
+    "newton_coupling": "undetermined",
+    "physical_geometry": "undetermined",
+    "recovered": [
+      "finite-record version spaces",
+      "conditional x-dependence certificates",
+      "query-budget optima within the declared class"
+    ],
+    "supplied": [
+      "binary alphabet",
+      "input addresses x and z",
+      "resettable queries",
+      "discrete query ticks",
+      "finite hypothesis class",
+      "uniform prior"
+    ]
+  },
+  "source_sha256": {
+    "observer.py": "2154f03dd47612d072c0fa5790c1e24bbdbc174cb609f8075feb90ff010a2e22",
+    "verify_observer.py": "c515f6860beb920e8510d2613f9f6500fcb100eef3f831d1bb6d16cd890e1988"
+  },
+  "world_count": 16,
+  "world_encoding": "bit (2*z+x) of world is f(x,z)",
+  "worlds_with_x_dependence": 12
+}
