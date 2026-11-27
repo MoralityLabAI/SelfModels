@@ -1,0 +1,723 @@
+{
+  "label": "exploratory classical channel model; public three-step opportunity and cost forecast; no hardware",
+  "config": {
+    "seeds": [
+      211,
+      223,
+      227
+    ],
+    "N": 128,
+    "H": 64,
+    "h": 0.08,
+    "eta": 0.8,
+    "worlds": [
+      [
+        "matched",
+        0.08
+      ],
+      [
+        "fast_drift",
+        0.2
+      ]
+    ],
+    "specs": [
+      [
+        "oracle",
+        "oracle"
+      ],
+      [
+        "blind",
+        "blind"
+      ],
+      [
+        "current_only",
+        "current"
+      ],
+      [
+        "always_probe",
+        "always"
+      ],
+      [
+        "scheduled",
+        "scheduled"
+      ],
+      [
+        "myopic",
+        "myopic"
+      ],
+      [
+        "lookahead3",
+        "look"
+      ],
+      [
+        "decoy3",
+        "decoy"
+      ],
+      [
+        "quant3",
+        "quant",
+        3
+      ],
+      [
+        "quant5",
+        "quant",
+        5
+      ],
+      [
+        "window2",
+        "window",
+        2
+      ],
+      [
+        "window4",
+        "window",
+        4
+      ],
+      [
+        "window8",
+        "window",
+        8
+      ]
+    ],
+    "opportunity_transition": [
+      0.23,
+      0.65
+    ],
+    "costs": [
+      0.04,
+      0.14
+    ]
+  },
+  "validation": {
+    "world_episodes": 768,
+    "decisions": 638976,
+    "voi": 1001,
+    "interval": 147456,
+    "nomCert": 39850,
+    "robustCert": 39395,
+    "probeCert": 28717,
+    "violations": 0,
+    "maxIntervalExcess": 0,
+    "maxVoiError": 2.220446049250313e-16
+  },
+  "metrics": {
+    "matched": {
+      "oracle": {
+        "net_per_step": 0.400390625,
+        "net_per_opportunity": 1,
+        "opportunity_accuracy": 1,
+        "probe_rate": 0,
+        "probe_cost_per_step": 0,
+        "preprobe_rate": 0,
+        "brier": 0,
+        "strict_nom": null,
+        "strict_robust": null,
+        "agree_nom": null,
+        "agree_true": null,
+        "probe_cert": null,
+        "probe_agree": null,
+        "persistent_code_bits": null
+      },
+      "blind": {
+        "net_per_step": 0.19877115885416666,
+        "net_per_opportunity": 0.4964430894308943,
+        "opportunity_accuracy": 0.4964430894308943,
+        "probe_rate": 0,
+        "probe_cost_per_step": 0,
+        "preprobe_rate": 0,
+        "brier": 0.25,
+        "strict_nom": null,
+        "strict_robust": null,
+        "agree_nom": null,
+        "agree_true": null,
+        "probe_cert": null,
+        "probe_agree": null,
+        "persistent_code_bits": null
+      },
+      "current_only": {
+        "net_per_step": 0.28508707682291656,
+        "net_per_opportunity": 0.712022357723577,
+        "opportunity_accuracy": 0.8016260162601626,
+        "probe_rate": 0.400390625,
+        "probe_cost_per_step": 0.03587646484375003,
+        "preprobe_rate": 0,
+        "brier": 0.21357421874999982,
+        "strict_nom": null,
+        "strict_robust": null,
+        "agree_nom": null,
+        "agree_true": null,
+        "probe_cert": null,
+        "probe_agree": null,
+        "persistent_code_bits": null
+      },
+      "always_probe": {
+        "net_per_step": 0.24707682291666636,
+        "net_per_opportunity": 0.6170894308943082,
+        "opportunity_accuracy": 0.8417682926829269,
+        "probe_rate": 1,
+        "probe_cost_per_step": 0.08995930989583333,
+        "preprobe_rate": 0.599609375,
+        "brier": 0.11258367541786957,
+        "strict_nom": null,
+        "strict_robust": null,
+        "agree_nom": null,
+        "agree_true": null,
+        "probe_cert": null,
+        "probe_agree": null,
+        "persistent_code_bits": null
+      },
+      "scheduled": {
+        "net_per_step": 0.29475179036458354,
+        "net_per_opportunity": 0.7361605691056916,
+        "opportunity_accuracy": 0.8326219512195122,
+        "probe_rate": 0.4690348307291667,
+        "probe_cost_per_step": 0.038622233072916685,
+        "preprobe_rate": 0.06864420572916667,
+        "brier": 0.16742295310847052,
+        "strict_nom": null,
+        "strict_robust": null,
+        "agree_nom": null,
+        "agree_true": null,
+        "probe_cert": null,
+        "probe_agree": null,
+        "persistent_code_bits": null
+      },
+      "myopic": {
+        "net_per_step": 0.3023974609374999,
+        "net_per_opportunity": 0.7552560975609754,
+        "opportunity_accuracy": 0.7938008130081301,
+        "probe_rate": 0.2147216796875,
+        "probe_cost_per_step": 0.015432942708333336,
+        "preprobe_rate": 0,
+        "brier": 0.19211558579228452,
+        "strict_nom": null,
+        "strict_robust": null,
+        "agree_nom": null,
+        "agree_true": null,
+        "probe_cert": null,
+        "probe_agree": null,
+        "persistent_code_bits": null
+      },
+      "lookahead3": {
+        "net_per_step": 0.3063647460937499,
+        "net_per_opportunity": 0.7651646341463412,
+        "opportunity_accuracy": 0.811890243902439,
+        "probe_rate": 0.3011881510416667,
+        "probe_cost_per_step": 0.018708496093750013,
+        "preprobe_rate": 0.07173665364583333,
+        "brier": 0.181880877061936,
+        "strict_nom": null,
+        "strict_robust": null,
+        "agree_nom": null,
+        "agree_true": null,
+        "probe_cert": null,
+        "probe_agree": null,
+        "persistent_code_bits": null
+      },
+      "decoy3": {
+        "net_per_step": 0.1791243489583334,
+        "net_per_opportunity": 0.44737398373983756,
+        "opportunity_accuracy": 0.49441056910569103,
+        "probe_rate": 0.302978515625,
+        "probe_cost_per_step": 0.0188330078125,
+        "preprobe_rate": 0.07169596354166667,
+        "brier": 0.3215501507984145,
+        "strict_nom": null,
+        "strict_robust": null,
+        "agree_nom": null,
+        "agree_true": null,
+        "probe_cert": null,
+        "probe_agree": null,
+        "persistent_code_bits": null
+      },
+      "quant3": {
+        "net_per_step": 0.22251139322916677,
+        "net_per_opportunity": 0.5557357723577239,
+        "opportunity_accuracy": 0.5644308943089431,
+        "probe_rate": 0.0528564453125,
+        "probe_cost_per_step": 0.003481445312500001,
+        "preprobe_rate": 0.015665690104166668,
+        "brier": 0.4259756582754622,
+        "strict_nom": null,
+        "strict_robust": null,
+        "agree_nom": null,
+        "agree_true": null,
+        "probe_cert": null,
+        "probe_agree": null,
+        "persistent_code_bits": 3
+      },
+      "quant5": {
+        "net_per_step": 0.3058186848958332,
+        "net_per_opportunity": 0.7638008130081297,
+        "opportunity_accuracy": 0.811280487804878,
+        "probe_rate": 0.3029378255208333,
+        "probe_cost_per_step": 0.019010416666666675,
+        "preprobe_rate": 0.07303873697916667,
+        "brier": 0.18254358362268516,
+        "strict_nom": null,
+        "strict_robust": null,
+        "agree_nom": null,
+        "agree_true": null,
+        "probe_cert": null,
+        "probe_agree": null,
+        "persistent_code_bits": 5
+      },
+      "window2": {
+        "net_per_step": 0.30049235026041665,
+        "net_per_opportunity": 0.7504979674796748,
+        "opportunity_accuracy": 0.8023373983739838,
+        "probe_rate": 0.328369140625,
+        "probe_cost_per_step": 0.020756022135416673,
+        "preprobe_rate": 0.0650634765625,
+        "brier": 0.19356567738048047,
+        "strict_nom": 0.24583333333333332,
+        "strict_robust": 0.24522357723577234,
+        "agree_nom": 0.9476626016260162,
+        "agree_true": 0.9476626016260162,
+        "probe_cert": 0.055867513020833336,
+        "probe_agree": 0.913818359375,
+        "persistent_code_bits": 4
+      },
+      "window4": {
+        "net_per_step": 0.30528808593749995,
+        "net_per_opportunity": 0.7624756097560975,
+        "opportunity_accuracy": 0.8105691056910569,
+        "probe_rate": 0.3080647786458333,
+        "probe_cost_per_step": 0.019256184895833334,
+        "preprobe_rate": 0.069091796875,
+        "brier": 0.1855622859458345,
+        "strict_nom": 0.8192073170731707,
+        "strict_robust": 0.8161585365853659,
+        "agree_nom": 0.9840447154471544,
+        "agree_true": 0.9840447154471544,
+        "probe_cert": 0.12467447916666667,
+        "probe_agree": 0.9544270833333334,
+        "persistent_code_bits": 7
+      },
+      "window8": {
+        "net_per_step": 0.30633870442708316,
+        "net_per_opportunity": 0.7650995934959345,
+        "opportunity_accuracy": 0.8117886178861788,
+        "probe_rate": 0.3018391927083333,
+        "probe_cost_per_step": 0.018693847656249995,
+        "preprobe_rate": 0.07132975260416667,
+        "brier": 0.18314829176399675,
+        "strict_nom": 0.9713414634146341,
+        "strict_robust": 0.9541666666666667,
+        "agree_nom": 0.996239837398374,
+        "agree_true": 0.996239837398374,
+        "probe_cert": 0.402587890625,
+        "probe_agree": 0.9855550130208334,
+        "persistent_code_bits": 13
+      }
+    },
+    "fast_drift": {
+      "oracle": {
+        "net_per_step": 0.400390625,
+        "net_per_opportunity": 1,
+        "opportunity_accuracy": 1,
+        "probe_rate": 0,
+        "probe_cost_per_step": 0,
+        "preprobe_rate": 0,
+        "brier": 0,
+        "strict_nom": null,
+        "strict_robust": null,
+        "agree_nom": null,
+        "agree_true": null,
+        "probe_cert": null,
+        "probe_agree": null,
+        "persistent_code_bits": null
+      },
+      "blind": {
+        "net_per_step": 0.20088704427083334,
+        "net_per_opportunity": 0.5017276422764227,
+        "opportunity_accuracy": 0.5017276422764227,
+        "probe_rate": 0,
+        "probe_cost_per_step": 0,
+        "preprobe_rate": 0,
+        "brier": 0.25,
+        "strict_nom": null,
+        "strict_robust": null,
+        "agree_nom": null,
+        "agree_true": null,
+        "probe_cert": null,
+        "probe_agree": null,
+        "persistent_code_bits": null
+      },
+      "current_only": {
+        "net_per_step": 0.28508707682291656,
+        "net_per_opportunity": 0.712022357723577,
+        "opportunity_accuracy": 0.8016260162601626,
+        "probe_rate": 0.400390625,
+        "probe_cost_per_step": 0.03587646484375003,
+        "preprobe_rate": 0,
+        "brier": 0.21357421874999982,
+        "strict_nom": null,
+        "strict_robust": null,
+        "agree_nom": null,
+        "agree_true": null,
+        "probe_cert": null,
+        "probe_agree": null,
+        "persistent_code_bits": null
+      },
+      "always_probe": {
+        "net_per_step": 0.2181054687499997,
+        "net_per_opportunity": 0.5447317073170724,
+        "opportunity_accuracy": 0.7694105691056911,
+        "probe_rate": 1,
+        "probe_cost_per_step": 0.08995930989583333,
+        "preprobe_rate": 0.599609375,
+        "brier": 0.15501056258965887,
+        "strict_nom": null,
+        "strict_robust": null,
+        "agree_nom": null,
+        "agree_true": null,
+        "probe_cert": null,
+        "probe_agree": null,
+        "persistent_code_bits": null
+      },
+      "scheduled": {
+        "net_per_step": 0.2724536132812502,
+        "net_per_opportunity": 0.6804695121951224,
+        "opportunity_accuracy": 0.7769308943089431,
+        "probe_rate": 0.4690348307291667,
+        "probe_cost_per_step": 0.038622233072916685,
+        "preprobe_rate": 0.06864420572916667,
+        "brier": 0.2041824577459135,
+        "strict_nom": null,
+        "strict_robust": null,
+        "agree_nom": null,
+        "agree_true": null,
+        "probe_cert": null,
+        "probe_agree": null,
+        "persistent_code_bits": null
+      },
+      "myopic": {
+        "net_per_step": 0.2758024088541667,
+        "net_per_opportunity": 0.6888333333333334,
+        "opportunity_accuracy": 0.7288617886178862,
+        "probe_rate": 0.22062174479166666,
+        "probe_cost_per_step": 0.016027018229166672,
+        "preprobe_rate": 0,
+        "brier": 0.2290750956080612,
+        "strict_nom": null,
+        "strict_robust": null,
+        "agree_nom": null,
+        "agree_true": null,
+        "probe_cert": null,
+        "probe_agree": null,
+        "persistent_code_bits": null
+      },
+      "lookahead3": {
+        "net_per_step": 0.2809676106770837,
+        "net_per_opportunity": 0.7017337398373993,
+        "opportunity_accuracy": 0.751219512195122,
+        "probe_rate": 0.312744140625,
+        "probe_cost_per_step": 0.019813639322916667,
+        "preprobe_rate": 0.07246907552083333,
+        "brier": 0.21710983964052635,
+        "strict_nom": null,
+        "strict_robust": null,
+        "agree_nom": null,
+        "agree_true": null,
+        "probe_cert": null,
+        "probe_agree": null,
+        "persistent_code_bits": null
+      },
+      "decoy3": {
+        "net_per_step": 0.17752604166666686,
+        "net_per_opportunity": 0.4433821138211387,
+        "opportunity_accuracy": 0.49349593495934957,
+        "probe_rate": 0.3148600260416667,
+        "probe_cost_per_step": 0.020065104166666663,
+        "preprobe_rate": 0.072021484375,
+        "brier": 0.3192719567243973,
+        "strict_nom": null,
+        "strict_robust": null,
+        "agree_nom": null,
+        "agree_true": null,
+        "probe_cert": null,
+        "probe_agree": null,
+        "persistent_code_bits": null
+      },
+      "quant3": {
+        "net_per_step": 0.20815185546875023,
+        "net_per_opportunity": 0.5198719512195128,
+        "opportunity_accuracy": 0.5289634146341463,
+        "probe_rate": 0.0552978515625,
+        "probe_cost_per_step": 0.0036401367187500005,
+        "preprobe_rate": 0.0162353515625,
+        "brier": 0.4602220323350687,
+        "strict_nom": null,
+        "strict_robust": null,
+        "agree_nom": null,
+        "agree_true": null,
+        "probe_cert": null,
+        "probe_agree": null,
+        "persistent_code_bits": 3
+      },
+      "quant5": {
+        "net_per_step": 0.28143798828125016,
+        "net_per_opportunity": 0.7029085365853663,
+        "opportunity_accuracy": 0.7529471544715447,
+        "probe_rate": 0.314208984375,
+        "probe_cost_per_step": 0.020034993489583337,
+        "preprobe_rate": 0.07320149739583333,
+        "brier": 0.21767401801215278,
+        "strict_nom": null,
+        "strict_robust": null,
+        "agree_nom": null,
+        "agree_true": null,
+        "probe_cert": null,
+        "probe_agree": null,
+        "persistent_code_bits": 5
+      },
+      "window2": {
+        "net_per_step": 0.2845068359375,
+        "net_per_opportunity": 0.7105731707317073,
+        "opportunity_accuracy": 0.7629065040650407,
+        "probe_rate": 0.3297526041666667,
+        "probe_cost_per_step": 0.020953776041666667,
+        "preprobe_rate": 0.064697265625,
+        "brier": 0.21174878400009445,
+        "strict_nom": 0.24004065040650407,
+        "strict_robust": 0.23953252032520325,
+        "agree_nom": 0.947459349593496,
+        "agree_true": 0.984349593495935,
+        "probe_cert": 0.055908203125,
+        "probe_agree": 0.9167073567708334,
+        "persistent_code_bits": 4
+      },
+      "window4": {
+        "net_per_step": 0.2815771484375,
+        "net_per_opportunity": 0.7032560975609756,
+        "opportunity_accuracy": 0.7531504065040651,
+        "probe_rate": 0.3151041666666667,
+        "probe_cost_per_step": 0.01997721354166667,
+        "preprobe_rate": 0.06929524739583333,
+        "brier": 0.2153439799352136,
+        "strict_nom": 0.8064024390243902,
+        "strict_robust": 0.802439024390244,
+        "agree_nom": 0.9842479674796748,
+        "agree_true": 0.9780487804878049,
+        "probe_cert": 0.1256103515625,
+        "probe_agree": 0.9552001953125,
+        "persistent_code_bits": 7
+      },
+      "window8": {
+        "net_per_step": 0.2806380208333335,
+        "net_per_opportunity": 0.7009105691056915,
+        "opportunity_accuracy": 0.750609756097561,
+        "probe_rate": 0.3141682942708333,
+        "probe_cost_per_step": 0.01989908854166667,
+        "preprobe_rate": 0.07145182291666667,
+        "brier": 0.21777939336356808,
+        "strict_nom": 0.9669715447154471,
+        "strict_robust": 0.9460365853658537,
+        "agree_nom": 0.9958333333333333,
+        "agree_true": 0.9704268292682927,
+        "probe_cert": 0.4038492838541667,
+        "probe_agree": 0.9862060546875,
+        "persistent_code_bits": 13
+      }
+    }
+  },
+  "comparisons": {
+    "matched": {
+      "lookahead3_minus_blind": {
+        "mean": 0.10759358723958339,
+        "ci95": [
+          0.09726318359375015,
+          0.1180419921875001
+        ],
+        "n": 384
+      },
+      "lookahead3_minus_current_only": {
+        "mean": 0.021277669270833383,
+        "ci95": [
+          0.017738444010416726,
+          0.02487548828125005
+        ],
+        "n": 384
+      },
+      "lookahead3_minus_always_probe": {
+        "mean": 0.059287923177083396,
+        "ci95": [
+          0.056155598958333386,
+          0.062434082031249984
+        ],
+        "n": 384
+      },
+      "lookahead3_minus_scheduled": {
+        "mean": 0.011612955729166699,
+        "ci95": [
+          0.008813476562500032,
+          0.0143229166666667
+        ],
+        "n": 384
+      },
+      "lookahead3_minus_myopic": {
+        "mean": 0.003967285156250041,
+        "ci95": [
+          0.0006608072916667096,
+          0.0072672526041667115
+        ],
+        "n": 384
+      },
+      "lookahead3_minus_decoy3": {
+        "mean": 0.1272403971354166,
+        "ci95": [
+          0.11892089843750005,
+          0.13530436197916668
+        ],
+        "n": 384
+      },
+      "lookahead3_minus_quant3": {
+        "mean": 0.08385335286458344,
+        "ci95": [
+          0.07505208333333344,
+          0.09295247395833349
+        ],
+        "n": 384
+      },
+      "lookahead3_minus_quant5": {
+        "mean": 0.000546061197916668,
+        "ci95": [
+          -0.0004728190104166667,
+          0.0015730794270833346
+        ],
+        "n": 384
+      },
+      "lookahead3_minus_window2": {
+        "mean": 0.005872395833333322,
+        "ci95": [
+          0.0029703776041666596,
+          0.008867187499999995
+        ],
+        "n": 384
+      },
+      "lookahead3_minus_window4": {
+        "mean": 0.001076660156249999,
+        "ci95": [
+          -0.001051432291666672,
+          0.003140462239583336
+        ],
+        "n": 384
+      },
+      "lookahead3_minus_window8": {
+        "mean": 0.000026041666666666834,
+        "ci95": [
+          -0.0015209960937500012,
+          0.0015983072916666678
+        ],
+        "n": 384
+      },
+      "oracle_minus_lookahead3": {
+        "mean": 0.09402587890624999,
+        "ci95": [
+          0.08944417317708321,
+          0.09859456380208327
+        ],
+        "n": 384
+      }
+    },
+    "fast_drift": {
+      "lookahead3_minus_blind": {
+        "mean": 0.08008056640625011,
+        "ci95": [
+          0.07278564453125004,
+          0.08762288411458335
+        ],
+        "n": 384
+      },
+      "lookahead3_minus_current_only": {
+        "mean": -0.004119466145833284,
+        "ci95": [
+          -0.00785237630208329,
+          -0.00033284505208328274
+        ],
+        "n": 384
+      },
+      "lookahead3_minus_always_probe": {
+        "mean": 0.06286214192708336,
+        "ci95": [
+          0.05957356770833332,
+          0.06616292317708333
+        ],
+        "n": 384
+      },
+      "lookahead3_minus_scheduled": {
+        "mean": 0.008513997395833353,
+        "ci95": [
+          0.005702311197916678,
+          0.011252441406250013
+        ],
+        "n": 384
+      },
+      "lookahead3_minus_myopic": {
+        "mean": 0.005165201822916702,
+        "ci95": [
+          0.002071126302083371,
+          0.008361002604166718
+        ],
+        "n": 384
+      },
+      "lookahead3_minus_decoy3": {
+        "mean": 0.10344156901041664,
+        "ci95": [
+          0.09687825520833343,
+          0.11034667968749995
+        ],
+        "n": 384
+      },
+      "lookahead3_minus_quant3": {
+        "mean": 0.0728157552083334,
+        "ci95": [
+          0.06571451822916674,
+          0.07976725260416677
+        ],
+        "n": 384
+      },
+      "lookahead3_minus_quant5": {
+        "mean": -0.0004703776041666658,
+        "ci95": [
+          -0.001604003906249999,
+          0.000682779947916668
+        ],
+        "n": 384
+      },
+      "lookahead3_minus_window2": {
+        "mean": -0.003539225260416678,
+        "ci95": [
+          -0.006331380208333339,
+          -0.0006998697916666734
+        ],
+        "n": 384
+      },
+      "lookahead3_minus_window4": {
+        "mean": -0.0006095377604166677,
+        "ci95": [
+          -0.002671712239583334,
+          0.001503092447916664
+        ],
+        "n": 384
+      },
+      "lookahead3_minus_window8": {
+        "mean": 0.0003295898437500001,
+        "ci95": [
+          -0.0011157226562499994,
+          0.0017211914062500004
+        ],
+        "n": 384
+      },
+      "oracle_minus_lookahead3": {
+        "mean": 0.11942301432291663,
+        "ci95": [
+          0.1142805989583332,
+          0.12425944010416658
+        ],
+        "n": 384
+      }
+    }
+  }
+}
