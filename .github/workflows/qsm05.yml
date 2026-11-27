@@ -1,0 +1,18 @@
+name: QSM-05 epistemic self-repair
+on:
+  pull_request:
+    paths:
+      - 'research/quantum_self_models/qsm05*'
+      - 'research/quantum_self_models/QSM05_REPORT.md'
+      - '.github/workflows/qsm05.yml'
+  workflow_dispatch:
+jobs:
+  reproduce:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node research/quantum_self_models/qsm05_epistemic.mjs --verify
