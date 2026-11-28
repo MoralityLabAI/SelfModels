@@ -1,0 +1,22 @@
+name: ASM-02 online memory
+on:
+  pull_request:
+    paths:
+      - 'research/arithmetic_self_models/**'
+      - '.github/workflows/asm02-online-memory.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  exact-finite-check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m unittest discover -s research/arithmetic_self_models/online_memory -p 'test_*.py' -v
+      - run: python research/arithmetic_self_models/online_memory/asm02.py --check
+      - run: python research/arithmetic_self_models/online_memory/audit_asm02.py
+      - run: python research/arithmetic_self_models/asm01.py --check

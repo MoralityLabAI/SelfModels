@@ -1,0 +1,31 @@
+{
+  "schema": "ASM-02/protocol/v1",
+  "status": "exact finite synthesis after an exploratory feasibility run",
+  "prospective": false,
+  "heldout": false,
+  "source_repository": "MoralityLabAI/SelfModels",
+  "source_commit": "e2019ea2077b9dacffa3dbc68999bf7477ad79bf",
+  "source_path": "research/arithmetic_self_models/asm01.py",
+  "fixture": "same 50 fixed ASM-01 episodes, 16 phases, unchanged counterfactual diagnostic tape",
+  "prior": "uniform over the same 50 initial episodes",
+  "runtime_update_inputs": ["previous retained code", "new one-bit diagnostic", "public phase"],
+  "runtime_action_inputs": ["updated retained code", "public phase"],
+  "runtime_feedback": "none",
+  "exact_capacities": [1, 2],
+  "objective": ["maximize total successful decisions", "maximize robust certificates among equal-reward policies"],
+  "two_state_algorithm": "canonical episode partitions; retain maximum cumulative lexicographic objective at every identical current partition",
+  "maximum_frontier_partitions": 1000000,
+  "larger_capacity_controls": ["last 2 bits", "last 4 bits", "last 8 bits", "count of observed ones"],
+  "larger_capacity_optimality": "constructive lower bounds only",
+  "upper_bound": "phasewise Bayes reward using all prior observed bits",
+  "independent_checks": ["direct witness replay", "labeled transition-table enumeration at horizon 3", "original ASM-01 control totals", "input-boundary tests"],
+  "exploratory_exposure": {
+    "observed_before_this_protocol": true,
+    "two_state_reward": "678/800",
+    "terminal_partitions": 830416,
+    "purpose": "size CPU and memory budget; these cases remain development data"
+  },
+  "model_training": false,
+  "paid_compute": false,
+  "protected_splits_changed": false
+}
